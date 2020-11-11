@@ -852,10 +852,10 @@ h2.title {
 }
 
 .productinfo h2 {
-    color: #2B46DC;
+    color: #00adff;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .product-overlay h2 {
@@ -865,11 +865,11 @@ h2.title {
     font-weight: 700;
 }
 
-.productinfo p {
+.productinfo p{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    font-weight: 400;
-    color: #696763;
+    font-weight: 600;
+    color: #1e4340;
 }
 
 .productinfo img {
@@ -890,6 +890,11 @@ h2.title {
     transition: height 500ms ease 0s;
     width: 100%;
     display: block;
+}
+ .product-overlay p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .single-products:hover .product-overlay {
@@ -2449,4 +2454,18 @@ textarea {
   position: fixed;
   top: 0;
   width: 100%
+}
+
+.more{
+    text-align: center;
+    background-color: gray;
+    width: 100px;
+    margin: auto;
+    height: 40px;
+    padding-top: 10px; 
+    color: white;
+    margin-bottom: 10px;
+}
+.more a{
+    color: white;
 }
