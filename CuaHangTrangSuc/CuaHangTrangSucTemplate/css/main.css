@@ -881,7 +881,7 @@ h2.title {
 }
 
 .product-overlay {
-    background: rgba(254, 152, 15, .8);
+    background: rgb(69 139 244);
     top: 0;
     display: none;
     height: 0;
