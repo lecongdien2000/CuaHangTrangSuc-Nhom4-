@@ -1,0 +1,11 @@
+#form {
+	margin-top: 60px;
+	margin-bottom: 90px;
+}
+#form  .container form > input{
+	border: 1px solid #767676;
+	background-color: #ffffff;
+}
+#form  .container form > input:focus{
+	color: #414040;
+}
