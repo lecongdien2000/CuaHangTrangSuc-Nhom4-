@@ -1190,7 +1190,7 @@ h2.title {
 
 #similar-product .carousel-inner .item img {
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 25px;
 }
 
 .item-control {
@@ -1284,7 +1284,6 @@ h2.title {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     margin-bottom: 10px;
-    margin-left: 20px;
 }
 
 .shop-details-tab {
@@ -1681,7 +1680,7 @@ h2.title {
     border: 1px solid #E6E4DF;
     color: #696763;
     padding: 30px 25px 30px 0;
-    margin-bottom: 80px;
+    /* margin-bottom: 80px; */
 }
 
 .total_area span {
@@ -1689,7 +1688,7 @@ h2.title {
 }
 
 .total_area ul li {
-    background: #E6E4DF;
+    /* background: #E6E4DF; */
     color: #696763;
     margin-top: 10px;
     padding: 7px 20px;
