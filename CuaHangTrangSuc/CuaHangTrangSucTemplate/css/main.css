@@ -647,7 +647,7 @@ ul.sub-menu {
 
 .left-sidebar h2,
 .brands_products h2 {
-    color: #FE980F;
+    color: #2b46dc;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -819,7 +819,7 @@ h2.title:before {
 }
 
 h2.title {
-    color: #FE980F;
+    color: #2b46dc;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -847,14 +847,14 @@ h2.title {
 }
 
 .productinfo h2 {
-    color: #FE980F;
+    color: #2b46dc;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 700;
 }
 
 .product-overlay h2 {
-    color: #fff;
+    color: #ffffff;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -876,7 +876,8 @@ h2.title {
 }
 
 .product-overlay {
-    background: rgba(254, 152, 15, .8);
+    background: #2b46dc;
+    opacity: 0.8;
     top: 0;
     display: none;
     height: 0;
@@ -904,7 +905,7 @@ h2.title {
     background: #fff;
     border: 0 none;
     border-radius: 0;
-    color: #FE980F;
+    color: #2b46dc;
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
     margin-bottom: 25px;
