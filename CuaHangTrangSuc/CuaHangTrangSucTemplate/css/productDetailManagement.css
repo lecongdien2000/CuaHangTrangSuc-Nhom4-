@@ -1,3 +1,11 @@
+/* header */
+body{
+	padding-top: 200px;
+}
+#header{
+	background-color: #ffffff;
+}
+/* container */
 .product-information{
 	padding-top: 0px;
 	padding-right: 60px;
@@ -36,6 +44,7 @@
 .changeDetail{
 	margin-top: 50px;
 	text-align: center;
+	margin-bottom: 50px;
 }
 .changeDetail .btn{
 	background-color: #00adff;
