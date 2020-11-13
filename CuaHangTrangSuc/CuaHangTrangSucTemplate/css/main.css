@@ -710,24 +710,29 @@ h2.title:before {
 .category-products .panel-default .panel-heading {
     background-color: #FFFFFF;
     border: 0 none;
-    color: #FFFFFF;
     padding: 5px 20px;
 }
-.category-products .panel-default .filter{
+.category-products .panel-default .panel-heading h4{
+    color: #1e4340;
+}
+.category-products  .filter{
     width: 50%;
     margin: auto;
 }
-.category-products .panel-default .btn{
+.category-products  .btn{
     width: 100%;
     padding-top: 0px;
     padding-bottom: 0px;
-    background-color: #696763;
+    background-color: #1e4340;
 }
-.category-products .panel-default .btn h4{
+.category-products .btn:active{
+    background-color: #2B46DC;
+}
+.category-products  .btn h4{
     display: inline-block; 
     margin-top: 4px;
     margin-bottom: 4px;
-    color: #00adff;
+    color: #FFFFFF;
 }
 
 
@@ -742,12 +747,8 @@ h2.title:before {
 .panel-group .panel-heading+.panel-collapse .panel-body {
     border-top: 0 none;
 }
-.panel-group .panel-heading+.panel-collapse .panel-body .select{
-    overflow: auto;
+.panel-group .panel-body .select{
     background-color: #FFFFFF;
-}
-.panel-group .panel-heading+.panel-collapse .panel-body .select:focus{
-    outline: none;
 }
 .category-products .badge {
     background: none;
