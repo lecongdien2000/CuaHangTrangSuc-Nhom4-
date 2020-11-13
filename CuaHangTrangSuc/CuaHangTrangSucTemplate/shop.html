@@ -167,13 +167,12 @@
 								</div>
 								<div id="type" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul>
-											<li><a href="">Bông tai </a></li>
-											<li><a href="">Nhẫn</a></li>
-											<li><a href="">Dây chuyền</a></li>
-											<li><a href="">Lắc</a></li>
-											<li><a href="">Đồng hồ</a></li>
-										</ul>
+										<select name="type" id="type" size="4" class="select">
+    										<option value="bongTai">Bông tai</option>
+    										<option value="dayChuyen">Dây chuyền</option>
+  										  	<option value="dongHo">Đồng hồ</option>
+    										<option value="lac">Lắc</option>
+  										</select>
 									</div>
 								</div>
 							</div>
@@ -188,18 +187,16 @@
 								</div>
 								<div id="stoneColor" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul>
-											<li><a href="">Trắng</a></li>
-											<li><a href="">Đỏ</a></li>
-											<li><a href="">Tím</a></li>
-											<li><a href="">Lục</a></li>
-											<li><a href="">Lam</a></li>
-											<li><a href="">Ngọc bích</a></li>
-											<li><a href="">Hồng</a></li>
-											<li><a href="">Đen</a></li>
-											<li><a href="">Xám</a></li>
-											<li><a href="">Cam</a></li>
-										</ul>
+										<select name="stoneColor" id="color" size="8" class="select">
+    										<option value="do">Đỏ</option>
+    										<option value="den">Đen</option>
+  										  	<option value="trang">Trắng</option>
+    										<option value="cam">Cam</option>
+    										<option value="lam">Lam</option>
+    										<option value="luc">Luc</option>
+  										  	<option value="hong">Hồng</option>
+    										<option value="ngocBich">Ngọc bích</option>
+  										</select>
 									</div>
 								</div>
 							</div>
@@ -215,13 +212,13 @@
 								</div>
 								<div id="goldAge" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul>
-											<li><a href="">Vàng 10k</a></li>
-											<li><a href="">Vàng 14k</a></li>
-											<li><a href="">Vàng 18k</a></li>
-											<li><a href="">Vàng 22k</a></li>
-											<li><a href="">Vàng 24k</a></li>
-										</ul>
+										<select name="goldAge" id="age" size="5" class="select">
+    										<option value="do">Vàng 10k</option>
+    										<option value="den">Vàng 14k</option>
+  										  	<option value="trang">Vàng 18k</option>
+    										<option value="cam">Vàng 22k</option>
+    										<option value="lam">Vàng 24k</option>
+  										</select>
 									</div>
 								</div>
 							</div>
@@ -236,13 +233,13 @@
 								</div>
 								<div id="materialColor" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul>
-											<li><a href="">Giả cổ</a></li>
-											<li><a href="">Ba màu</a></li>
-											<li><a href="">Đen</a></li>
-											<li><a href="">Trắng</a></li>
-											<li><a href="">Nâu cam</a></li>
-										</ul>
+										<select name="materialColor" id="mColor" size="5" class="select">
+											<option value="giaCo">Giả cổ</option>
+											<option value="baMau">Ba màu</option>
+											<option value="den">Đen</option>
+											<option value="trang">Trắng</option>
+											<option value="nauCam">Nâu cam</option>
+										</select>
 									</div>
 								</div>
 							</div>
@@ -257,24 +254,24 @@
 								</div>
 								<div id="sex" class="panel-collapse collapse">
 									<div class="panel-body">
-										<ul>
-											<li><a href="">Nam</a></li>
-											<li><a href="">Nữ</a></li>
-											<li><a href="">LGBT</a></li>
-											<li><a href="">Unisex</a></li>
-											<li><a href="">Tất cả</a></li>
-										</ul>
+										<select name="sex" id="sexSelect" size="4" class="select">
+											<option value="nam">Nam</option>
+											<option value="nu">Nữ</option>
+											<option value="lgbt">LGBT</option>
+											<option value="unisex">Unisex</option>
+										</select>
 									</div>
 								</div>
+								<div class="filter"><button class="btn"><h4>Lọc</h4></button></div>
 							</div>
 							
 						</div><!--/category-productsr-->
 					
-						<div class="price-range"><!--price-range-->
+						<div class="price-range "><!--price-range-->
 							<h2>Price Range</h2>
 							<div class="well">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-								 <b>$ 0</b> <b class="pull-right">$ 600</b>
+								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="6000000" data-slider-step="100000" data-slider-value="[500000,900000]" id="sl2" ><br />
+								 <b>0đ</b> <b class="pull-right">6.000.000đ</b>
 							</div>
 						</div><!--/price-range-->
 						

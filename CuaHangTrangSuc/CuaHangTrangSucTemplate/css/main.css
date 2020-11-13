@@ -713,6 +713,23 @@ h2.title:before {
     color: #FFFFFF;
     padding: 5px 20px;
 }
+.category-products .panel-default .filter{
+    width: 50%;
+    margin: auto;
+}
+.category-products .panel-default .btn{
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #696763;
+}
+.category-products .panel-default .btn h4{
+    display: inline-block; 
+    margin-top: 4px;
+    margin-bottom: 4px;
+    color: #00adff;
+}
+
 
 .category-products .panel-default .panel-heading .panel-title a {
     color: #696763;
@@ -725,7 +742,13 @@ h2.title:before {
 .panel-group .panel-heading+.panel-collapse .panel-body {
     border-top: 0 none;
 }
-
+.panel-group .panel-heading+.panel-collapse .panel-body .select{
+    overflow: auto;
+    background-color: #FFFFFF;
+}
+.panel-group .panel-heading+.panel-collapse .panel-body .select:focus{
+    outline: none;
+}
 .category-products .badge {
     background: none;
     border-radius: 10px;
@@ -791,9 +814,12 @@ h2.title:before {
     border-radius: 4px;
     -webkit-box-shadow: none;
     box-shadow: none;
+    margin: auto;
     margin-bottom: 20px;
     min-height: 20px;
-    padding: 35px;
+    padding: : 35px;
+    width: 85%;
+
 }
 
 .tooltip-inner {
