@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -22,9 +21,20 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <style type="text/css">
+    	
+    	.table-condensed img{
+    		width: 100px;
+    		height: 100px;
+    	}
+    	.payment-options img{
+    		width: 50px;
+    		height: 50px;
+    	}
+    </style>
 </head><!--/head-->
 
-<body>
+<body style="">
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -57,7 +67,7 @@
 				<div class="row">
 					<div class="col-md-4 clearfix">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+							<a href="index.html"><img src="images/home/logo.png" alt=""></a>
 						</div>
 						<div class="btn-group pull-right clearfix">
 							<div class="btn-group">
@@ -135,7 +145,7 @@
 					</div>
 					<div class="col-sm-3">
 						<div class="search_box pull-right">
-							<input type="text" placeholder="Search"/>
+							<input type="text" placeholder="Search">
 						</div>
 					</div>
 				</div>
@@ -147,119 +157,57 @@
 		<div class="container">
 			<div class="breadcrumbs">
 				<ol class="breadcrumb">
-				  <li><a href="#">Home</a></li>
-				  <li class="active">Check out</li>
+				  <li><a href="#">Trang chủ</a></li>
+				  <li class="active">Thanh toán</li>
 				</ol>
 			</div><!--/breadcrums-->
 
 			<div class="step-one">
-				<h2 class="heading">Step1</h2>
+				<h2 class="heading">Thanh toán</h2>
 			</div>
-			<div class="checkout-options">
-				<h3>New User</h3>
-				<p>Checkout options</p>
-				<ul class="nav">
-					<li>
-						<label><input type="checkbox"> Register Account</label>
-					</li>
-					<li>
-						<label><input type="checkbox"> Guest Checkout</label>
-					</li>
-					<li>
-						<a href=""><i class="fa fa-times"></i>Cancel</a>
-					</li>
-				</ul>
-			</div><!--/checkout-options-->
+			<!--/checkout-options-->
 
-			<div class="register-req">
-				<p>Please use Register And Checkout to easily get access to your order history, or use Checkout as Guest</p>
-			</div><!--/register-req-->
+			<!--/register-req-->
 
 			<div class="shopper-informations">
 				<div class="row">
-					<div class="col-sm-3">
-						<div class="shopper-info">
-							<p>Shopper Information</p>
-							<form>
-								<input type="text" placeholder="Display Name">
-								<input type="text" placeholder="User Name">
-								<input type="password" placeholder="Password">
-								<input type="password" placeholder="Confirm password">
-							</form>
-							<a class="btn btn-primary" href="">Get Quotes</a>
-							<a class="btn btn-primary" href="">Continue</a>
-						</div>
-					</div>
-					<div class="col-sm-5 clearfix">
+					
+					<div class="col-sm-6 clearfix">
 						<div class="bill-to">
-							<p>Bill To</p>
+							<h3>Người nhận</h3>
 							<div class="form-one">
 								<form>
-									<input type="text" placeholder="Company Name">
 									<input type="text" placeholder="Email*">
-									<input type="text" placeholder="Title">
-									<input type="text" placeholder="First Name *">
-									<input type="text" placeholder="Middle Name">
-									<input type="text" placeholder="Last Name *">
-									<input type="text" placeholder="Address 1 *">
-									<input type="text" placeholder="Address 2">
+									<input type="text" placeholder="Họ và tên *">
+									<input type="text" placeholder="Địa chỉ *">
+									<input type="text" placeholder="SĐT *">
 								</form>
 							</div>
-							<div class="form-two">
-								<form>
-									<input type="text" placeholder="Zip / Postal Code *">
-									<select>
-										<option>-- Country --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<select>
-										<option>-- State / Province / Region --</option>
-										<option>United States</option>
-										<option>Bangladesh</option>
-										<option>UK</option>
-										<option>India</option>
-										<option>Pakistan</option>
-										<option>Ucrane</option>
-										<option>Canada</option>
-										<option>Dubai</option>
-									</select>
-									<input type="password" placeholder="Confirm password">
-									<input type="text" placeholder="Phone *">
-									<input type="text" placeholder="Mobile Phone">
-									<input type="text" placeholder="Fax">
-								</form>
-							</div>
+							
 						</div>
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-6">
 						<div class="order-message">
-							<p>Shipping Order</p>
-							<textarea name="message"  placeholder="Notes about your order, Special Notes for Delivery" rows="16"></textarea>
-							<label><input type="checkbox"> Shipping to bill address</label>
+							<h3>Ghi chú</h3>
+							<textarea name="message" placeholder="Ghi chú về đơn hàng của bạn, đặc biệt là cho người giao hàng." rows="16"></textarea>
+							
 						</div>	
 					</div>					
 				</div>
 			</div>
 			<div class="review-payment">
-				<h2>Review & Payment</h2>
+				<h3>Tiến hành thanh toán</h3>
 			</div>
 
 			<div class="table-responsive cart_info">
 				<table class="table table-condensed">
 					<thead>
 						<tr class="cart_menu">
-							<td class="image">Item</td>
+							<td class="image">Tên sản phẩm</td>
 							<td class="description"></td>
-							<td class="price">Price</td>
-							<td class="quantity">Quantity</td>
-							<td class="total">Total</td>
+							<td class="price">Giá</td>
+							<td class="quantity">Số lượng</td>
+							<td class="total">Tổng tiền</td>
 							<td></td>
 						</tr>
 					</thead>
@@ -269,11 +217,11 @@
 								<a href=""><img src="images/cart/one.png" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4><a href="">Nhẫn nam bạc đính đá PNJSilver XM00K000143</a></h4>
+								<p>Mã: SNXM00K000143</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p>655.000 đ</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -283,7 +231,7 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p class="cart_total_price">655.000 đ</p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -295,11 +243,11 @@
 								<a href=""><img src="images/cart/two.png" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4><a href="">Nhẫn Vàng trắng 14K đính đá Topaz PNJ TPXMW000002</a></h4>
+								<p>Mã: GNTPXMW000002</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p>6.198.000 đ</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -309,7 +257,7 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p class="cart_total_price">6.198.000 đ</p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
@@ -320,11 +268,11 @@
 								<a href=""><img src="images/cart/three.png" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Colorblock Scuba</a></h4>
-								<p>Web ID: 1089772</p>
+								<h4><a href="">Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</a></h4>
+								<p>Mã: GN0000W000041</p>
 							</td>
 							<td class="cart_price">
-								<p>$59</p>
+								<p>1.391.000 đ</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
@@ -334,49 +282,51 @@
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">$59</p>
+								<p class="cart_total_price">1.391.000 đ</p>
 							</td>
 							<td class="cart_delete">
 								<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="4">&nbsp;</td>
-							<td colspan="2">
+							<td colspan="3">&nbsp;</td>
+							<td colspan="3">
 								<table class="table table-condensed total-result">
-									<tr>
-										<td>Cart Sub Total</td>
-										<td>$59</td>
+									<tbody><tr>
+										<td>Tổng giỏ hàng</td>
+										<td>8.244.000 đ</td>
 									</tr>
 									<tr>
-										<td>Exo Tax</td>
-										<td>$2</td>
+										<td>Thuế</td>
+										<td>200.000 đ</td>
 									</tr>
 									<tr class="shipping-cost">
-										<td>Shipping Cost</td>
+										<td>Phí vận chuyển</td>
 										<td>Free</td>										
 									</tr>
 									<tr>
-										<td>Total</td>
-										<td><span>$61</span></td>
+										<td>Tổng</td>
+										<td><span>8.444.000 đ</span></td>
 									</tr>
-								</table>
+								</tbody></table>
 							</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 			<div class="payment-options">
+				<h3>Phương thức thanh toán:</h3>
 					<span>
-						<label><input type="checkbox"> Direct Bank Transfer</label>
+						<label><input type="radio" name="payment"> <img src="images\checkout\airpay.png"></label>
 					</span>
 					<span>
-						<label><input type="checkbox"> Check Payment</label>
+						<label><input type="radio" name="payment"> <img src="images\checkout\momo.png"></label>
 					</span>
 					<span>
-						<label><input type="checkbox"> Paypal</label>
+						<label><input type="radio" name="payment"> <b>Thanh toán khi nhận hàng</b></label>
 					</span>
-				</div>
+			</div>
+			<button class="payment-confirm">Xác nhận</button>
 		</div>
 	</section> <!--/#cart_items-->
 
@@ -397,7 +347,7 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe1.png" alt="" />
+										<img src="images/home/iframe1.png" alt="">
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -412,7 +362,7 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe2.png" alt="" />
+										<img src="images/home/iframe2.png" alt="">
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -427,7 +377,7 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe3.png" alt="" />
+										<img src="images/home/iframe3.png" alt="">
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -442,7 +392,7 @@
 							<div class="video-gallery text-center">
 								<a href="#">
 									<div class="iframe-img">
-										<img src="images/home/iframe4.png" alt="" />
+										<img src="images/home/iframe4.png" alt="">
 									</div>
 									<div class="overlay-icon">
 										<i class="fa fa-play-circle-o"></i>
@@ -455,7 +405,7 @@
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="images/home/map.png" alt="" />
+							<img src="images/home/map.png" alt="">
 							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
 						</div>
 					</div>
@@ -518,9 +468,9 @@
 						<div class="single-widget">
 							<h2>About Shopper</h2>
 							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
+								<input type="text" placeholder="Your email address">
 								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
+								<p>Get the most recent updates from <br>our site and be updated your self...</p>
 							</form>
 						</div>
 					</div>
@@ -547,5 +497,5 @@
     <script src="js/jquery.scrollUp.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
-</body>
-</html>
+
+<a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: none;"><i class="fa fa-angle-up"></i></a></body></html>
