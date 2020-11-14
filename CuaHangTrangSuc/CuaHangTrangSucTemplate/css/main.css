@@ -1544,7 +1544,7 @@ h2.title {
     border-color: transparent transparent transparent #2B46DC;
     position: absolute;
     top: 11px;
-    left: 48px;
+    left: 78px;
 }
 
 .breadcrumbs .breadcrumb>li+li:before {
@@ -1734,8 +1734,8 @@ h2.title {
 .user_info input,
 select,
 textarea {
-    background: #F0F0E9;
-    border: 0;
+    background: white;
+    border: 1px solid black;
     color: #696763;
     padding: 5px;
     width: 100%;
@@ -1870,15 +1870,15 @@ textarea {
 .form-two,
 .form-one {
     float: left;
-    width: 47%
+    width: 100%
 }
 
 .shopper-info>form>input,
 .form-two>form>select,
 .form-two>form>input,
 .form-one>form>input {
-    background: #F0F0E9;
-    border: 0 none;
+    background: white;
+    border: 1px solid black;
     margin-bottom: 10px;
     padding: 10px;
     width: 100%;
@@ -1917,7 +1917,7 @@ textarea {
 }
 
 .payment-options {
-    margin-bottom: 125px;
+    margin-bottom: 25px;
     margin-top: -25px
 }
 
@@ -2468,4 +2468,15 @@ textarea {
 }
 .more a{
     color: white;
+}
+.payment-confirm{
+    margin-bottom: 100px;
+    margin-left: 90%;
+    background: #2B46DC;
+    border: medium none;
+    border-radius: 0;
+    padding: 7px 17px;
+    color: white;
+    font-weight: 600;
+    border-radius: 4px;
 }
