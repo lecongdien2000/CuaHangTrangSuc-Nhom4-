@@ -53,3 +53,8 @@ body{
 .changeDetail .btn:active{
 	background-color: #2B46DC;
 }
+#similar-product .carousel-inner .item img{
+	width: 80px;
+	height: 80px;
+	margin-left: 25px;
+}
