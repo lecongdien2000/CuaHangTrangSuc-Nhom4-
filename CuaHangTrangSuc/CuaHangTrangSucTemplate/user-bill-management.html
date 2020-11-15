@@ -1,339 +1,55 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<title>Product detail management</title>
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link href="css/prettyPhoto.css" rel="stylesheet">
-	<link href="css/animate.css" rel="stylesheet">
-	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/style-user-bil-management.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-	<header id="header"><!--header-->
-		<div class="header_top"><!--header_top-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="contactinfo">
-							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="social-icons pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header_top-->
-		
-		<div class="header-middle"><!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 clearfix">
-						<div class="logo pull-left">
-							<ul class="nav navbar-nav">
-								<li><a href="/ho-tro-mua-hang/he-thong-cua-hang/" rel="nofollow"> <i class="fa fa-home"></i> <span class="text-with-divider">Cửa hàng</span> </a></li>
-								<li><a href="tel:1800545457"> <i class="fa fa-phone"></i> <span class="text-hotline">1800 54 54 57</span> </a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-4 clearfix">
-						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-md-4 clearfix">
-						<div class="shop-menu clearfix pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Tài khoản</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-middle-->
-
-		<div class="header-bottom" id="header-bottom"><!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-						</div>
-						<div class="mainmenu pull-left" >
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li class="dropdown"><a href="#">Nhẫn<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Đính kim cương</a></li>
-										<li><a href="blog-single.html">Đá quý</a></li>
-										<li><a href="blog-single.html">Đính đá ECZ</a></li>
-										<li><a href="blog-single.html">Đính ngọc trai</a></li>
-										<li><a href="blog-single.html">Nhẫn trơn</a></li>
-									</ul>
-								</li> 
-								<li class="dropdown"><a href="#">Bông tai<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Đính kim cương</a></li>
-										<li><a href="blog-single.html">Đá quý</a></li>
-										<li><a href="blog-single.html">Đính đá ECZ</a></li>
-										<li><a href="blog-single.html">Đính ngọc trai</a></li>
-										<li><a href="blog-single.html">Bông tai trơn</a></li>
-									</ul>
-								</li> 
-								<li class="dropdown"><a href="#">Lắc & Vòng tay<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Đính kim cương</a></li>
-										<li><a href="blog-single.html">Đá quý</a></li>
-										<li><a href="blog-single.html">Đính đá ECZ</a></li>
-										<li><a href="blog-single.html">Đính ngọc trai</a></li>
-										<li><a href="blog-single.html">Lắc & Vòng tay trơn</a></li>
-										<li><a href="blog-single.html">Dành cho trẻ em</a></li>
-									</ul>
-								</li> 
-								<li class="dropdown"><a href="#">Đồng hồ<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Nam</a></li>
-										<li><a href="blog-single.html">Nữ</a></li>
-									</ul>
-								</li> 
-								<li class="dropdown"><a href="#">Dây chuyền	<i class="fa fa-angle-down"></i></a>
-									<ul role="menu" class="sub-menu">
-										<li><a href="blog.html">Đính kim cương</a></li>
-										<li><a href="blog-single.html">Đá quý</a></li>
-										<li><a href="blog-single.html">Đính đá ECZ</a></li>
-										<li><a href="blog-single.html">Đính ngọc trai</a></li>
-										<li><a href="blog-single.html">Dây chuyền trơn</a></li>
-									</ul>
-								</li> 
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Tìm kiếm"/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
-	
-	<div class="container">
-		<div class="row">
-			<div class="category-tab"><!--category-tab-->
-				<div class="col-sm-12">
-					<ul class="nav nav-tabs">
-						<li class="active"><a href="#tshirt" data-toggle="tab">Chờ xác nhận</a></li>
-						<li><a href="#" data-toggle="tab">Chờ lấy hàng</a></li>
-						<li><a href="#" data-toggle="tab">Đang giao</a></li>
-						<li><a href="#" data-toggle="tab">Đã giao</a></li>
-						<li><a href="#" data-toggle="tab">Trả hàng</a></li>
-						<li><a href="#" data-toggle="tab">Đã hủy</a></li>
-					</ul>
-				</div>
-				<div class="tab-content">
-
-				</div>
-			</div><!--/category-tab-->
-		</div>
-		<div class="billContain row">
-			<div class="headTitle">
-				<div class="col-sm-6">
-					<div class="col-sm-3">
-						<p>Mã sản phẩm</p>
-					</div>
-					<div class="col-sm-9">
-						<p>Mục sản phẩm</p>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="col-sm-3">
-						<p>Giá</p>
-					</div>
-					<div class="col-sm-3">
-						<p>Số lượng</p>
-					</div>
-					<div class="col-sm-6">
-						<p>Tổng tiền</p>
-					</div>
-				</div>
-			</div>
-			<div class="productList">
-				<div class="row productInfor">
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">001</p>
-						</div>
-						<div class="col-sm-9" style="padding-left: 0px; padding-right: 0px;">
-							<div class="col-sm-4" style="padding-left: 0px;"><img src="images/home/gallery1.jpg" style="width: 100%; height: 100%"></div>
-							<div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-								<p class="index" style="margin-bottom: 1px; font-weight: bold;">Nhẫn bạc đính đá PNJSilver XM00K000088<p>
-								<p style="font-size: 12px;">Mã: SNXM00K000088</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">317.000 đ</p>
-						</div>
-						<div class="col-sm-3">
-							<p class="index">1</p>
-						</div>
-						<div class="col-sm-6">
-							<p class="index">317.000 đ</p>
-						</div>
-					</div>
-				</div>
-				<div class="row productInfor">
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">001</p>
-						</div>
-						<div class="col-sm-9" style="padding-left: 0px; padding-right: 0px;">
-							<div class="col-sm-4" style="padding-left: 0px;"><img src="images/home/gallery1.jpg" style="width: 100%; height: 100%"></div>
-							<div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-								<p class="index" style="margin-bottom: 1px; font-weight: bold;">Nhẫn bạc đính đá PNJSilver XM00K000088<p>
-								<p style="font-size: 12px;">Mã: SNXM00K000088</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">317.000 đ</p>
-						</div>
-						<div class="col-sm-3">
-							<p class="index">1</p>
-						</div>
-						<div class="col-sm-6">
-							<p class="index">317.000 đ</p>
-						</div>
-					</div>
-				</div>
-				<div class="row productInfor">
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">001</p>
-						</div>
-						<div class="col-sm-9" style="padding-left: 0px; padding-right: 0px;">
-							<div class="col-sm-4" style="padding-left: 0px;"><img src="images/home/gallery1.jpg" style="width: 100%; height: 100%"></div>
-							<div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-								<p class="index" style="margin-bottom: 1px; font-weight: bold;">Nhẫn bạc đính đá PNJSilver XM00K000088<p>
-								<p style="font-size: 12px;">Mã: SNXM00K000088</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">317.000 đ</p>
-						</div>
-						<div class="col-sm-3">
-							<p class="index">1</p>
-						</div>
-						<div class="col-sm-6">
-							<p class="index">317.000 đ</p>
-						</div>
-					</div>
-				</div>
-				<div class="row productInfor">
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">001</p>
-						</div>
-						<div class="col-sm-9" style="padding-left: 0px; padding-right: 0px;">
-							<div class="col-sm-4" style="padding-left: 0px;"><img src="images/home/gallery1.jpg" style="width: 100%; height: 100%"></div>
-							<div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-								<p class="index" style="margin-bottom: 1px; font-weight: bold;">Nhẫn bạc đính đá PNJSilver XM00K000088<p>
-								<p style="font-size: 12px;">Mã: SNXM00K000088</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-6">
-						<div class="col-sm-3">
-							<p class="index">317.000 đ</p>
-						</div>
-						<div class="col-sm-3">
-							<p class="index">1</p>
-						</div>
-						<div class="col-sm-6">
-							<p class="index">317.000 đ</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="cancelBill">
-				<div class="col-sm-5"></div>
-				<div class="col-sm-2">
-				<button class="btn">Hủy đơn hàng</button>
-				</div>
-				<div class="col-sm-5"></div>
-			</div>
-		</div>	
-	</div>
-	<footer id="footer"><!--Footer-->
-		
-		
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8">
-						<div class="single-widget">
-							<h2>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Nông Lâm</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<p>217 Quận Thủ Đức, TP. Hồ Chí Minh</p>
-								<p>SĐT: 0988972381</p>
-								<p>Email: nonglamdaquy@nonglam.com</p>	
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-3 col-sm-offset-1">
-						<div class="single-widget">
-							<h2>Nhận thông tin</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Email của bạn" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Nhận thông tin mới nhất từ cửa hàng của chúng tôi!</p>
-							</form>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</div>
-		
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-				</div>
-			</div>
-		</div>
-		
-	</footer><!--/Footer-->
-	
+<div class="container">
+  <h2>Accordion Example</h2>
+  <p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+  </div> 
+</div>
+    
 </body>
 </html>
