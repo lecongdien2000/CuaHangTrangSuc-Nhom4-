@@ -122,7 +122,7 @@ body {
 	color: lightseagreen;
 }
 .col-md-9 > div > form div label,submit{
-	color: ;
+	color: #5a7391;
 }
 .col-md-9  div{
 	margin-top: 10px;
@@ -133,6 +133,10 @@ body {
 }
 #descript{
 	height: 100px;
+}
+#descript:hover{
+	border-color: skyblue;
+	cursor: text ;
 }
 #gender{
 	margin-left: 50px;
