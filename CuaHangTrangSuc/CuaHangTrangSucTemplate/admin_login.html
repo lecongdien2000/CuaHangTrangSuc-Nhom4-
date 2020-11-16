@@ -34,6 +34,7 @@
     		height: 45px;
     		font-weight: 600;
     		color: #372656;
+    		outline: none;
 		}
 
 		.submitBtn{
@@ -44,6 +45,7 @@
     		font-weight: 600;
     		border-radius: 30px;
     		border: none;
+    		outline: none;
     		box-shadow: 1px 9px 13px 7px #dcdcdc;
 		}
 
@@ -67,6 +69,12 @@
 			margin: auto;
 			width: 169px;
 		}
+		.product-infomation{
+			    border: 1px solid;
+		}
+		.product-information .productinfomation > input{
+			    border: 1px solid #9E9E9E;
+		}
 	</style>
 
 </head>
@@ -82,7 +90,7 @@
 			<h1 style="margin-bottom: 45px;">Đăng nhập</h1>
 			<form>
 				<input type="text" name="uname" class="inputTxt" placeholder="Tài khoản">
-				<input type="text" name="pass" class="inputTxt" style="margin-bottom: 45px;" placeholder="Mật khẩu">
+				<input type="password" name="pass" class="inputTxt" style="margin-bottom: 45px;" placeholder="Mật khẩu">
 				<button type="submit" name="submit" class="submitBtn">Đăng nhập</button>
 			</form>
 		</div>
