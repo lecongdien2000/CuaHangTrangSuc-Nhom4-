@@ -912,6 +912,7 @@ h2.title {
     transition: height 500ms ease 0s;
     width: 100%;
     display: block;
+    opacity: 0.9;
 }
  .product-overlay p {
     font-family: 'Roboto', sans-serif;
