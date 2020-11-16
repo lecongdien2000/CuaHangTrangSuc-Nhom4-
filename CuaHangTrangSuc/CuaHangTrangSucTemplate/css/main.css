@@ -850,7 +850,7 @@ h2.title {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    margin: 0 15px;
+    /* margin: 0 15px; */
     text-transform: uppercase;
     margin-bottom: 30px;
     position: relative;
@@ -1213,7 +1213,7 @@ h2.title {
 
 #similar-product .carousel-inner .item img {
     display: inline-block;
-    margin-left: 15px;
+    margin-left: 26px;
 }
 
 .item-control {
@@ -1712,7 +1712,7 @@ h2.title {
 }
 
 .total_area ul li {
-    background: #E6E4DF;
+    /* background: #E6E4DF; */
     color: #696763;
     margin-top: 10px;
     padding: 7px 20px;
