@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<title>UserProfile | NL Accessores</title>
+	<title>Thông tin khách hàng | NL Accessores</title>
 	<link rel="stylesheet" type="text/css" href="css/user_profile.css">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/font-awesome.min.css" rel="stylesheet">
@@ -23,6 +23,26 @@
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+<style type="text/css">
+	.shop-menu i{
+		font-size: 20px;
+		color: #48788f;
+	}
+	.mainmenu ul li a{
+		font-weight: 500;
+	}
+	.mainmenu ul li a:focus{
+		background-color: white;
+	}
+	.mainmenu ul li a:hover{
+		color: #2b46dc;
+	}
+	.navbar-nav li ul.sub-menu li a:hover{
+		color: #2b46dc;
+		
+	}
+</style>
 </head><!--/head-->
 
 <body>
@@ -33,15 +53,15 @@
 					<div class="col-sm-6">
 						<div class="contactinfo">
 							<ul class="nav nav-pills">
-								<li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-								<li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+								<li><a href="#"><i class="fa fa-phone"></i> 1800 54 54 57</a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i> nonglamdaquy@nonglam.com</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-6">
 						<div class="social-icons pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#" ><i class="fa fa-facebook"></i></a></li>
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 								<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
@@ -72,9 +92,13 @@
 					<div class="col-md-4 clearfix">
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href=""><i class="fa fa-user"></i> Tài khoản</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+								<li><a href="login.html"><i class="fa fa-lock"></i></a></li>
+								<li><a href="#"><i class="fa fa-sign-out"></i></a></li>
+								<li><a href=""><i class="fa fa-user"></i></a></li>
+								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+								<li><a href="user-bill-management.html"><i class="fa fa-file-text"></i></a></li>
+
+
 							</ul>
 						</div>
 					</div>
@@ -138,118 +162,119 @@
 										<li><a href="blog-single.html">Đính ngọc trai</a></li>
 										<li><a href="blog-single.html">Dây chuyền trơn</a></li>
 									</ul>
-								</li> 
-							</ul>
+								</li>
+								<li class="dropdown"><a href="#">Liên hệ</a> 
+								</ul>
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-3">
-						<div class="search_box pull-right">
-							<input type="text" placeholder="Tìm kiếm"/>
+						<div class="col-sm-3">
+							<div class="search_box pull-right">
+								<input type="text" placeholder="Tìm kiếm"/>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
-	<section>
-		<div class="container"> 
-			<h1 class="text-center" style="color: #2B46DC;">Thông tin cá nhân</h1> 
+			</div><!--/header-bottom-->
+		</header><!--/header-->
+		<section>
 			<div class="container"> 
-				<div class="row profile">        
-					<div class="col-md-3">          
-						<div class="profile-sidebar">                          
-							<div class="profile-userpic">                 <img src="images/home/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">               
-							</div>                                            
-							<div class="profile-usertitle">                   
-								<div class="profile-usertitle-name">                     Malie                 </div>                  
-								<div class="profile-usertitle-as">                      Vô Vọng!                   </div>              
-							</div>                                               
+				<h1 class="text-center" style="color: #2B46DC;">Thông tin cá nhân</h1> 
+				<div class="container"> 
+					<div class="row profile">        
+						<div class="col-md-3">          
+							<div class="profile-sidebar">                          
+								<div class="profile-userpic">                 <img src="images/home/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">               
+								</div>                                            
+								<div class="profile-usertitle">                   
+									<div class="profile-usertitle-name">                     Malie                 </div>                  
+									<div class="profile-usertitle-as">                      Vô Vọng!                   </div>              
+								</div>                                               
 
-						</div>     
-					</div>      
-					<div class="col-md-9"> 
-						<div >
-							<form>
-								<div>
-									<p>Thông tin liên lạc: </p>
-									<label for="mail">Email: </label>
-									<input type="text" class="format" id="mail" name="email">
-									<br>
-									<label for="sdt">Số điện thoại: </label>
-									<input type="text" id="sdt"class="format" name="phone">
-								</div>
-								<div>
-									<p>Thông tin chung: </p>
-									<label for="gender">Giới tính: </label>
-									<input type="text" name="gender" class="format" id="gender">
-									<br>
-									<label for="birth">Ngày sinh: </label>
-									<input class="format" type="date" name="birth" id="birth">
+							</div>     
+						</div>      
+						<div class="col-md-9"> 
+							<div >
+								<form>
+									<div>
+										<p>Thông tin liên lạc: </p>
+										<label for="mail">Email: </label>
+										<input type="text" class="format" id="mail" name="email">
+										<br>
+										<label for="sdt">Số điện thoại: </label>
+										<input type="text" id="sdt"class="format" name="phone">
+									</div>
+									<div>
+										<p>Thông tin chung: </p>
+										<label for="gender">Giới tính: </label>
+										<input type="text" name="gender" class="format" id="gender">
+										<br>
+										<label for="birth">Ngày sinh: </label>
+										<input class="format" type="date" name="birth" id="birth">
 
-								</div>
-								<div>
-									<label for="descript" style="font-size: 20px;
-									color: lightseagreen; font-weight: normal">Mô tả: </label>
-									<textarea id="descript"></textarea>
-								</div>
-								<div id="submit">
-									<input type="submit"  value="Xác nhận"> 
-								</div>
-							</form>
-						</div>
-					</div>  
-				</div>
-			</div> 
-		</div>
-
-	</section>
-	<footer id="footer"><!--Footer-->
-		
-		
-		<div class="footer-widget">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8">
-						<div class="single-widget">
-							<h2>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Nông Lâm</h2>
-							<ul class="nav nav-pills nav-stacked">
-								<p>217 Quận Thủ Đức, TP. Hồ Chí Minh</p>
-								<p>SĐT: 0988972381</p>
-								<p>Email: nonglamdaquy@nonglam.com</p>	
-							</ul>
-						</div>
+									</div>
+									<div>
+										<label for="descript" style="font-size: 20px;
+										color: lightseagreen; font-weight: normal">Mô tả: </label>
+										<textarea id="descript"></textarea>
+									</div>
+									<div id="submit">
+										<input type="submit"  value="Xác nhận"> 
+									</div>
+								</form>
+							</div>
+						</div>  
 					</div>
-					<div class="col-sm-3 col-sm-offset-1">
-						<div class="single-widget">
-							<h2>Nhận thông tin</h2>
-							<form action="#" class="searchform">
-								<input type="text" placeholder="Email của bạn" />
-								<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Nhận thông tin mới nhất từ cửa hàng của chúng tôi!</p>
-							</form>
+				</div> 
+			</div>
+
+		</section>
+		<footer id="footer"><!--Footer-->
+
+
+			<div class="footer-widget">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="single-widget">
+								<h2>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Nông Lâm</h2>
+								<ul class="nav nav-pills nav-stacked">
+									<p>217 Quận Thủ Đức, TP. Hồ Chí Minh</p>
+									<p>SĐT: 0988972381</p>
+									<p>Email: nonglamdaquy@nonglam.com</p>	
+								</ul>
+							</div>
 						</div>
+						<div class="col-sm-3 col-sm-offset-1">
+							<div class="single-widget">
+								<h2>Nhận thông tin</h2>
+								<form action="#" class="searchform">
+									<input type="text" placeholder="Email của bạn" />
+									<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+									<p>Nhận thông tin mới nhất từ cửa hàng của chúng tôi!</p>
+								</form>
+							</div>
+						</div>
+
 					</div>
-					
 				</div>
 			</div>
-		</div>
-		
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
+
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="row">
+					</div>
 				</div>
 			</div>
-		</div>
-		
-	</footer><!--/Footer-->
-	
+
+		</footer><!--/Footer-->
 
 
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.scrollUp.min.js"></script>
-	<script src="js/price-range.js"></script>
-	<script src="js/jquery.prettyPhoto.js"></script>
-	<script src="js/main.js"></script>
-</body>
-</html>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/jquery.scrollUp.min.js"></script>
+		<script src="js/price-range.js"></script>
+		<script src="js/jquery.prettyPhoto.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+	</html>
