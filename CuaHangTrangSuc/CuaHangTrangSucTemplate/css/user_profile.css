@@ -1,5 +1,5 @@
 body {  
-	background: #F1F3FA;
+	/* background: #F1F3FA; */
 }
 
 
@@ -139,14 +139,14 @@ body {
 	cursor: text ;
 }
 #gender{
-	margin-left: 50px;
+	/* margin-left: 50px; */
 }
 #mail{
-	margin-left: 69px;
+	/* margin-left: 69px; */
 
 }
 #sdt{
-	margin-left: 20px;
+	/* margin-left: 20px; */
 }
 #submit{
 	margin-top: 25px;
@@ -159,4 +159,17 @@ body {
 	border-radius: 10px;
 	background: mediumblue;
     color: white;
+}
+.col-sm-9 > form{
+	border:  1px solid blue;
+}
+.marginLeft{
+	    margin-bottom: 5px;
+}
+.textcolor{
+	font-size: 20px;
+	color: lightseagreen;
+}
+.colorText{
+	color: #5a7391;
 }
