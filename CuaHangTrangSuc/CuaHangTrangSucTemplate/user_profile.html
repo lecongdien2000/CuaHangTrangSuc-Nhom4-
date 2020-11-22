@@ -43,6 +43,15 @@
 		color: #2b46dc;
 		
 	}
+	.maxwidth{
+		width: 102.5%;
+	}
+	.inheritWith{
+		width: 100%;
+	}
+	.padding-left{
+		padding-left: 0px;
+	}
 </style>
 </head><!--/head-->
 
@@ -199,23 +208,34 @@
 										<p>Thông tin liên lạc: </p>
 									</div>
 									<div class="row marginLeft">
-										<label for="mail" class="col-sm-2 colorText">Email: </label>
-										<input type="text" class=" col-sm-10 " id="mail" name="email">
+										<div class="col-sm-2"><label for="mail" class="colorText">Email: </label>
+										</div>
+										<div class=" col-sm-10 "><input type="text" class="maxwidth" id="mail" name="email" >
+										</div>
 									</div >
 									<div class="row">
-										<label for="sdt" class="col-sm-2 colorText">Số điện thoại: </label>
-										<input type="text" id="sdt"class=" col-sm-10" name="phone">
+										<div class="col-sm-2"><label for="sdt" class=" colorText">Số điện thoại: </label>
+										</div>
+										<div class=" col-sm-10">
+											<input type="text" class="maxwidth" id="sdt" name="phone">
+										</div>
 									</div>
 									<div class="row textcolor">
 										<p>Thông tin chung: </p>
 									</div>
 									<div class="row marginLeft">
-										<label for="gender" class="col-sm-2 colorText">Giới tính: </label>
-										<input type="text" name="gender" class="col-sm-10" id="gender">
+										<div class="col-sm-2 padding-left"><label for="gender" class="col-sm-2 inheritWith colorText">Giới tính: </label>
+										</div>
+										<div class="col-sm-10 ">
+											<input type="text" class="maxwidth" name="gender"  id="gender">
+										</div>
 									</div>
 									<div class="row">
-										<label for="birth" class="col-sm-2 colorText">Ngày sinh: </label>
-										<input class="col-sm-10" type="date" name="birth" id="birth">
+										<div class="col-sm-2 padding-left"><label for="birth" class="col-sm-2 inheritWith colorText">Ngày sinh: </label>
+										</div>
+										<div class="col-sm-10 ">
+											<input  type="date" class="maxwidth" name="birth" id="birth">
+										</div>
 									</div>
 
 
