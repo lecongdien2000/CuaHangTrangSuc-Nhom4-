@@ -52,6 +52,10 @@
 	.padding-left{
 		padding-left: 0px;
 	}
+	.textAlign{
+		text-align: center;
+		border: 0.5px solid lightgray;
+	}
 </style>
 </head><!--/head-->
 
@@ -186,6 +190,9 @@
 		</header><!--/header-->
 
 		<section>
+			<div style="height: 60px;">
+
+			</div>
 			<div class="container"> 
 				<h1 class="text-center" style="color: #2B46DC;">Thông tin cá nhân</h1> 
 				<div class="container"> 
@@ -195,116 +202,121 @@
 								<div class="profile-userpic">                 <img src="images/home/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">               
 								</div>                                            
 								<div class="profile-usertitle">                   
-									<div class="profile-usertitle-name">                     Malie                 </div>                  
-									<div class="profile-usertitle-as">                      Vô Vọng!                   </div>              
-								</div>                                               
+									<div class="profile-usertitle-name"> 
+										<input type="text" name="usename" placeholder="Malie" style="width: 50%" class="textAlign" >                 </div>                  
+										<div class="profile-usertitle-as"> 
+											<input type="text" name="usename" placeholder="Vô Vọng!" class="textAlign" style="width: 40%">    </div>              
+										</div>                                               
 
-							</div>     
-						</div>      
-						<div class="col-sm-9"> 
-							<div>
-								<form>
-									<div class="row textcolor">
-										<p>Thông tin liên lạc: </p>
-									</div>
-									<div class="row marginLeft">
-										<div class="col-sm-2"><label for="mail" class="colorText">Email: </label>
-										</div>
-										<div class=" col-sm-10 "><input type="text" class="maxwidth" id="mail" name="email" >
-										</div>
-									</div >
-									<div class="row">
-										<div class="col-sm-2"><label for="sdt" class=" colorText">Số điện thoại: </label>
-										</div>
-										<div class=" col-sm-10">
-											<input type="text" class="maxwidth" id="sdt" name="phone">
-										</div>
-									</div>
-									<div class="row textcolor">
-										<p>Thông tin chung: </p>
-									</div>
-									<div class="row marginLeft">
-										<div class="col-sm-2 padding-left"><label for="gender" class="col-sm-2 inheritWith colorText">Giới tính: </label>
-										</div>
-										<div class="col-sm-10 ">
-											<input type="text" class="maxwidth" name="gender"  id="gender">
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-sm-2 padding-left"><label for="birth" class="col-sm-2 inheritWith colorText">Ngày sinh: </label>
-										</div>
-										<div class="col-sm-10 ">
-											<input  type="date" class="maxwidth" name="birth" id="birth">
-										</div>
-									</div>
+									</div>     
+								</div>      
+								<div class="col-sm-9"> 
+									<div>
+										<form>
+											<div class="row textcolor">
+												<p>Thông tin liên lạc: </p>
+											</div>
+											<div class="row marginLeft">
+												<div class="col-sm-2"><label for="mail" class="colorText">Email: </label>
+												</div>
+												<div class=" col-sm-10 "><input type="text" class="maxwidth" id="mail" name="email" >
+												</div>
+											</div >
+											<div class="row">
+												<div class="col-sm-2"><label for="sdt" class=" colorText">Số điện thoại: </label>
+												</div>
+												<div class=" col-sm-10">
+													<input type="text" class="maxwidth" id="sdt" name="phone">
+												</div>
+											</div>
+											<div class="row textcolor">
+												<p>Thông tin chung: </p>
+											</div>
+											<div class="row marginLeft">
+												<div class="col-sm-2 padding-left"><label for="gender" class="col-sm-2 inheritWith colorText">Giới tính: </label>
+												</div>
+												<div class="col-sm-10 ">
+													<input type="text" class="maxwidth" name="gender"  id="gender">
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-2 padding-left"><label for="birth" class="col-sm-2 inheritWith colorText">Ngày sinh: </label>
+												</div>
+												<div class="col-sm-10 ">
+													<input  type="date" class="maxwidth" name="birth" id="birth">
+												</div>
+											</div>
 
 
-									<div class="row">
-										<label for="descript" style="font-size: 20px;
-										color: lightseagreen; font-weight: normal">Mô tả: </label>
-									</div>
-									<div class="row">
-										<textarea id="descript"></textarea>
-									</div>
+											<div class="row">
+												<label for="descript" style="font-size: 20px;
+												color: lightseagreen; font-weight: normal">Mô tả: </label>
+											</div>
+											<div class="row">
+												<textarea id="descript"></textarea>
+											</div>
 
-									<div id="submit" class="row colorText">
-										<input type="submit"  value="Xác nhận"> 
+											<div id="submit" class="row colorText">
+												<input type="submit"  value="Xác nhận"> 
+											</div>
+										</form>
 									</div>
-								</form>
+								</div>  
 							</div>
-						</div>  
+						</div> 
 					</div>
-				</div> 
-			</div>
+					<div style="height: 150px;">
 
-		</section>
-	<footer id="footer"><!--Footer-->
+					</div>
+
+				</section>
+				<footer id="footer"><!--Footer-->
 
 
-				<div class="footer-widget">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-8">
-								<div class="single-widget">
-									<h2>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Nông Lâm</h2>
-									<ul class="nav nav-pills nav-stacked">
-										<p>217 Quận Thủ Đức, TP. Hồ Chí Minh</p>
-										<p>SĐT: 0988972381</p>
-										<p>Email: nonglamdaquy@nonglam.com</p>	
-									</ul>
+					<div class="footer-widget">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-8">
+									<div class="single-widget">
+										<h2>© 2017 Công Ty Cổ Phần Vàng Bạc Đá Quý Nông Lâm</h2>
+										<ul class="nav nav-pills nav-stacked">
+											<p>217 Quận Thủ Đức, TP. Hồ Chí Minh</p>
+											<p>SĐT: 0988972381</p>
+											<p>Email: nonglamdaquy@nonglam.com</p>	
+										</ul>
+									</div>
 								</div>
-							</div>
-							<div class="col-sm-3 col-sm-offset-1">
-								<div class="single-widget">
-									<h2>Nhận thông tin</h2>
-									<form action="#" class="searchform">
-										<input type="text" placeholder="Email của bạn" />
-										<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
-										<p>Nhận thông tin mới nhất từ cửa hàng của chúng tôi!</p>
-									</form>
+								<div class="col-sm-3 col-sm-offset-1">
+									<div class="single-widget">
+										<h2>Nhận thông tin</h2>
+										<form action="#" class="searchform">
+											<input type="text" placeholder="Email của bạn" />
+											<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
+											<p>Nhận thông tin mới nhất từ cửa hàng của chúng tôi!</p>
+										</form>
+									</div>
 								</div>
-							</div>
 
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="footer-bottom">
-					<div class="container">
-						<div class="row">
+					<div class="footer-bottom">
+						<div class="container">
+							<div class="row">
+							</div>
 						</div>
 					</div>
-				</div>
 
-			</footer><!--/Footer-->
-
+				</footer><!--/Footer-->
 
 
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.scrollUp.min.js"></script>
-		<script src="js/price-range.js"></script>
-		<script src="js/jquery.prettyPhoto.js"></script>
-		<script src="js/main.js"></script>
-	</body>
-	</html>
+
+				<script src="js/jquery.js"></script>
+				<script src="js/bootstrap.min.js"></script>
+				<script src="js/jquery.scrollUp.min.js"></script>
+				<script src="js/price-range.js"></script>
+				<script src="js/jquery.prettyPhoto.js"></script>
+				<script src="js/main.js"></script>
+			</body>
+			</html>
