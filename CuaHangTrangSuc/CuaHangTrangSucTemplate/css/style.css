@@ -133,5 +133,26 @@ img {
 .infor{
 	margin-top: 5px;				
 }
+button{
+	height: 25px;
+	border: none;
+	background-color: #372656;
+	color: #ffffff;
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+button:active{
+	outline: none;
+	background-color: #ffffff ;
+	color: #372656;
+}
+input{
+	height: 25px;
+	border: none;
+	
+}
+input:focus{
+	outline: none;
+}
 
 
