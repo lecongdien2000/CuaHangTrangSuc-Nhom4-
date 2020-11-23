@@ -61,14 +61,14 @@ a:hover {
 /* ------------ */
 /* -- Header -- */
 /* ------------ */
-#header {
+#infoHeader {
 	padding: 50px 0 10px 0;
 	border-bottom: 10px #372656 solid;
 	overflow: hidden;
 	width: 65%;
 	margin: auto;
 }
-#header h1 {
+#infoHeader h1 {
 	float: left;
 	font-size: 40px;
 	font-weight: bold;
@@ -76,7 +76,7 @@ a:hover {
 	margin: 0;
 	color: #372656;
 }
-#header h2 {
+#infoHeader h2 {
 	float: right;
 	font-size: 30px;
 	color: #aaa;
