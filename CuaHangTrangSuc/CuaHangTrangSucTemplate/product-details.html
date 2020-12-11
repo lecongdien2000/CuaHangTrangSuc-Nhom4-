@@ -53,7 +53,63 @@
 		font-size: 16px;
 	}
 
+	/*rating  start*/
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	div.rate{
+		padding-left: 0px;
+		margin-left: 0px;
+	}
+	.rate {
+
+		float: left;
+		height: 46px;
+		padding: 0 10px;
+	}
+	.rate:not(:checked) > input {
+		position:absolute;
+		top:-9999px;
+	}
+	.rate:not(:checked) > label {
+		float:right;
+		width:1em;
+		overflow:hidden;
+		white-space:nowrap;
+		cursor:pointer;
+		font-size:30px;
+		color:#ccc;
+	}
+	.rate:not(:checked) > label:before {
+		content: '★ ';
+	}
+	.rate > input:checked ~ label {
+		color: #ffc700;    
+	}
+	.rate:not(:checked) > label:hover,
+	.rate:not(:checked) > label:hover ~ label {
+		color: #deb217;  
+	}
+	.rate > input:checked + label:hover,
+	.rate > input:checked + label:hover ~ label,
+	.rate > input:checked ~ label:hover,
+	.rate > input:checked ~ label:hover ~ label,
+	.rate > label:hover ~ input:checked ~ label {
+		color: #c59b08;
+	}
+
 </style>
+<script type="text/javascript">
+
+	function picture(){ 
+		var pic = "images/product-details/nhan1.png"
+		document.getElementById('pic').src = pic.replace("80x80", '345x380');
+
+	}
+
+
+</script>
 </head><!--/head-->
 
 <body>
@@ -196,7 +252,7 @@
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-4">
 							<div class="view-product">
-								<img src="images/product-details/nhank.png" alt="" />
+								<img id = "pic" src="images/product-details/nhank.png" alt="" />
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 
@@ -204,18 +260,18 @@
 								<div class="carousel-inner">
 									<div class="item active">
 										<a href=""><img src="images/product-details/nhanCHon.png" alt=""></a>
-										<a href=""><img src="images/product-details/nhan1.png" alt=""></a>
-										<a href=""><img src="images/product-details/nhan2.png" alt=""></a>
+										<a href=""><img id = "pic1" onclick="picture()" src="images/product-details/nhan1.png" alt=""></a>
+										<a href=""><img id = "pic2" src="images/product-details/nhan2.png" alt=""></a>
 									</div>
 									<div class="item">
 										<a href=""><img src="images/product-details/nhanCHon.png" alt=""></a>
-										<a href=""><img src="images/product-details/nhan1.png" alt=""></a>
-										<a href=""><img src="images/product-details/nhan2.png" alt=""></a>
+										<a href=""><img id = "pic11" src="images/product-details/nhan1.png" alt=""></a>
+										<a href=""><img id = "pic12" src="images/product-details/nhan2.png" alt=""></a>
 									</div>
 									<div class="item">
 										<a href=""><img src="images/product-details/nhanCHon.png" alt=""></a>
-										<a href=""><img src="images/product-details/nhan1.png" alt=""></a>
-										<a href=""><img src="images/product-details/nhan2.png" alt=""></a>
+										<a href=""><img id = "pic111" src="images/product-details/nhan1.png" alt=""></a>
+										<a href=""><img id = "pic122" src="images/product-details/nhan2.png" alt=""></a>
 									</div>
 
 								</div>
@@ -235,7 +291,18 @@
 								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
 								<h2>Nhẫn Kim cương Vàng trắng 14K DDDDW000106</h2>
 								<p>MÃ: GNDDDDW000106</p>
-								<img src="images/product-details/rating.png" alt="" />
+								<div class="rate">
+									<input type="radio" id="star5" name="rate" value="5" />
+									<label for="star5" title="text">5 stars</label>
+									<input type="radio" id="star4" name="rate" value="4" />
+									<label for="star4" title="text">4 stars</label>
+									<input type="radio" id="star3" name="rate" value="3" />
+									<label for="star3" title="text">3 stars</label>
+									<input type="radio" id="star2" name="rate" value="2" />
+									<label for="star2" title="text">2 stars</label>
+									<input type="radio" id="star1" name="rate" value="1" />
+									<label for="star1" title="text">1 star</label>
+								</div>
 								<p></p>
 								<span>
 									<span>13.454.000 đ
@@ -341,7 +408,23 @@
 												<input type="email" placeholder="Địa chỉ email"/>
 											</span>
 											<textarea name="" ></textarea>
-											<b>Xếp hạng: </b> <img src="images/product-details/rating.png" alt="" />
+											<b style="position: relative;
+											bottom: 17px;
+											">Xếp hạng: </b> 
+											<span style="display: inline-block;">
+												<div class="rate">
+													<input type="radio" id="star5" name="rate" value="5" />
+													<label for="star5" title="text">5 stars</label>
+													<input type="radio" id="star4" name="rate" value="4" />
+													<label for="star4" title="text">4 stars</label>
+													<input type="radio" id="star3" name="rate" value="3" />
+													<label for="star3" title="text">3 stars</label>
+													<input type="radio" id="star2" name="rate" value="2" />
+													<label for="star2" title="text">2 stars</label>
+													<input type="radio" id="star1" name="rate" value="1" />
+													<label for="star1" title="text">1 star</label>
+												</div>
+											</span>
 											<button type="button" class="btn btn-default pull-right">
 												Gửi
 											</button>
@@ -363,11 +446,11 @@
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/recomendnhanChon.png" alt="" />
-														<h2>20.924.000đ</h2>
-														<p>Nhẫn Kim cương Vàng trắng 14K DD00W000225</p>
-														<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-													</a>
+															<img src="images/home/recomendnhanChon.png" alt="" />
+															<h2>20.924.000đ</h2>
+															<p>Nhẫn Kim cương Vàng trắng 14K DD00W000225</p>
+															<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+														</a>
 													</div>
 												</div>
 											</div>
@@ -377,11 +460,11 @@
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/recomend2.png" alt="" />
-														<h2>18.458.000đ</h2>
-														<p>Nhẫn Kim cương Vàng trắng 14K DD00W000229</p>
-														<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-													</a>
+															<img src="images/home/recomend2.png" alt="" />
+															<h2>18.458.000đ</h2>
+															<p>Nhẫn Kim cương Vàng trắng 14K DD00W000229</p>
+															<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+														</a>
 													</div>
 												</div>
 											</div>
@@ -391,11 +474,11 @@
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/recomend3.png" alt="" />
-														<h2>3.191.000đ</h2>
-														<p>Nhẫn Vàng trắng 10K đính đá ECZ Swarovski XMXMW000093</p>
-														<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-													</a>
+															<img src="images/home/recomend3.png" alt="" />
+															<h2>3.191.000đ</h2>
+															<p>Nhẫn Vàng trắng 10K đính đá ECZ Swarovski XMXMW000093</p>
+															<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+														</a>
 													</div>
 												</div>
 											</div>
@@ -407,11 +490,11 @@
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/recomendnhanChon.png" alt="" />
-														<h2>$20.924.000đ</h2>
-														<p>Nhẫn Kim cương Vàng trắng 14K DD00W000225</p>
-														<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-													</a>
+															<img src="images/home/recomendnhanChon.png" alt="" />
+															<h2>$20.924.000đ</h2>
+															<p>Nhẫn Kim cương Vàng trắng 14K DD00W000225</p>
+															<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+														</a>
 													</div>
 												</div>
 											</div>
@@ -421,11 +504,11 @@
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/recomend2.png" alt="" />
-														<h2>18.458.000đ</h2>
-														<p>Nhẫn Kim cương Vàng trắng 14K DD00W000229</p>
-														<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-													</a>
+															<img src="images/home/recomend2.png" alt="" />
+															<h2>18.458.000đ</h2>
+															<p>Nhẫn Kim cương Vàng trắng 14K DD00W000229</p>
+															<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+														</a>
 													</div>
 												</div>
 											</div>
@@ -435,11 +518,11 @@
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/recomend3.png" alt="" />
-														<h2>3.191.000đ</h2>
-														<p>Nhẫn Vàng trắng 10K đính đá ECZ Swarovski XMXMW000093</p>
-														<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
-													</a>
+															<img src="images/home/recomend3.png" alt="" />
+															<h2>3.191.000đ</h2>
+															<p>Nhẫn Vàng trắng 10K đính đá ECZ Swarovski XMXMW000093</p>
+															<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</button>
+														</a>
 													</div>
 												</div>
 											</div>
