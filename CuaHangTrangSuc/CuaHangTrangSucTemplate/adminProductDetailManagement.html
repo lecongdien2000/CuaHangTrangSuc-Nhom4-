@@ -38,7 +38,10 @@
 			border-bottom: 0.5px solid #c8c8c8;
 			border-top: 0.5px solid #c8c8c8;
 		}
-
+		.picLink{
+			width: 100%;
+			margin-bottom: 20px;
+		}
 	</style>
 </head>
 <body>
@@ -126,6 +129,15 @@
 									<i class="fa fa-angle-right"></i>
 								</a>
 							</div>
+							<div class="linkImages">
+								<h3>Link ảnh</h3>
+								<p>Ảnh 1</p>
+								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+								<p>Ảnh 2</p>
+								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+								<p>Ảnh 3</p>
+								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+							</div>
 
 						</div>
 
@@ -138,7 +150,7 @@
 									<p>Mã sản phẩm</p>
 									<input type="text" name="productId" id="productId" value="GNDDDW000106">
 									<p>Giá</p>
-									<input type="text" name="producPrice" id="producPrice" value="13.454.000 đ">
+									<input type="number" name="producPrice" id="producPrice" value="13454000">
 									<p>Số lượng</p>
 									<input type="number" name="productNumber" id="productNumber" value="11">
 								</div>
@@ -153,12 +165,26 @@
 									</select>
 									<p>Loại</p>
 									<select id="type">
-										<option>Nhẫn</option>
-										<option>Lắc</option>
-										<option>Vòng tay</option>
-										<option>Dây chuyền</option>
-										<option>Đồng hồ</option>
+										<option value="nhan">Nhẫn</option>
+										<option value="lac">Lắc và vòng tay</option>
+										<option value="bongTai">Bông tai</option>
+										<option value="dayChuyen">Dây chuyền</option>
+										<option value="dongHo">Đồng hồ</option>
 									</select>
+									<p>Đính kèm</p>
+									<select name="stoneColor" id="color" class="select">
+    									<option value="non">Không có đính kèm</option>
+    									<option value="diamon">Đính kim cương</option>
+  									  	<option value="gemStone">Đính đá quý</option>
+    									<option value="pearl">Đính ngọc trai</option>
+    									<option value="ecz">ECZ</option>
+  									</select>
+  									<p>Độ tuổi</p>
+  									<select name="stage" id="age" class="select">
+										<option value="tatCa">Tất cả</option>
+    									<option value="do">Trẻ em</option>
+    									<option value="den">Người lớn</option>
+  									</select>
 								</div>
 							</div><!--/product-information-->
 						</div>
