@@ -1,0 +1,64 @@
+
+
+.contain{
+	border-bottom: 1px black solid;
+}
+
+.category-tab ul{
+	height: 50px;
+}
+.category-tab ul li, a{
+	height: 100%;
+}
+.category-tab ul li a{
+    padding: 15px 15px;
+}
+.billContain{
+	margin-bottom: 50px;
+}
+.headTitle{
+	height: 30px;
+	margin-left: 15px;
+    margin-right: 15px;
+	background-color: #2B46DC;
+}
+.headTitle p{
+	color: #ffffff;
+	padding-top: 5px;
+}
+.headTitle div{
+	height: 100%;
+}
+.productList {
+	height: 300px;
+	overflow: auto;
+}
+.productInfor {
+	height: 100px;
+	background-color: #ffffff;
+	margin-left: 15px;
+	margin-right: 15px;
+	border-bottom: 1px solid #ecebeb;
+}
+.productInfor div{
+	height: 100%;
+}
+.productInfor > .col-sm-6{
+	padding-right: 0px;
+}
+.index{
+	padding-top: 10px;
+}
+.cancelBill {
+	margin-top: 50px;
+}
+.cancelBill .btn{
+	width: 100%;
+	background-color: #e61515;
+    color: #ffffff;
+    margin: auto;
+}
+.cancelBill .btn:active{
+	background-color: #b01717;
+	color: #fff7f7;
+}
