@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Chi tiết sản phẩm | Admin</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/prettyPhoto.css" rel="stylesheet">
+	<link href="css/price-range.css" rel="stylesheet">
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/productDetailManagement.css">
+	<link rel="icon" href="images/logoFavicon.png" type="image/icon type">
+	<style type="text/css">
+		.product-information{
+			border: 2px solid #c8c8c8;
+		}
+		.product-information .productinfomation > input{
+			border: 1px solid #9E9E9E;
+		}
+		.mainmenu ul li a:focus{
+			background-color: white;
+		}
+		.mainmenu ul li a:hover{
+			color: #3650de;
+
+		}
+		.mainmenu ul li a{
+			font-weight: 700;
+
+		}
+		.header-bottom{
+			border-bottom: 0.5px solid #c8c8c8;
+			border-top: 0.5px solid #c8c8c8;
+		}
+		.picLink{
+			width: 100%;
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+
+	<!-- header !-->
+	<header id="header" class="navbar-fixed-top"><!--header-->
+		<!-- not have header top !-->
+		<div class="header-middle "><!--header-middle-->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 clearfix">
+						<div class="logo pull-left">
+							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+						</div>
+					</div>
+					<div class="col-md-4 clearfix">
+						<div class="shop-menu clearfix pull-right">
+							<ul class="nav navbar-nav">
+								<li><a href="Admin-Profile.html"><i class="fa fa-user"></i>Nguyễn Văn A</a></li>
+								<li><a href="admin_login.html"><i class="fa fa-sign-out" ></i> Đăng xuất</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-middle-->
+
+		<div class="header-bottom" id="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="mainmenu pull-left" >
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<li class="dropdown"><a href="admin-user-management.html">Khách hàng</a>
+								</li> 
+								<li class="dropdown"><a href="admin-product-management.html">Sản phẩm</a>
+								</li> 
+								<li class="dropdown"><a href="admin-bill-management.html">Hóa đơn</a>
+								</li> 
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->
+	</header><!--/header-->
+	<!-- container!-->
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 padding-right">
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-1"></div> <!-- empty !-->
+						<div class="col-sm-4">
+							<div class="view-product">
+								<img src="../productsInfo/products/1.png" alt="" />
+							</div>
+							<div id="similar-product" class="carousel slide" data-ride="carousel">
+
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner">
+									<div class="item active">
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+									</div>
+									<div class="item">
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+									</div>
+									<div class="item">
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+									</div>
+
+								</div>
+
+								<!-- Controls -->
+								<a class="left item-control" href="#similar-product" data-slide="prev">
+									<i class="fa fa-angle-left"></i>
+								</a>
+								<a class="right item-control" href="#similar-product" data-slide="next">
+									<i class="fa fa-angle-right"></i>
+								</a>
+							</div>
+							<div class="linkImages">
+								<h3>Link ảnh</h3>
+								<p>Ảnh 1</p>
+								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+								<p>Ảnh 2</p>
+								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+								<p>Ảnh 3</p>
+								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+							</div>
+
+						</div>
+
+						<div class="col-sm-6">
+							<div class="product-information" ><!--/product-information-->
+								<div id="basicInfor" class="productinfomation">
+									<h3>Thông tin cơ bản</h3>
+									<p>Tên sản phẩm</p>
+									<input type="text" name="productName" id="productName" value="Nhẫn kim cương vàng trắng14k DDDDW000106">
+									<p>Mã sản phẩm</p>
+									<input type="text" name="productId" id="productId" value="GNDDDW000106">
+									<p>Giá</p>
+									<input type="number" name="producPrice" id="producPrice" value="13454000">
+									<p>Số lượng</p>
+									<input type="number" name="productNumber" id="productNumber" value="11">
+								</div>
+								<div class="productinfomation">
+									<h3>Thông số</h3>
+									<p>Thương hiệu</p>
+									<input type="text" name="productName" id="productName" value="PNJsilver">
+									<p>Giới tính</p>
+									<select id="gender">
+										<option>Nữ</option>
+										<option>Nam</option>
+									</select>
+									<p>Loại</p>
+									<select id="type">
+										<option value="nhan">Nhẫn</option>
+										<option value="lac">Lắc và vòng tay</option>
+										<option value="bongTai">Bông tai</option>
+										<option value="dayChuyen">Dây chuyền</option>
+										<option value="dongHo">Đồng hồ</option>
+									</select>
+									<p>Đính kèm</p>
+									<select name="stoneColor" id="color" class="select">
+    									<option value="non">Không có đính kèm</option>
+    									<option value="diamon">Đính kim cương</option>
+  									  	<option value="gemStone">Đính đá quý</option>
+    									<option value="pearl">Đính ngọc trai</option>
+    									<option value="ecz">ECZ</option>
+  									</select>
+  									<p>Độ tuổi</p>
+  									<select name="stage" id="age" class="select">
+										<option value="tatCa">Tất cả</option>
+    									<option value="do">Trẻ em</option>
+    									<option value="den">Người lớn</option>
+  									</select>
+								</div>
+							</div><!--/product-information-->
+						</div>
+						<div class="col-sm-1"></div> <!-- empty !-->
+					</div><!--/product-details-->
+
+
+					<div class="row">
+						<div class="descriptionProduct"><!--recommended_items-->
+							<h2 class="title text-center">Mô tả sản phẩm</h2>
+							<div class="col-sm-1"></div>
+							<div class="col-sm-10">
+								<textarea rows="5" name="productDescription">Nằm trong BST Nhẫn cặp, mẫu trang sức nhẫn bạc tựa như “máy chuyển phát tình yêu” gửi những cái ôm ấm áp, những chiếc hôn ngọt ngào hay là những cái nắm tay thật chặt gửi đến nàng khi không kề bên. Đặc biệt, nhẫn như lá bùa hộ mệnh giúp chàng đánh dấu chủ quyền, tránh xa những vệ tinh xung quanh.</textarea>
+							</div>
+							<div class="col-sm-1"></div>
+						</div>
+					</div><!--/recommended_items-->
+					<!-- change detail information !-->
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="changeDetail col-sm-12" >
+					<button class="btn">Lưu thay đổi</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

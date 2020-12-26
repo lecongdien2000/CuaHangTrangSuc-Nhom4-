@@ -1,0 +1,158 @@
+/*
+Template Name: Hoshi
+Description: A Single Page Portfolio HTML Template
+Author: Chris Creed
+URL: http://www.chris-creed.com
+*/
+
+@import "reset.css";
+/* ----------- */
+/* -- Tools -- */
+/* ----------- */
+.line {
+	clear: both;
+	height: 3px;
+	background-color: #ddd;
+	margin: 40px 0 50px 0;
+}
+/* -------------------- */
+/* -- General Styles -- */
+/* -------------------- */
+#wrap {
+	margin: 0 auto;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #99d9ea;
+	color: #666;
+}
+h1 {
+	font-size: 38px;
+	margin: 0 0 30px 0;
+}
+h2 {
+	font-size: 34px;
+	margin: 0 0 30px 0;
+}
+h3 {
+	font-size: 24px;
+	margin: 30px 0 30px 0;
+}
+h4 {
+	font-size: 20px;
+	margin: 30px 0 15px 0;
+}
+h5 {
+	font-size: 18px;
+	margin: 30px 0 5px 0;
+}
+p {
+	font-size: 14px;
+	line-height: 22px;
+	margin: 0 0 15px 0;
+}
+a {
+	text-decoration: none;
+	color: #cc0000;
+}
+a:hover {
+	color: #666;
+}
+/* ------------ */
+/* -- Header -- */
+/* ------------ */
+#infoHeader {
+	padding: 50px 0 10px 0;
+	border-bottom: 10px #372656 solid;
+	overflow: hidden;
+	width: 65%;
+	margin: auto;
+}
+#infoHeader h1 {
+	float: left;
+	font-size: 40px;
+	font-weight: bold;
+	letter-spacing: -2px;
+	margin: 0;
+	color: #372656;
+}
+#infoHeader h2 {
+	float: right;
+	font-size: 30px;
+	color: #aaa;
+	margin: 8px 0 0 0;
+	letter-spacing: -1px;
+}
+/* --------- */
+/* -- Bio -- */
+/* --------- */
+#bio {
+	margin: 55px 0 40px 0;
+}
+#bio h3 {
+	font-size: 20px;
+	color: #372656;
+	margin: 0 0 17px 0;
+}
+#bio h4 {
+	font-size: 20px;
+	margin: 0 0 0 0;
+}
+
+#bio h4 span {
+	color: #888;
+}
+#bio h5 {
+	font-size: 16px;
+	margin: 9px 0 0 0;
+}
+#bio p {
+	line-height: 22px;
+	margin: 0 0 23px 0;
+}
+#bio #about {
+	
+	margin: 0 0 60px 0;
+}
+#photo-bg {
+	padding: 5px;
+}
+img {
+	border: 5px solid #ffffff;
+	
+}
+#contact-details {
+	border-left: 3px solid #ffffff;
+}
+#contact-details h5 {
+	color: #555;
+}
+#contact-details h5 span {
+	color: #888;
+}
+.infor{
+	margin-top: 5px;				
+}
+button{
+	height: 25px;
+	border: none;
+	background-color: #372656;
+	color: #ffffff;
+	margin-bottom: 10px;
+	margin-left: 15px;
+}
+button:active{
+	outline: none;
+	background-color: #ffffff ;
+	color: #372656;
+}
+input{
+	height: 25px;
+	border: none;
+	
+}
+input:focus{
+	outline: none;
+}
+
+
