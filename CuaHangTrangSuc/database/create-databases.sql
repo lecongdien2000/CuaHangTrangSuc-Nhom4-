@@ -64,8 +64,8 @@ CREATE TABLE `BILL_DETAIL` (
 CREATE TABLE `PRODUCT_DETAIL` (
   `id_product` varchar(20)  NOT NULL,
   `trademark` varchar(20) NOT NULL,
-  `gender` varchar(5) NOT NULL,
-  `description` varchar(200),
+  `gender` varchar(5),
+  `description` varchar(2000),
   `rate` int NOT NULL,
   `is_diamond` bool,
   `is_gemstone` bool,
