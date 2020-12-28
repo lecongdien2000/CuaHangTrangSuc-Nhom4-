@@ -18,7 +18,7 @@ public class search extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Collection<Product> data = ProductsData.getDataByName((String) request.getAttribute("keyword")).values();
+        Collection<Product> data = ProductsData.getDataByName(request.getParameter("keyword")).values();
         request.setAttribute("data", data);
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }

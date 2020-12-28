@@ -17,6 +17,7 @@ public class ProductsData {
           return getDataQuery("Select * from product p join product_detail pd where p.id_product = pd.id_product");
     }
     public  static HashMap<String, Product> getDataByName(String name){
+        if(name==null) return null;
         name = name.toLowerCase();
         return getDataQuery("Select * from product p join product_detail pd where p.id_product = pd.id_product" +
                 " and lower(p.product_name) like /'%"+name+"%/'");
