@@ -69,7 +69,7 @@ CREATE TABLE `PRODUCT_DETAIL` (
   `rate` int NOT NULL,
   `is_diamond` bool,
   `is_gemstone` bool,
-  `is_ezc` bool,
+  `is_ecz` bool,
   `is_pearl` bool,
   `is_plain` bool,
   `is_child` bool,
