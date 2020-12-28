@@ -333,20 +333,21 @@
 						<div class="col-sm-9 padding-right">
 							<div class="features_items"><!--features_items-->
 								<h2 class="title text-center">Bán chạy nhất</h2>
+								<c:forEach items="${data}" var="product">
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-												<img src="images/home/product1.jpg" alt="" />
-												<h2>655.000 đ</h2>
-												<p>Nhẫn nam bạc đính đá PNJSilver XM00K000143</p>
+												<img src="${product.getPicture1()}" alt="" />
+												<h2>${product.getPrice()}</h2>
+												<p>${product.getProduct_name()}</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 											</div>
 											<a href="product-details.html">
 												<div class="product-overlay">
 													<div class="overlay-content">
-														<h2>655.000 đ</h2>
-														<p>Nhẫn nam bạc đính đá PNJSilver XM00K000143</p>
+														<h2>${product.getPrice()}</h2>
+														<p>${product.getProduct_name()}</p>
 														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 													</div>
 												</div>
@@ -354,239 +355,33 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product2.jpg" alt="" />
-												<h2>6.198.000 đ</h2>
-												<p>Nhẫn Vàng trắng 14K đính đá Topaz PNJ TPXMW000002</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>6.198.000 đ</h2>
-													<p>Nhẫn Vàng trắng 14K đính đá Topaz PNJ TPXMW000002</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
+								</c:forEach>
 							</div><!--features_items-->
 							<div class="more"><a href="#">Xem thêm</a></div>
 							<div class="features_items"><!--features_items-->
 								<h2 class="title text-center">HOT TRONG TUẦN</h2>
+								<c:forEach items="${dataHot}" var="product">
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
-												<img src="images/home/product1.jpg" alt="" />
-												<h2>655.000 đ</h2>
-												<p>Nhẫn nam bạc đính đá PNJSilver XM00K000143</p>
+												<img src="${product.getPicture1()}" alt="" />
+												<h2>${product.getPrice()}</h2>
+												<p>${product.getProduct_name()}</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 											</div><a href="product-details.html">
 											<div class="product-overlay">
 												<div class="overlay-content">
-													<h2>655.000 đ</h2>
-													<p>Nhẫn nam bạc đính đá PNJSilver XM00K000143</p>
+													<h2>${product.getPrice()}</h2>
+													<p>${product.getProduct_name()}</p>
 													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 												</div>
 											</div></a>
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product2.jpg" alt="" />
-												<h2>6.198.000 đ</h2>
-												<p>Nhẫn Vàng trắng 14K đính đá Topaz PNJ TPXMW000002</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>6.198.000 đ</h2>
-													<p>Nhẫn Vàng trắng 14K đính đá Topaz PNJ TPXMW000002</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-4">
-									<div class="product-image-wrapper">
-										<div class="single-products">
-											<div class="productinfo text-center">
-												<img src="images/home/product3.jpg" alt="" />
-												<h2>1.391.000 đ</h2>
-												<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-											</div>
-											<a href="product-details.html">
-											<div class="product-overlay">
-												<div class="overlay-content">
-													<h2>1.391.000 đ</h2>
-													<p>Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-											</div>
-										</a>
-										</div>
-									</div>
-								</div>
+								</c:forEach>
+
 							</div>
 							<div class="more"><a href="#">Xem thêm</a></div>
 							<div class="category-tab"><!--category-tab-->
@@ -607,7 +402,7 @@
 													<div class="productinfo text-center">
 														<a href="product-details.html">
 														<img src="images/home/gallery1.jpg" alt="" />
-														<h2>3.941.000 đ</h2>
+														<h2>3.941.000s đ</h2>
 														<p>Nhẫn cưới Kim cương Vàng trắng 14K PNJ Chung Đôi DD00W000480</p>
 														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 													</a>
@@ -1051,7 +846,9 @@
 								<div class="single-widget">
 									<h2>Nhận thông tin</h2>
 									<form action="#" class="searchform">
-										<input type="text" placeholder="Email của bạn" />
+										<label>
+											<input type="text" placeholder="Email của bạn" />
+										</label>
 										<button type="submit" class="btn btn-default"><i class="fa fa-arrow-circle-o-right"></i></button>
 										<p>Nhận thông tin mới nhất từ cửa hàng của chúng tôi!</p>
 									</form>
