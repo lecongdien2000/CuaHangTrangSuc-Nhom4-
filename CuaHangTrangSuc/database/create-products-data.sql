@@ -49,7 +49,7 @@ INSERT INTO product VALUES('SV0000K000045', 'Vòng tay trẻ em bạc  0000K0000
 INSERT INTO product VALUES('SV0000K000072', 'Vòng tay bạc  Her Time 0000K000072','products/48.png', null, null, 498000.0, '3', 55);
 INSERT INTO product VALUES('SLXMZTK000002', 'Lắc chân bạc đính đá màu đen  XMZTK000002','products/49.png', 'products2/49.png', 'products3/49.png',546000.0, '3', 25);
 INSERT INTO product VALUES('SVNH00W000001', 'Vòng tay bạc  Gem Melting NH00W000001','products/50.png', 'products2/50.png', null, 945000.0, '3', 59);
-INSERT INTO product VALUES('SV0000C000005', 'Vòng tay bạc  Frozen 0000C000005','products/51png', 'products2/51png', 'products3/51png',1295000.0, '3', 40);
+INSERT INTO product VALUES('SV0000C000005', 'Vòng tay bạc  Frozen 0000C000005','products/51.png', 'products2/51.png', 'products3/51.png',1295000.0, '3', 40);
 INSERT INTO product VALUES('SVXMXMK000015', 'Vòng tay bạc đính đá  XMXMK000015','products/52.png', 'products2/52.png', 'products3/52.png',857000.0, '3', 120);
 INSERT INTO product VALUES('SV0000W000007', 'Vòng tay bạc Ximen  0000W000007','products/53.png', 'products2/53.png', 'products3/53.png',1045000.0, '3', 50);
 INSERT INTO product VALUES('SV0000Y000021', 'Vòng tay bạc Ximen  0000Y000021','products/54.png', 'products2/54.png', 'products3/54.png',895000.0, '3', 220);
