@@ -9,7 +9,7 @@ public class Product implements Serializable {
     private double price;
     private String id_category;
     private int quantity;
-
+    private ProductDetail productDetail;
     public Product(String id_product, String product_name, String picture1, String picture2, String picture3, double price, String id_category, int quantity) {
         this.id_product = id_product;
         this.product_name = product_name;
@@ -20,6 +20,93 @@ public class Product implements Serializable {
         this.id_category = id_category;
         this.quantity = quantity;
     }
+
+
+    public void setProductDetail(String trademark, String gender, String description, int rate, boolean isDiamond,
+                                 boolean isGemstone, boolean isECZ, boolean isPearl, boolean isPlain, boolean isChild){
+        productDetail = new ProductDetail(trademark, gender, description, rate, isDiamond, isGemstone, isECZ, isPearl, isPlain, isChild);
+    }
+
+    public String getTrademark() {
+        return productDetail.getTrademark();
+    }
+
+    public void setTrademark(String trademark) {
+        productDetail.setTrademark(trademark);
+    }
+
+    public String getGender() {
+        return productDetail.getGender();
+    }
+
+    public void setGender(String gender) {
+        productDetail.setGender(gender);
+    }
+
+    public String getDescription() {
+        return productDetail.getDescription();
+    }
+
+    public void setDescription(String description) {
+        productDetail.setDescription(description);
+    }
+
+    public int getRate() {
+        return productDetail.getRate();
+    }
+
+    public void setRate(int rate) {
+        productDetail.setRate(rate);
+    }
+
+    public boolean isDiamond() {
+        return productDetail.isDiamond();
+    }
+
+    public void setDiamond(boolean diamond) {
+        productDetail.setDiamond(diamond);
+    }
+
+    public boolean isGemstone() {
+        return productDetail.isGemstone();
+    }
+
+    public void setGemstone(boolean gemstone) {
+        productDetail.setGemstone(gemstone);
+    }
+
+    public boolean isECZ() {
+        return productDetail.isECZ();
+    }
+
+    public void setECZ(boolean ECZ) {
+        productDetail.setECZ(ECZ);
+    }
+
+    public boolean isPearl() {
+        return productDetail.isPearl();
+    }
+
+    public void setPearl(boolean pearl) {
+        productDetail.setPearl(pearl);
+    }
+
+    public boolean isPlain() {
+        return productDetail.isPlain();
+    }
+
+    public void setPlain(boolean plain) {
+        productDetail.setPlain(plain);
+    }
+
+    public boolean isChild() {
+        return productDetail.isChild();
+    }
+
+    public void setChild(boolean child) {
+        productDetail.setChild(child);
+    }
+
 
     public Product(){
 
@@ -88,4 +175,19 @@ public class Product implements Serializable {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
+
+    public String getStringPrice(){
+        String stringPrice = String.valueOf(price);
+        stringPrice = stringPrice.substring(0, stringPrice.lastIndexOf("."));
+        String result ="";
+        int length = stringPrice.length();
+        while(length/3>0){
+            result = result + "." + stringPrice.substring(length - 4, length);
+            stringPrice = stringPrice.substring(0, length - 3);
+            length = stringPrice.length();
+        }
+        result = stringPrice + result + " VND";
+        return result;
+    }
+
 }

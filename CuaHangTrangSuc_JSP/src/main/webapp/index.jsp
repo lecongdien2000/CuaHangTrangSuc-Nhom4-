@@ -161,7 +161,10 @@
 						</div>
 						<div class="col-sm-3">
 							<div class="search_box pull-right">
-								<input type="text" placeholder="Tìm kiếm"/>
+								<form action="search" method="get">
+									<input name="keyword" type="text" placeholder="Tìm kiếm" />
+								</form>
+
 							</div>
 						</div>
 					</div>
@@ -333,14 +336,14 @@
 						<div class="col-sm-9 padding-right">
 							<div class="features_items"><!--features_items-->
 								<h2 class="title text-center">Bán chạy nhất</h2>
-								<c:forEach items="${data}" var="product">
+								<c:forEach items="${data}" var="product" begin="0" end="5">
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="${product.getPicture1()}" alt="" />
-												<h2>${product.getPrice()}</h2>
-												<p>${product.getProduct_name()}</p>
+												<h2>${product.getStringPrice()}</h2>
+												<p>${product.getProduct_name()} link ${product.getPicture1()}</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 											</div>
 											<a href="product-details.html">
@@ -360,7 +363,7 @@
 							<div class="more"><a href="#">Xem thêm</a></div>
 							<div class="features_items"><!--features_items-->
 								<h2 class="title text-center">HOT TRONG TUẦN</h2>
-								<c:forEach items="${dataHot}" var="product">
+								<c:forEach items="${dataHot}" var="product" begin="6" end="11">
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">
 										<div class="single-products">
@@ -396,14 +399,15 @@
 								</div>
 								<div class="tab-content">
 									<div class="tab-pane fade active in" id="tshirt" >
+                                        <c:forEach var="product" items="${ring}">
 										<div class="col-sm-3">
 											<div class="product-image-wrapper">
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/gallery1.jpg" alt="" />
-														<h2>3.941.000s đ</h2>
-														<p>Nhẫn cưới Kim cương Vàng trắng 14K PNJ Chung Đôi DD00W000480</p>
+														<img src="${product.getPicture1()}" alt="" />
+														<h2>${product.getPrice()}</h2>
+														<p>${product.getProduct_name()}</p>
 														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 													</a>
 													</div>
@@ -411,62 +415,19 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery2.jpg" alt="" />
-														<h2>4.312.000 đ</h2>
-														<p>Nhẫn cưới nam Kim cương Vàng trắng 14K PNJ Chung Đôi DD00W000360</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery3.jpg" alt="" />
-														<h2>4.544.000 đ</h2>
-														<p>Nhẫn cưới nam Kim cương Vàng trắng 14K PNJ Chung Đôi DD00W000374</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery4.jpg" alt="" />
-														<h2>4.648.000 đ</h2>
-														<p>Nhẫn cưới Kim cương Vàng trắng 14K PNJ Chung Đôi DD00W000477</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
+                                        </c:forEach>
 									</div>
 
 									<div class="tab-pane fade" id="blazers" >
+                                        <c:forEach var="product" items="${bongtai}">
 										<div class="col-sm-3">
 											<div class="product-image-wrapper">
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/gallery4.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
+														<img src="${product.getPicture1()}" alt="" />
+														<h2>${product.getPrice()}</h2>
+														<p>${product.getProduct_name()}</p>
 														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 													</a>
 													</div>
@@ -474,62 +435,19 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery3.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery2.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery1.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
+                                        </c:forEach>
 									</div>
 
 									<div class="tab-pane fade" id="sunglass" >
+                                        <c:forEach var="product" items="${bongtai}">
 										<div class="col-sm-3">
 											<div class="product-image-wrapper">
 												<div class="single-products">
 													<div class="productinfo text-center">
 														<a href="product-details.html">
-														<img src="images/home/gallery3.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
+                                                            <img src="${product.getPicture1()}" alt="" />
+                                                            <h2>${product.getPrice()}</h2>
+                                                            <p>${product.getProduct_name()}</p>
 														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 													</a>
 													</div>
@@ -537,51 +455,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery4.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery1.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery2.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
+                                        </c:forEach>
 									</div>
 
 									<div class="tab-pane fade" id="kids" >
@@ -591,51 +465,6 @@
 													<div class="productinfo text-center">
 														<a href="product-details.html">
 														<img src="images/home/gallery1.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery2.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery3.jpg" alt="" />
-														<h2>$56</h2>
-														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-													</a>
-													</div>
-
-												</div>
-											</div>
-										</div>
-										<div class="col-sm-3">
-											<div class="product-image-wrapper">
-												<div class="single-products">
-													<div class="productinfo text-center">
-														<a href="product-details.html">
-														<img src="images/home/gallery4.jpg" alt="" />
 														<h2>$56</h2>
 														<p>Easy Polo Black Edition</p>
 														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
