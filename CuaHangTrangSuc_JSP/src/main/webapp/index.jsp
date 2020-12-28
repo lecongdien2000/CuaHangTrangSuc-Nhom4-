@@ -1,4 +1,7 @@
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -289,6 +292,7 @@
 											<ul>
 												<li><a href="#">Nam </a></li>
 												<li><a href="#">Nữ </a></li>
+											</ul>
 											</div>
 										</div>
 									</div>

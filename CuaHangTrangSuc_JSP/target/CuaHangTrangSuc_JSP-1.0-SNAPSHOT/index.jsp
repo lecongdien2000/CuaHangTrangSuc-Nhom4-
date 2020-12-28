@@ -1,4 +1,7 @@
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,16 +81,16 @@
 									String name = (String)session.getAttribute("uname");
 									if(name==null){
 								%>
-								<li><a href="login.html"><i class="fa fa-lock"></i></a></li>
+								<li><a href="login.jsp"><i class="fa fa-lock"></i></a></li>
 								<%
 								} else{
 								%>
-								<li><a href="#"><i><%=name%> </i></a></li>
+								<li><a href="user_profile.jsp"><i><%=name%> </i></a></li>
 								<li><a href="logout"><i class="fa fa-sign-out"></i></a></li>
-								<li><a href="user_profile.html"><i class="fa fa-user"></i></a></li>
-								<li><a href="user-bill-management.html"><i class="fa fa-file-text"></i></a></li>
+								<li><a href="user_profile.jsp"><i class="fa fa-user"></i></a></li>
+								<li><a href="user-bill-management.jsp"><i class="fa fa-file-text"></i></a></li>
 								<%}%>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+								<li><a href="cart.jsp"><i class="fa fa-shopping-cart"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -289,6 +292,7 @@
 											<ul>
 												<li><a href="#">Nam </a></li>
 												<li><a href="#">Nữ </a></li>
+											</ul>
 											</div>
 										</div>
 									</div>
