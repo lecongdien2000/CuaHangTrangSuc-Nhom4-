@@ -186,9 +186,10 @@ public class Product implements Serializable {
             stringPrice = stringPrice.substring(0, length - 3);
             length = stringPrice.length();
         }
-        result = result.substring(0, result.length() - 1);
-        result = stringPrice.length()>0?stringPrice + "." + result + " VND": result + " VND";
-        return result;
+//        result = result.substring(0, result.length() - 1);
+        if(length>0)
+            result = stringPrice + "." + result;
+        return result.substring(0, result.length() - 1) + " VND";
     }
 
 }

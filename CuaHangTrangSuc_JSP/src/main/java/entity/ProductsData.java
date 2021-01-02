@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ProductsData {
-//    static HashMap<String, Product> datas = new HashMap<String, Product>();
+//    static HashMap<String, Product> productList = new HashMap<String, Product>();
 
     public  static HashMap<String, Product> getAllData(){
           return getDataQuery("Select * from product p join product_detail pd where p.id_product = pd.id_product");
