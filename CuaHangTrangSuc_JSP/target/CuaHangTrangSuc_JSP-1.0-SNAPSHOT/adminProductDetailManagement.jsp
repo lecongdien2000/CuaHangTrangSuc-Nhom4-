@@ -1,4 +1,6 @@
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,16 +100,16 @@
 						<div class="col-sm-1"></div> <!-- empty !-->
 						<div class="col-sm-4">
 							<div class="view-product">
-								<img src="../productsInfo/products/1.png" alt="" />
+								<img src="${product.getPicture1()}" alt="" />
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner">
 									<div class="item active">
-										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
-										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
-										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+										<a href=""><img src="${product.getPicture1()}" alt=""></a>
+										<a href=""><img src="${product.getPicture2()}" alt=""></a>
+										<a href=""><img src="${product.getPicture3()}" alt=""></a>
 									</div>
 									<div class="item">
 										<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
@@ -147,18 +149,18 @@
 								<div id="basicInfor" class="productinfomation">
 									<h3>Thông tin cơ bản</h3>
 									<p>Tên sản phẩm</p>
-									<input type="text" name="productName" id="productName" value="Nhẫn kim cương vàng trắng14k DDDDW000106">
+									<input type="text" name="productName" id="productName" value="${product.getProduct_name()}">
 									<p>Mã sản phẩm</p>
-									<input type="text" name="productId" id="productId" value="GNDDDW000106">
+									<input type="text" name="productId" id="productId" value="${product.getId_product()}">
 									<p>Giá</p>
-									<input type="number" name="producPrice" id="producPrice" value="13454000">
+									<input type="number" name="producPrice" id="producPrice" value="${product.getPrice()}">
 									<p>Số lượng</p>
-									<input type="number" name="productNumber" id="productNumber" value="11">
+									<input type="number" name="productNumber" id="productNumber" value="${product.getQuantity()}">
 								</div>
 								<div class="productinfomation">
 									<h3>Thông số</h3>
 									<p>Thương hiệu</p>
-									<input type="text" name="productName" id="productName" value="PNJsilver">
+									<input type="text" name="productName" id="productName" value="${product.getTrademark()}">
 									<p>Giới tính</p>
 									<select id="gender">
 										<option>Nữ</option>
@@ -198,7 +200,7 @@
 							<h2 class="title text-center">Mô tả sản phẩm</h2>
 							<div class="col-sm-1"></div>
 							<div class="col-sm-10">
-								<textarea rows="5" name="productDescription">Nằm trong BST Nhẫn cặp, mẫu trang sức nhẫn bạc tựa như “máy chuyển phát tình yêu” gửi những cái ôm ấm áp, những chiếc hôn ngọt ngào hay là những cái nắm tay thật chặt gửi đến nàng khi không kề bên. Đặc biệt, nhẫn như lá bùa hộ mệnh giúp chàng đánh dấu chủ quyền, tránh xa những vệ tinh xung quanh.</textarea>
+								<textarea rows="5" name="productDescription">${product.getDescription()}</textarea>
 							</div>
 							<div class="col-sm-1"></div>
 						</div>
