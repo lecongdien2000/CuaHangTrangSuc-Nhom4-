@@ -20,10 +20,9 @@ public class search extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        String keyword = request.getParameter("keyword");
         Collection<Product> data = ProductsData.getDataByName(keyword).values();
-
         request.setAttribute("data", data);
         request.setAttribute("key", keyword);
-        request.setAttribute("numresults", data.size());
+//        request.setAttribute("numresults", data.size());
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 }

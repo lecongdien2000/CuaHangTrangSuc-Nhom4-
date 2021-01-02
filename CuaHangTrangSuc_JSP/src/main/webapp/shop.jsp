@@ -274,71 +274,45 @@
 <!-- Display key search -->
 						<%String result = (String)request.getAttribute("key");%>
 						<h2 class="title text-center"> <%="Kết quả cho " + result%></h2>
-
 <!-- display results product-->
-						<%int numberresults = (int) request.getAttribute("numresults");%>
-						<c:choose>
-							<c:when test="<%=numberresults >1%> "><!-- numberresults>1-->
-								<c:forEach items="data" var="product" begin="0" end="5">
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="${product.getPicture1()}" alt="" />
-													<h2>${product.getStringPrice()}</h2>
-													<p>${product.getProduct_name()}</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-												<div class="product-overlay">
-													<a href="product-details.html">
-														<div class="overlay-content">
-															<h2>${product.getStringPrice()}</h2>
-															<p>${product.getProduct_name()}</p>
-															<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-														</div>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</c:when>
-							<c:otherwise>
-								<c:forEach items="data" var="product">
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="${product.getPicture1()}" alt="" />
-													<h2>${product.getStringPrice()}</h2>
-													<p>${product.getProduct_name()}</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-												</div>
-												<div class="product-overlay">
-													<a href="product-details.html">
-														<div class="overlay-content">
-															<h2>${product.getStringPrice()}</h2>
-															<p>${product.getProduct_name()}</p>
-															<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-														</div>
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
+
+
+                                <c:forEach items="${data}" var="product">
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="${product.getPicture1()}" alt="" />
+                                                    <h2>${product.getStringPrice()}</h2>
+                                                    <p>${product.getProduct_name()}</p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                </div>
+                                                <div class="product-overlay">
+                                                    <a href="product-details.html">
+                                                        <div class="overlay-content">
+                                                            <h2>${product.getStringPrice()}</h2>
+                                                            <p>${product.getProduct_name()}</p>
+                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
 
 
 
+
+
+<!-- end display product-->
 						<ul class="pagination">
 							<li class="active"><a href="">1</a></li>
-							<c:if test="<%=numberresults >=2%>">
-							<c:forEach var="count" begin="2" end="<%=result%>">
-							<li><a href="">${count}</a></li>
-							</c:forEach>
-							</c:if>
+<%--							<c:if test="${(numresults/6)>=2}">--%>
+<%--							<c:forEach var="count" begin="2" end="${numberresults/6}">--%>
+<%--							<li><a href="">${count}</a></li>--%>
+<%--							</c:forEach>--%>
+<%--							</c:if>--%>
 							<li><a href="">&raquo;</a></li>
 
 						</ul>

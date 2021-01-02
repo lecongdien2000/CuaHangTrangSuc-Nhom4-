@@ -12,19 +12,18 @@ import java.util.List;
 
 public class ProductsData {
 //    static HashMap<String, Product> datas = new HashMap<String, Product>();
-    static HashMap<String, Product> productList = new HashMap<String, Product>();
+
     public  static HashMap<String, Product> getAllData(){
           return getDataQuery("Select * from product p join product_detail pd where p.id_product = pd.id_product");
     }
     public  static HashMap<String, Product> getDataByName(String name){
         if(name==null) return null;
         name = name.toLowerCase();
-        return getDataQuery("Select * from product p join product_detail pd where p.id_product = pd.id_product" +
-                " and lower(p.product_name) like /'%"+name+"%/'");
+        return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%"+ name + "%'");
     }
     public  static HashMap<String, Product> getDataQuery(String query){
         Statement s = null;
-
+        HashMap<String, Product> productList = new HashMap<String, Product>();
         try {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery(query);

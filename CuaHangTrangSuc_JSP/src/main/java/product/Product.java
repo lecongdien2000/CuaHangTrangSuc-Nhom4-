@@ -182,11 +182,12 @@ public class Product implements Serializable {
         String result ="";
         int length = stringPrice.length();
         while(length/3>0){
-            result = result + "." + stringPrice.substring(length - 3, length);
+            result =  stringPrice.substring(length - 3, length)  + "." + result;
             stringPrice = stringPrice.substring(0, length - 3);
             length = stringPrice.length();
         }
-        result = stringPrice + result + " VND";
+        result = result.substring(0, result.length() - 1);
+        result = stringPrice.length()>0?stringPrice + "." + result + " VND": result + " VND";
         return result;
     }
 

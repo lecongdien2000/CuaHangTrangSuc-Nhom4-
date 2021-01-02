@@ -8,7 +8,7 @@ public class ConnectionDB {
         if(connection==null||connection.isClosed()) {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/nladb?useUnicode=true&characterEncoding=utf-8",
-                    "root", "123456");
+                    "root", "kimhong@482000");
         }
             return connection.createStatement();
     }

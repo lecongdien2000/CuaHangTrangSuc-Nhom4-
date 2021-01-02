@@ -1,3 +1,5 @@
+<%@ page import="product.Product" %>
+<%@ page import="java.util.Collection" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -185,7 +187,7 @@
 								<div class="panel-heading">
 									<h4 class="panel-title">Loại trang sức</h4>
 								</div>
-								<div id="type" >
+								<div id="typeDiv" >
 									<div class="panel-body">
 										<select name="type" id="type" class="select">
 											<option value="tatCa">Tất cả</option>
@@ -269,274 +271,50 @@
 				
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Lắc</h2>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product12.jpg" alt="" />
-										<h2>3.200.000đ</h2>
-										<p>Lắc tay thiên hà</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>3.200.000đ</h2>
-										<p>Lắc tay thiên hà</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product11.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product10.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product9.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-											<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-									<img src="images/home/new.png" class="new" alt="" />
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product8.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-											<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-									<img src="images/home/sale.png" class="new" alt="" />
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/shop/product7.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product6.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-											<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product5.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-											<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product4.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product3.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product2.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
-						<div class="col-sm-4">
-							<div class="product-image-wrapper">
-								<div class="single-products">
-									<div class="productinfo text-center">
-										<img src="images/home/product1.jpg" alt="" />
-										<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-									</div>
-									<div class="product-overlay">
-										<a href="product-details.html">
-										<div class="overlay-content">
-											<h2>2.500.000đ</h2>
-										<p>Lắc tay siêu đẹp</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
-										</div>
-									</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						
+<!-- Display key search -->
+						<%String result = (String)request.getAttribute("key");%>
+						<h2 class="title text-center"> <%="Kết quả cho " + result%></h2>
+<!-- display results product-->
+
+
+                                <c:forEach items="${data}" var="product">
+                                    <div class="col-sm-4">
+                                        <div class="product-image-wrapper">
+                                            <div class="single-products">
+                                                <div class="productinfo text-center">
+                                                    <img src="${product.getPicture1()}" alt="" />
+                                                    <h2>${product.getStringPrice()}</h2>
+                                                    <p>${product.getProduct_name()}</p>
+                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                </div>
+                                                <div class="product-overlay">
+                                                    <a href="product-details.html">
+                                                        <div class="overlay-content">
+                                                            <h2>${product.getStringPrice()}</h2>
+                                                            <p>${product.getProduct_name()}</p>
+                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+
+
+
+
+
+<!-- end display product-->
 						<ul class="pagination">
 							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
+<%--							<c:if test="${(numresults/6)>=2}">--%>
+<%--							<c:forEach var="count" begin="2" end="${numberresults/6}">--%>
+<%--							<li><a href="">${count}</a></li>--%>
+<%--							</c:forEach>--%>
+<%--							</c:if>--%>
 							<li><a href="">&raquo;</a></li>
+
 						</ul>
 					</div><!--features_items-->
 				</div>
