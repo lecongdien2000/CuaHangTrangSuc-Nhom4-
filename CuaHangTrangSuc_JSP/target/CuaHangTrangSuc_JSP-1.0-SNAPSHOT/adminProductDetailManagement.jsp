@@ -160,7 +160,7 @@
 								<div class="productinfomation">
 									<h3>Thông số</h3>
 									<p>Thương hiệu</p>
-									<input type="text" name="productName" id="productName" value="${product.getTrademark()}">
+									<input type="text" name="productName"  value="${product.getTrademark()}">
 									<p>Giới tính</p>
 									<select id="gender">
 										<option>Nữ</option>
