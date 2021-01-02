@@ -1,4 +1,6 @@
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,424 +134,46 @@
 					
 				</div>
 			</div>
+
 			<div class="table">
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
+				<c:forEach items="${data}" var="product">
+					<div class="information maxheight">
+						<div class="col-sm-4 marginTop">
+							<div class="col-sm-4 fontweight">
+								<p>${product.getId_product()}</p>
+							</div>
+							<div class="col-sm-8 fontweight">
+								<p>${product.getProduct_name()}</p>
+							</div>
 
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
 						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
+						<div class="col-sm-4 money">
+							<div class="col-sm-6 marginTop">
+								<p>${product.getStringPrice()}</p>
+							</div>
+							<div class="col-sm-6">
+								<img src="${product.getPicture1()}" width="125" height="125">
+							</div>
 						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
+						<div class="col-sm-4 marginTop">
 
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
+							<div class="col-sm-4 ">
+								<p class="marginLeft">${product.getQuantity()}</p>
+							</div>
+							<div class="col-sm-4 ">
+								<p ><a class="marginLeft" href="admin-product-detail?id=${product.getId_product()}">Xem</a></p>
+							</div>
+							<div class="col-sm-4">
+								<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
+							</div>
 
+						</div>
 					</div>
-				</div>
+
+				</c:forEach>
+
 				<!--copy!-->
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
 
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
-				<div class="information maxheight">
-					<div class="col-sm-4 marginTop">
-						<div class="col-sm-4 fontweight">
-							<p>SV0000C000005</p>
-						</div>
-						<div class="col-sm-8 fontweight">
-							<p>Nhẫn Đính Hôn</p>
-						</div>
-
-					</div>
-					<div class="col-sm-4 money">
-						<div class="col-sm-6 marginTop">
-							<p>1.295.000 đ</p>
-						</div>
-						<div class="col-sm-6">
-							<img src="images/home/nhan.png">
-						</div>
-					</div>
-					<div class="col-sm-4 marginTop">
-
-						<div class="col-sm-4 ">
-							<p class="marginLeft">100</p>
-						</div>
-						<div class="col-sm-4 ">
-							<p ><a class="marginLeft" href="adminProductDetailManagement.html">Xem</a></p>
-						</div>
-						<div class="col-sm-4">
-							<p ><a href="#" style="color: red;"><i class="fa fa-times marginLeft" aria-hidden="true"></i></a></p>
-						</div>
-
-					</div>
-				</div>
 				<!--copy!-->
 			</div>
 		</div>
