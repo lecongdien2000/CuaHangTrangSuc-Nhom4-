@@ -93,6 +93,8 @@
 	</header><!--/header-->
 	<!-- container!-->
 	<section>
+<!-- form -->
+		<form action="insertProduct" method="post">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 padding-right">
@@ -100,7 +102,7 @@
 						<div class="col-sm-1"></div> <!-- empty !-->
 						<div class="col-sm-4">
 							<div class="view-product">
-								<img src="${product.getPicture1()}" alt="" />
+								<img src="${product.getPicture1()}" alt=""/>
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 
@@ -137,9 +139,9 @@
 								<p>Ảnh 1</p>
 								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
 								<p>Ảnh 2</p>
-								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+								<input class="picLink" type="text" name="picture2" value="../productsInfo/products/1.png">
 								<p>Ảnh 3</p>
-								<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+								<input class="picLink" type="text" name="picture3" value="../productsInfo/products/1.png">
 							</div>
 
 						</div>
@@ -160,22 +162,23 @@
 								<div class="productinfomation">
 									<h3>Thông số</h3>
 									<p>Thương hiệu</p>
-									<input type="text" name="productName"  value="${product.getTrademark()}">
+									<input type="text" name="trademark"  value="${product.getTrademark()}">
 									<p>Giới tính</p>
-									<select id="gender">
-										<option>Nữ</option>
-										<option>Nam</option>
+									<select id="gender" name="gender">
+										<option value="Tất cả">Tất cả</option>
+										<option value="NỮ">Nữ</option>
+										<option value="NAM">Nam</option>
 									</select>
 									<p>Loại</p>
-									<select id="type">
-										<option value="nhan">Nhẫn</option>
-										<option value="lac">Lắc và vòng tay</option>
-										<option value="bongTai">Bông tai</option>
-										<option value="dayChuyen">Dây chuyền</option>
-										<option value="dongHo">Đồng hồ</option>
+									<select id="type" name="type">
+										<option value="1">Nhẫn</option>
+										<option value="3">Lắc và vòng tay</option>
+										<option value="2">Bông tai</option>
+										<option value="5">Dây chuyền</option>
+										<option value="4">Đồng hồ</option>
 									</select>
 									<p>Đính kèm</p>
-									<select name="stoneColor" id="color" class="select">
+									<select name="attached" id="color" class="select">
     									<option value="non">Không có đính kèm</option>
     									<option value="diamon">Đính kim cương</option>
   									  	<option value="gemStone">Đính đá quý</option>
@@ -183,10 +186,9 @@
     									<option value="ecz">ECZ</option>
   									</select>
   									<p>Độ tuổi</p>
-  									<select name="stage" id="age" class="select">
-										<option value="tatCa">Tất cả</option>
-    									<option value="do">Trẻ em</option>
-    									<option value="den">Người lớn</option>
+  									<select name="ischild" id="age" class="select">
+    									<option value="yes">Trẻ em</option>
+    									<option value="no">Người lớn</option>
   									</select>
 								</div>
 							</div><!--/product-information-->
@@ -215,6 +217,7 @@
 				</div>
 			</div>
 		</div>
+		</form>
 	</section>
 
 </body>
