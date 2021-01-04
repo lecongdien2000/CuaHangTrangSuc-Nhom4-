@@ -275,8 +275,6 @@
 						<%String result = (String)request.getAttribute("key");%>
 						<h2 class="title text-center"> <%="Kết quả cho " + result%></h2>
 <!-- display results product-->
-
-
                                 <c:forEach items="${data}" var="product">
                                     <div class="col-sm-4">
                                         <div class="product-image-wrapper">
@@ -307,14 +305,14 @@
 
 <!-- end display product-->
 						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-<%--							<c:if test="${(numresults/6)>=2}">--%>
-<%--							<c:forEach var="count" begin="2" end="${numberresults/6}">--%>
-<%--							<li><a href="">${count}</a></li>--%>
-<%--							</c:forEach>--%>
-<%--							</c:if>--%>
+							<% int i;%>
+							<% String keyword = (String)request.getAttribute("key");%>
+							<% for(i = 1; i <= (int)request.getAttribute("totalPages"); i++) { %>
+							<% if(i==(int)request.getAttribute("index")) { %>
+							<li class="active"> <%} else {%> <li> <%}%>
+									<a href="search?keyword=<%=keyword%>&index=<%=i%>"><%=i%></a></li>
+							<%}%>
 							<li><a href="">&raquo;</a></li>
-
 						</ul>
 					</div><!--features_items-->
 				</div>

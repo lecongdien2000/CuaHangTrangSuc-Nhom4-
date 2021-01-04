@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ProductsData {
 //    static HashMap<String, Product> productList = new HashMap<String, Product>();
@@ -107,5 +108,29 @@ public class ProductsData {
 //            }
         }
         return -1;
+    }
+
+    public  static int getDataSizeByName(String name){
+        Statement s = null;
+        int result = -1;
+        String sql = "Select count(id_product) as cnt from product where lower(product_name) like '%"+ name + "%'";
+        try {
+            s = ConnectionDB.connect();
+            ResultSet rs = s.executeQuery(sql);
+            rs.next();
+            result = rs.getInt("cnt");
+            s.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException a) {
+            a.printStackTrace();
+        }
+        return result;
+    }
+
+    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit) {
+        if(name==null) return null;
+        name = name.toLowerCase();
+        return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
     }
 }

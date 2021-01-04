@@ -163,6 +163,7 @@
 							<div class="search_box pull-right">
 								<form action="search" method="get">
 									<input name="keyword" type="text" placeholder="Tìm kiếm" />
+									<input name = "index" type = "hidden"  value="1"/>
 								</form>
 
 							</div>
