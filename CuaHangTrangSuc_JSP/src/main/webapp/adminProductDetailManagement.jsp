@@ -158,9 +158,9 @@
 												<p>Mã sản phẩm</p>
 												<input type="text" name="productId" id="productId" value="" placeholder="Mã sản phẩm">
 												<p>Giá</p>
-												<input type="number" name="producPrice" id="producPrice" value="" placeholder="Giá">
+												<input type="number" name="productPrice" id="producPrice" value="0" placeholder="Giá">
 												<p>Số lượng</p>
-												<input type="number" name="productNumber" id="productNumber" value="" placeholder="Số lượng">
+												<input type="number" name="productNumber" id="productNumber" value="0" placeholder="Số lượng">
 											</div>
 											<div class="productinfomation">
 												<h3>Thông số</h3>
@@ -216,7 +216,7 @@
 						</div>
 						<div class="row">
 							<div class="changeDetail col-sm-12" >
-								<button class="btn">Lưu thay đổi</button>
+								<button type="submit" class="btn">Lưu thay đổi</button>
 							</div>
 						</div>
 					</div>
@@ -284,7 +284,7 @@
 												<p>Mã sản phẩm</p>
 												<input type="text" name="productId" id="productId" value="${product.getId_product()}">
 												<p>Giá</p>
-												<input type="number" name="producPrice" id="producPrice" value="${product.getPrice()}">
+												<input type="number" name="producPrice" id="productPrice" value="${product.getPrice()}">
 												<p>Số lượng</p>
 												<input type="number" name="productNumber" id="productNumber" value="${product.getQuantity()}">
 											</div>
