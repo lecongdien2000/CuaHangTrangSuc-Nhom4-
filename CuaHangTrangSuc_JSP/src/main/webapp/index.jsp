@@ -345,14 +345,14 @@
 												<img src="${product.getPicture1()}" alt="" />
 												<h2>${product.getStringPrice()}</h2>
 												<p>${product.getProduct_name()}</p>
-												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+												<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 											</div>
 											<a href="product-details.html">
 												<div class="product-overlay">
 													<div class="overlay-content">
 														<h2>${product.getStringPrice()}</h2>
 														<p>${product.getProduct_name()}</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+														<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 													</div>
 												</div>
 											</a>
@@ -370,7 +370,7 @@
 										<div class="single-products">
 											<div class="productinfo text-center">
 												<img src="${product.getPicture1()}" alt="" />
-												<h2>${product.getPrice()}</h2>
+												<h2>${product.getStringPrice()}</h2>
 												<p>${product.getProduct_name()}</p>
 												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 											</div><a href="product-details.html">
@@ -378,7 +378,7 @@
 												<div class="overlay-content">
 													<h2>${product.getStringPrice()}</h2>
 													<p>${product.getProduct_name()}</p>
-													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+													<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 												</div>
 											</div></a>
 										</div>
@@ -409,7 +409,7 @@
 														<img src="${product.getPicture1()}" alt="" />
 														<h2>${product.getPrice()}</h2>
 														<p>${product.getProduct_name()}</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+														<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
 													</a>
 													</div>
 
@@ -429,7 +429,7 @@
 														<img src="${product.getPicture1()}" alt="" />
 														<h2>${product.getPrice()}</h2>
 														<p>${product.getProduct_name()}</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+														<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 													</a>
 													</div>
 
@@ -449,7 +449,7 @@
                                                             <img src="${product.getPicture1()}" alt="" />
                                                             <h2>${product.getPrice()}</h2>
                                                             <p>${product.getProduct_name()}</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+														<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 													</a>
 													</div>
 
@@ -468,7 +468,7 @@
 														<img src="images/home/gallery1.jpg" alt="" />
 														<h2>$56</h2>
 														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+														<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 													</a>
 													</div>
 
@@ -486,7 +486,7 @@
 														<img src="images/home/gallery2.jpg" alt="" />
 														<h2>$56</h2>
 														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+														<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 													</a>
 													</div>
 
@@ -501,7 +501,7 @@
 														<img src="images/home/gallery4.jpg" alt="" />
 														<h2>$56</h2>
 														<p>Easy Polo Black Edition</p>
-														<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+														<a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 													</a>
 													</div>
 

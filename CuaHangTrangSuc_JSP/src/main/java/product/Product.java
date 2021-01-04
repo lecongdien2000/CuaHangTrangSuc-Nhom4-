@@ -10,7 +10,6 @@ public class Product implements Serializable {
     private String id_category;
     private int quantity;
     private ProductDetail productDetail;
-    private  int quantityInCart;
     public Product(String id_product, String product_name, String picture1, String picture2, String picture3, double price, String id_category, int quantity) {
         this.id_product = id_product;
         this.product_name = product_name;
@@ -178,8 +177,7 @@ public class Product implements Serializable {
     }
 
     public String getStringPrice(){
-        String stringPrice = String.valueOf(price);
-        stringPrice = stringPrice.substring(0, stringPrice.lastIndexOf("."));
+        String stringPrice = String.format ("%.0f", price);
         String result ="";
         int length = stringPrice.length();
         while(length/3>0){
@@ -187,21 +185,10 @@ public class Product implements Serializable {
             stringPrice = stringPrice.substring(0, length - 3);
             length = stringPrice.length();
         }
-//        result = result.substring(0, result.length() - 1);
         if(length>0)
             result = stringPrice + "." + result;
         return result.substring(0, result.length() - 1) + " VND";
     }
 
-    public void add() {
-        this.quantityInCart++;
-    }
 
-    public int getQuantityInCart() {
-        return quantityInCart;
-    }
-
-    public void setQuantityInCart(int quantityInCart) {
-        this.quantityInCart = quantityInCart;
-    }
 }

@@ -1,3 +1,5 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page import="controller.Cart" %>
 <%@ page import="java.util.Collection" %>
 <%@ page import="product.Product" %>
@@ -194,15 +196,18 @@
 							</tr>
 						</thead>
 						<tbody>
-						<% Cart c = Cart.getCart(session);
-	                        Collection<Product> data = c.getdata();
-	                        request.setAttribute("data", data);
-	                     %>
-                        <c: forEach items="${data}" var="d">
+						<% Cart cart = Cart.getCart(session);
+							Collection<Product> data = cart.getdata();
+							request.setAttribute("data", data);
+							request.setAttribute("cart", cart);
+						%>
+                        <c:forEach items="${data}" var="d">
+
 			                <tr>
 								<td class="cart_product">
-									<a href=""><img src="d.getPicture1()" alt=""></a>
+									<a href=""><img src="${d.getPicture1()}" width="110px" height="110px" alt=""></a>
 								</td>
+
 								<td class="cart_description">
 									<h4><a href="">${d.getProduct_name()}</a></h4>
 									<p>MÃ: ${d.getId_product()}</p>
@@ -213,18 +218,18 @@
 								<td class="cart_quantity">
 									<div class="cart_quantity_button">
 										<a class="cart_quantity_up" href=""> + </a>
-										<input class="cart_quantity_input" type="text" name="quantity" value="d.getQuantityInCart()" autocomplete="off" size="2">
+										<input class="cart_quantity_input" type="text" name="quantity" value="${cart.getQuantity(d)}" autocomplete="off" size="2">
 										<a class="cart_quantity_down" href=""> - </a>
 									</div>
 								</td>
 								<td class="cart_total">
-									<p class="cart_total_price">715.000đ</p>
+									<p class="cart_total_price">${cart.totalStringPriceProduct(d)}</p>
 								</td>
 								<td class="cart_delete">
 									<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 								</td>
 							</tr>
-                        </c:>
+						</c:forEach>
 						</tbody>
 					</table>
 				</div>

@@ -9,11 +9,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductEntity {
-    public Product getById(String id) {
+    public static Product getById(String id) {
         PreparedStatement s = null;
 
         try {
-            String sql = "select * from product where id = ?";
+            String sql = "Select * from product p join product_detail pd on  p.id_product = pd.id_product where p.id_product = ?";
             s = ConnectionDB.connect(sql);
             s.setString(1, id);
             ResultSet rs = s.executeQuery();
