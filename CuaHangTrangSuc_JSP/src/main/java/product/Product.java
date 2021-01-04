@@ -21,7 +21,9 @@ public class Product implements Serializable {
         this.id_category = id_category;
         this.quantity = quantity;
     }
-
+    public Product(){
+        productDetail = new ProductDetail();
+    }
 
     public void setProductDetail(String trademark, String gender, String description, int rate, boolean isDiamond,
                                  boolean isGemstone, boolean isECZ, boolean isPearl, boolean isPlain, boolean isChild){
@@ -109,9 +111,7 @@ public class Product implements Serializable {
     }
 
 
-    public Product(){
 
-    }
 
     public String getId_product() {
         return id_product;
@@ -187,9 +187,10 @@ public class Product implements Serializable {
             stringPrice = stringPrice.substring(0, length - 3);
             length = stringPrice.length();
         }
-        result = result.substring(0, result.length() - 1);
-        result = stringPrice.length()>0?stringPrice + "." + result + " VND": result + " VND";
-        return result;
+//        result = result.substring(0, result.length() - 1);
+        if(length>0)
+            result = stringPrice + "." + result;
+        return result.substring(0, result.length() - 1) + " VND";
     }
 
     public void add() {

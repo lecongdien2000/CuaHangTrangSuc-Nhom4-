@@ -22,5 +22,18 @@ public class ConnectionDB {
         }
         return connection.prepareStatement(sql);
     }
+    public static PreparedStatement pConnect(String prepare) throws ClassNotFoundException, SQLException{
+        if(connection==null||connection.isClosed()) {
+            Class.forName("com.mysql.jdbc.Driver");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/nladb?useUnicode=true&characterEncoding=utf-8",
+                    "root", "12345678");
+        }
+        return connection.prepareStatement(prepare);
+
+    }
+    public static void closeConnection() throws SQLException {
+        if (!connection.isClosed())
+            connection.close();
+    }
 
 }

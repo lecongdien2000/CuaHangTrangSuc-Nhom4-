@@ -1,7 +1,30 @@
 package product;
 
 public class ProductDetail {
-    String trademark;
+    private String trademark;
+    private String gender;
+    private String description;
+    private int rate;
+    private boolean isDiamond;
+    private boolean isGemstone;
+    private boolean isECZ;
+    private boolean isPearl;
+    private boolean isPlain;
+    private boolean isChild;
+
+    public ProductDetail(String trademark, String gender, String description, int rate, boolean isDiamond, boolean isGemstone, boolean isECZ, boolean isPearl, boolean isPlain, boolean isChild) {
+        this.trademark = trademark;
+        this.gender = gender;
+        this.description = description;
+        this.rate = rate;
+        this.isDiamond = isDiamond;
+        this.isGemstone = isGemstone;
+        this.isECZ = isECZ;
+        this.isPearl = isPearl;
+        this.isPlain = isPlain;
+        this.isChild = isChild;
+    }
+    public ProductDetail(){}
 
     public String getTrademark() {
         return trademark;
@@ -83,26 +106,7 @@ public class ProductDetail {
         isChild = child;
     }
 
-    private String gender;
-    private String description;
-    private int rate;
-    private boolean isDiamond;
-    private boolean isGemstone;
-    private boolean isECZ;
-    private boolean isPearl;
-    private boolean isPlain;
-    private boolean isChild;
 
-    public ProductDetail(String trademark, String gender, String description, int rate, boolean isDiamond, boolean isGemstone, boolean isECZ, boolean isPearl, boolean isPlain, boolean isChild) {
-        this.trademark = trademark;
-        this.gender = gender;
-        this.description = description;
-        this.rate = rate;
-        this.isDiamond = isDiamond;
-        this.isGemstone = isGemstone;
-        this.isECZ = isECZ;
-        this.isPearl = isPearl;
-        this.isPlain = isPlain;
-        this.isChild = isChild;
-    }
+
+
 }
