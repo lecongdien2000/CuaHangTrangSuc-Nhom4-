@@ -12,11 +12,14 @@ public class insertProduct extends javax.servlet.http.HttpServlet {
         Product p = new Product();
         p.setId_product(request.getParameter("productId"));
         p.setProduct_name(request.getParameter("productName"));
-        p.setPrice(Double.parseDouble(request.getParameter("productPrice")));
+//        Không parse sang số được
+//        p.setPrice(Double.parseDouble(request.getParameter("productPrice")));
+        p.setPrice(151);
         p.setPicture1(request.getParameter("picture1"));
         p.setPicture2(request.getParameter("picture2"));
         p.setPicture3(request.getParameter("picture3"));
-        p.setQuantity(Integer.parseInt(request.getParameter("productNumber")));
+//        p.setQuantity(Integer.parseInt(request.getParameter("productNumber")));
+        p.setQuantity(5);
         p.setId_category(request.getParameter("type"));
 
 //        detail

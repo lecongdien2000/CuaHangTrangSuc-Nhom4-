@@ -20,7 +20,9 @@ public class Product implements Serializable {
         this.id_category = id_category;
         this.quantity = quantity;
     }
-
+    public Product(){
+        productDetail = new ProductDetail();
+    }
 
     public void setProductDetail(String trademark, String gender, String description, int rate, boolean isDiamond,
                                  boolean isGemstone, boolean isECZ, boolean isPearl, boolean isPlain, boolean isChild){
@@ -108,9 +110,7 @@ public class Product implements Serializable {
     }
 
 
-    public Product(){
 
-    }
 
     public String getId_product() {
         return id_product;

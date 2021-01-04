@@ -55,7 +55,7 @@ public class ProductsData {
     }
 
     public static Product getProductByID(String id) {
-        HashMap<String, Product> productList = getDataQuery("Select * from product p join product_detail pd where p.id_product = " + id + " and p.id_product = pd.id_product");
+        HashMap<String, Product> productList = getDataQuery("Select * from product p join product_detail pd where p.id_product = '" + id + "' and p.id_product = pd.id_product");
         return productList.get(id);
     }
 
