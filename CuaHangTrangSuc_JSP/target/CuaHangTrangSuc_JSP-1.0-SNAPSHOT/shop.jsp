@@ -252,8 +252,8 @@
 								</div>
 								<div class="price-range "><!--price-range-->
 							<div class="well">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="6000000" data-slider-step="100000" data-slider-value="[0,6000000]" id="sl2" ><br />
-								 <b>0đ</b> <b class="pull-right">6.000.000đ</b>
+								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,6000000]" id="sl2" ><br />
+								 <b>0đ</b> <b class="pull-right">50.000.000đ</b>
 							</div>
 						</div><!--/price-range-->
 							</div>

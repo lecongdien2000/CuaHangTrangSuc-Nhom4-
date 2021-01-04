@@ -158,9 +158,9 @@
 												<p>Mã sản phẩm</p>
 												<input type="text" name="productId" id="productId" value="" placeholder="Mã sản phẩm">
 												<p>Giá</p>
-												<input type="number" name="productPrice" id="producPrice" value="" placeholder="Giá">
+												<input type="number" name="productPrice" id="producPrice" value="0" placeholder="Giá">
 												<p>Số lượng</p>
-												<input type="number" name="productNumber" id="productNumber" value="" placeholder="Số lượng">
+												<input type="number" name="productNumber" id="productNumber" value="0" placeholder="Số lượng">
 											</div>
 											<div class="productinfomation">
 												<h3>Thông số</h3>

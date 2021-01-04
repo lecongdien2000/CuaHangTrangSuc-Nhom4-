@@ -21,6 +21,12 @@ public class search extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        String keyword = request.getParameter("keyword");
        int index = Integer.parseInt(request.getParameter("index"));
+       // Khoi tao String additionSql
+       //duyet qua danh sach loc
+            //kiem tra xem co loc hay khong (parameter == null)
+                //Neu co loc, tao subSql tuong ung, them vao additionSql
+       //Chay cau sql chen them additionSql
+       
        int dataSize = ProductsData.getDataSizeByName(keyword);
        int totalPages = dataSize/proNumsEachPage + ((dataSize%proNumsEachPage)>0?1:0);
        int end = index*proNumsEachPage;

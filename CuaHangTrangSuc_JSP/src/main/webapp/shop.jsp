@@ -181,6 +181,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
+                        <form method="get" action="filter">
 						<h2>Bộ lọc</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
@@ -252,8 +253,8 @@
 								</div>
 								<div class="price-range "><!--price-range-->
 							<div class="well">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="6000000" data-slider-step="100000" data-slider-value="[0,6000000]" id="sl2" ><br />
-								 <b>0đ</b> <b class="pull-right">6.000.000đ</b>
+								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,6000000]" id="sl2" ><br />
+								 <b>0đ</b> <b class="pull-right">50.000.000đ</b>
 							</div>
 						</div><!--/price-range-->
 							</div>
@@ -265,8 +266,9 @@
 						<div class="shipping text-center"><!--shipping-->
 							<img src="images/home/shipping.jpg" alt="" />
 						</div><!--/shipping-->
-						
+                        </form>
 					</div>
+
 				</div>
 				
 				<div class="col-sm-9 padding-right">

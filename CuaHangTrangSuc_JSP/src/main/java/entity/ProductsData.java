@@ -79,12 +79,12 @@ public class ProductsData {
         return result;
     }
 
-    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit) {
+    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit) { //parameter: String addition sql
         if(name==null) return null;
         name = name.toLowerCase();
         return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
     }
-
+//    public static String filterByPrice(double start, double end) -> "and p.price >=" + start + " and p.price <=" + end;
     public static int insertProduct(Product p) {
         if (p.getId_product().equals("") || p.getProduct_name().equals("")
                 || p.getPrice() == 0 || p.getPicture1().equals("") || p.getId_category().equals("") || p.getQuantity() == 0)
