@@ -10,6 +10,7 @@ public class Product implements Serializable {
     private String id_category;
     private int quantity;
     private ProductDetail productDetail;
+    private  int quantityInCart;
     public Product(String id_product, String product_name, String picture1, String picture2, String picture3, double price, String id_category, int quantity) {
         this.id_product = id_product;
         this.product_name = product_name;
@@ -191,4 +192,15 @@ public class Product implements Serializable {
         return result;
     }
 
+    public void add() {
+        this.quantityInCart++;
+    }
+
+    public int getQuantityInCart() {
+        return quantityInCart;
+    }
+
+    public void setQuantityInCart(int quantityInCart) {
+        this.quantityInCart = quantityInCart;
+    }
 }

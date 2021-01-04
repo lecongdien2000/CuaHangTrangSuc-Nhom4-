@@ -1,3 +1,6 @@
+<%@ page import="controller.Cart" %>
+<%@ page import="java.util.Collection" %>
+<%@ page import="product.Product" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +20,7 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
-<![endif]-->       
+<![endif]-->
 <link rel="shortcut icon" href="images/ico/favicon.ico">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -40,7 +43,7 @@
 	}
 	.navbar-nav li ul.sub-menu li a:hover{
 		color: #2b46dc;
-		
+
 	}
 </style>
 </head><!--/head-->
@@ -72,7 +75,7 @@
 				</div>
 			</div>
 		</div><!--/header_top-->
-		
+
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
@@ -126,7 +129,7 @@
 										<li><a href="shop.html">Đính ngọc trai</a></li>
 										<li><a href="shop.html">Nhẫn trơn</a></li>
 									</ul>
-								</li> 
+								</li>
 								<li class="dropdown"><a href="shop.html">Bông tai<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="shop.html">Đính kim cương</a></li>
@@ -135,7 +138,7 @@
 										<li><a href="shop.html">Đính ngọc trai</a></li>
 										<li><a href="shop.html">Bông tai trơn</a></li>
 									</ul>
-								</li> 
+								</li>
 								<li class="dropdown"><a href="shop.html">Lắc & Vòng tay<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="shop.html">Đính kim cương</a></li>
@@ -145,13 +148,13 @@
 										<li><a href="shop.html">Lắc & Vòng tay trơn</a></li>
 										<li><a href="shop.html">Dành cho trẻ em</a></li>
 									</ul>
-								</li> 
+								</li>
 								<li class="dropdown"><a href="shop.html">Đồng hồ<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="shop.html">Nam</a></li>
 										<li><a href="shop.html">Nữ</a></li>
 									</ul>
-								</li> 
+								</li>
 								<li class="dropdown"><a href="shop.html">Dây chuyền	<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
 										<li><a href="shop.html">Đính kim cương</a></li>
@@ -161,7 +164,7 @@
 										<li><a href="shop.html">Dây chuyền trơn</a></li>
 									</ul>
 								</li>
-								<li class="dropdown"><a href="contact-us.html">Liên hệ</a> 
+								<li class="dropdown"><a href="contact-us.html">Liên hệ</a>
 								</ul>
 							</div>
 						</div>
@@ -191,16 +194,21 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+						<% Cart c = Cart.getCart(session);
+	                        Collection<Product> data = c.getdata();
+	                        request.setAttribute("data", data);
+	                     %>
+                        <c: forEach items="${data}" var="d">
+			                <tr>
 								<td class="cart_product">
-									<a href=""><img src="images/cart/nhandoi715.png" alt=""></a>
+									<a href=""><img src="d.getPicture1()" alt=""></a>
 								</td>
 								<td class="cart_description">
-									<h4><a href="">Nhẫn cặp bạc đính đá 00061-00062</a></h4>
-									<p>MÃ: SNXM00K000061-SNXM00K000062</p>
+									<h4><a href="">${d.getProduct_name()}</a></h4>
+									<p>MÃ: ${d.getId_product()}</p>
 								</td>
 								<td class="cart_price">
-									<p>715.000đ</p>
+									<p>${d.getStringPrice()}</p>
 								</td>
 								<td class="cart_quantity">
 									<div class="cart_quantity_button">
@@ -216,58 +224,7 @@
 									<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
 								</td>
 							</tr>
-
-							<tr>
-								<td class="cart_product">
-									<a href=""><img src="images/cart/nhandoi679.png" alt=""></a>
-								</td>
-								<td class="cart_description">
-									<h4><a href="">Nhẫn cặp bạc đính đá 00046-00092
-									</a></h4>
-									<p></p>
-								</td>
-								<td class="cart_price">
-									<p>679.000đ</p>
-								</td>
-								<td class="cart_quantity">
-									<div class="cart_quantity_button">
-										<a class="cart_quantity_up" href=""> + </a>
-										<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-										<a class="cart_quantity_down" href=""> - </a>
-									</div>
-								</td>
-								<td class="cart_total">
-									<p class="cart_total_price">679.000đ</p>
-								</td>
-								<td class="cart_delete">
-									<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-								</td>
-							</tr>
-							<tr>
-								<td class="cart_product">
-									<a href=""><img src="images/cart/snd2kn08497.100-snd2kn08498.100-nhan-cap-bac-pnjsilver-dinh-da-001.png" alt=""></a>
-								</td>
-								<td class="cart_description">
-									<h4><a href="">Nhẫn cặp bạc đính đá  00072-00073</a></h4>
-									<p>MÃ: SNXM00K000072-SNXM00K000073</p>
-								</td>
-								<td class="cart_price">
-									<p>676.000đ</p>
-								</td>
-								<td class="cart_quantity">
-									<div class="cart_quantity_button">
-										<a class="cart_quantity_up" href=""> + </a>
-										<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
-										<a class="cart_quantity_down" href=""> - </a>
-									</div>
-								</td>
-								<td class="cart_total">
-									<p class="cart_total_price">679.000đ</p>
-								</td>
-								<td class="cart_delete">
-									<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
-								</td>
-							</tr>
+                        </c:>
 						</tbody>
 					</table>
 				</div>
@@ -312,7 +269,7 @@
 									<ul class="nav nav-pills nav-stacked">
 										<p>217 Quận Thủ Đức, TP. Hồ Chí Minh</p>
 										<p>SĐT: 0988972381</p>
-										<p>Email: nonglamdaquy@nonglam.com</p>	
+										<p>Email: nonglamdaquy@nonglam.com</p>
 									</ul>
 								</div>
 							</div>
