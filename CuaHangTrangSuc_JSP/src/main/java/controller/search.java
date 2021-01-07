@@ -23,6 +23,16 @@ public class search extends HttpServlet {
        int index = Integer.parseInt(request.getParameter("index"));
        // Khoi tao String additionSql
        //duyet qua danh sach loc
+        StringBuilder filter = new StringBuilder("");
+        filter.append(request.getParameter("type" + "."));
+        filter.append(request.getParameter("attached" + "."));
+        filter.append(request.getParameter("stage" + "."));
+        filter.append(request.getParameter("gender" + "."));
+        String[] pRange = request.getParameterValues("priceRange");
+        for(String s : pRange){
+            filter.append(s + ".");
+        }
+
             //kiem tra xem co loc hay khong (parameter == null)
                 //Neu co loc, tao subSql tuong ung, them vao additionSql
        //Chay cau sql chen them additionSql
@@ -34,7 +44,7 @@ public class search extends HttpServlet {
 
        System.out.print("index = " + index  + ";dataSize = "+ dataSize + ";totalPages = " +totalPages);
 
-       Collection<Product> data = ProductsData.getDataByNameWithLimit(keyword, start, proNumsEachPage).values();
+       Collection<Product> data = ProductsData.getDataByNameWithLimit(keyword, start, proNumsEachPage, filter.toString()).values();
         request.setAttribute("data", data);
         request.setAttribute("key", keyword);
         request.setAttribute("index", index);

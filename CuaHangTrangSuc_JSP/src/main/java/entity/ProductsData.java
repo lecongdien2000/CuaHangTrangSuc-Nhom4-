@@ -79,11 +79,82 @@ public class ProductsData {
         return result;
     }
 
-    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit) { //parameter: String addition sql
+    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String additionSql) { //parameter: String addition sql
         if(name==null) return null;
         name = name.toLowerCase();
+        String[] expres = additionSql.split(".");
+        if(expres.length<=1)
         return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
+        StringBuilder addition = new StringBuilder("");
+
+        for (int i =0; i< expres.length-1; i++){//to before price range
+            String result = ProductsData.chooseExpess(i, expres[i]);
+            if (result!=null){
+                addition.append(result + " and");
+            }
+        }
+
+        return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
+                "and " + addition.toString() +
+                " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
     }
+    public static  String chooseExpess(int numberOfExpess, String expresstion){
+        switch (numberOfExpess){
+            case 0 : return filterByType(expresstion);
+            case 1 : return filterByAttached(expresstion);
+            case 2 : return filterByStage(expresstion);
+            case 3 : return filterByGender(expresstion);
+            case 4 : return filterByMinPrice(expresstion);
+            case 5 : return filterByMaxPrice(expresstion);
+            default: return null;
+        }
+    }
+
+    public static String filterByType(String type){
+        switch (type) {
+            case "nhan" : return "id_categoty = '1'";
+            case "bongTai" : return "id_categoty = '2'";
+            case "dayChuyen" : return "id_categoty = '5'";
+            case "dongHo" : return "id_categoty = '4'";
+            case "lac" : return "id_categoty = '3'";
+            default: return null;
+        }
+    }
+    public static String filterByAttached(String attached){
+        switch (attached) {
+            case "non" : return "pd.is_plain = true";
+            case "diamon" : return "ipd.is_diamond = true";
+            case "gemStone" : return "pd.is_gemstone = true";
+            case "pearl" : return "pd.is_peart = true";
+            case "ecz" : return "pd.is_ecz = true";
+            default: return null;
+        }
+    }
+    public static String filterByStage(String stage){
+        switch (stage) {
+            case "notchild" : return "pd.is_child = false";
+            case "child" : return "ipd.is_child = true";
+            default: return null;
+        }
+    }
+    public static String filterByGender(String gender){
+        switch (gender) {
+            case "nam" : return "pd.gender= 'Nam'";
+            case "nu" : return "ipd.gender = 'Nữ'";
+            default: return null;
+        }
+    }
+    public static String filterByMinPrice(String minPrice){
+        if (minPrice.equals("") || minPrice ==null)
+            return null;
+        return "price >= " + minPrice;
+    }
+    public static String filterByMaxPrice(String maxPrice){
+        if (maxPrice.equals("") || maxPrice ==null)
+            return null;
+        return "price <= " + maxPrice;
+    }
+
 //    public static String filterByPrice(double start, double end) -> "and p.price >=" + start + " and p.price <=" + end;
     public static int insertProduct(Product p) {
         if (p.getId_product().equals("") || p.getProduct_name().equals("")

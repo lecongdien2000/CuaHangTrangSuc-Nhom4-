@@ -181,7 +181,10 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-                        <form method="get" action="filter">
+	<!-- get key --><%String result = (String)request.getAttribute("key");%>
+	<!-- form -->
+                        <form method="get" action="search">
+							<input type="text" name="keyword" value="<%=result%>" style="display: none">
 						<h2>Bộ lọc</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
@@ -207,7 +210,7 @@
 								</div>
 								<div id="stoneColor">
 									<div class="panel-body">
-										<select name="stoneColor" id="color" class="select">
+										<select name="attached" id="color" class="select">
 											<option value="tatCa">Tất cả</option>
     										<option value="non">Không có đính kèm</option>
     										<option value="diamon">Đính kim cương</option>
@@ -227,8 +230,8 @@
 									<div class="panel-body">
 										<select name="stage" id="age" class="select">
 											<option value="tatCa">Tất cả</option>
-    										<option value="do">Trẻ em</option>
-    										<option value="den">Người lớn</option>
+    										<option value="child">Trẻ em</option>
+    										<option value="notchild">Người lớn</option>
   										</select>
 									</div>
 								</div>
@@ -239,7 +242,7 @@
 								</div>
 								<div id="sex" >
 									<div class="panel-body">
-										<select name="sex" id="sexSelect"  class="select">
+										<select name="gender" id="sexSelect"  class="select">
 											<option value="tatCa">Tất cả</option>
 											<option value="nam">Nam</option>
 											<option value="nu">Nữ</option>
@@ -253,20 +256,20 @@
 								</div>
 								<div class="price-range "><!--price-range-->
 							<div class="well">
-								 <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,6000000]" id="sl2" ><br />
+								 <input name="priceRange" type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,6000000]" id="sl2" ><br />
 								 <b>0đ</b> <b class="pull-right">50.000.000đ</b>
 							</div>
 						</div><!--/price-range-->
 							</div>
 							<div class="filter"><button class="btn"><h4>Lọc</h4></button></div>
 						</div><!--/category-productsr-->
-					
+						</form>
 						
 						
 						<div class="shipping text-center"><!--shipping-->
 							<img src="images/home/shipping.jpg" alt="" />
 						</div><!--/shipping-->
-                        </form>
+
 					</div>
 
 				</div>
@@ -274,9 +277,10 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 <!-- Display key search -->
-						<%String result = (String)request.getAttribute("key");%>
+
 						<h2 class="title text-center"> <%="Kết quả cho " + result%></h2>
 <!-- display results product-->
+						<c:if test="${data!=null}">
                                 <c:forEach items="${data}" var="product">
                                     <div class="col-sm-4">
                                         <div class="product-image-wrapper">
@@ -302,9 +306,6 @@
                                 </c:forEach>
 
 
-
-
-
 <!-- end display product-->
 						<ul class="pagination">
 							<% int i;%>
@@ -316,6 +317,7 @@
 							<%}%>
 							<li><a href="">&raquo;</a></li>
 						</ul>
+						</c:if>
 					</div><!--features_items-->
 				</div>
 			</div>
