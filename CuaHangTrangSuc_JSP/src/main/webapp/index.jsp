@@ -337,6 +337,7 @@
 						<div class="col-sm-9 padding-right">
 							<div class="features_items"><!--features_items-->
 								<h2 class="title text-center">Bán chạy nhất</h2>
+
 								<c:forEach items="${data}" var="product" begin="0" end="5">
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">

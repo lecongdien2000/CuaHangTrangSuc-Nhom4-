@@ -20,17 +20,27 @@ public class search extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        String keyword = request.getParameter("keyword");
+        System.out.println("key: "+keyword);
        int index = Integer.parseInt(request.getParameter("index"));
        // Khoi tao String additionSql
        //duyet qua danh sach loc
-        StringBuilder filter = new StringBuilder("");
-        filter.append(request.getParameter("type" + "."));
-        filter.append(request.getParameter("attached" + "."));
-        filter.append(request.getParameter("stage" + "."));
-        filter.append(request.getParameter("gender" + "."));
-        String[] pRange = request.getParameterValues("priceRange");
-        for(String s : pRange){
-            filter.append(s + ".");
+        String addition;
+        if(request.getParameter("filter") == null || request.getParameter("filter").equals("")){
+            addition =null;
+            System.out.println("get filter null ");
+        }
+        else {
+            StringBuilder filter = new StringBuilder("");
+            filter.append(request.getParameter("type") + ",");
+            filter.append(request.getParameter("attached") + ",");
+            filter.append(request.getParameter("stage") + ",");
+            filter.append(request.getParameter("gender"));
+//            String[] pRange = request.getParameterValues("priceRange");
+//            for (String s : pRange) {
+//                filter.append(s + ".");
+//            }
+            addition =filter.toString();
+            System.out.println("addition: " + addition);
         }
 
             //kiem tra xem co loc hay khong (parameter == null)
@@ -42,9 +52,10 @@ public class search extends HttpServlet {
        int end = index*proNumsEachPage;
        int start = end - proNumsEachPage + 1;
 
-       System.out.print("index = " + index  + ";dataSize = "+ dataSize + ";totalPages = " +totalPages);
+       System.out.println("index = " + index  + ";dataSize = "+ dataSize + ";totalPages = " +totalPages);
 
-       Collection<Product> data = ProductsData.getDataByNameWithLimit(keyword, start, proNumsEachPage, filter.toString()).values();
+       Collection<Product> data = ProductsData.getDataByNameWithLimit(keyword, start, proNumsEachPage, addition).values();
+        System.out.println("data size: " + data.size());
         request.setAttribute("data", data);
         request.setAttribute("key", keyword);
         request.setAttribute("index", index);

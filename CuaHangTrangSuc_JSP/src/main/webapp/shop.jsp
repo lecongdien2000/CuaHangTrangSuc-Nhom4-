@@ -185,6 +185,8 @@
 	<!-- form -->
                         <form method="get" action="search">
 							<input type="text" name="keyword" value="<%=result%>" style="display: none">
+							<input type="text" name="index" value="1" style="display: none">
+							<input type="text" name="filter" value="true" style="display: none">
 						<h2>Bộ lọc</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
@@ -213,7 +215,7 @@
 										<select name="attached" id="color" class="select">
 											<option value="tatCa">Tất cả</option>
     										<option value="non">Không có đính kèm</option>
-    										<option value="diamon">Đính kim cương</option>
+    										<option value="diamond">Đính kim cương</option>
   										  	<option value="gemStone">Đính đá quý</option>
     										<option value="pearl">Đính ngọc trai</option>
     										<option value="ecz">ECZ</option>

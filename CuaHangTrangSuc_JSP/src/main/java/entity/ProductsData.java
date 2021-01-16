@@ -82,21 +82,34 @@ public class ProductsData {
     public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String additionSql) { //parameter: String addition sql
         if(name==null) return null;
         name = name.toLowerCase();
-        String[] expres = additionSql.split(".");
-        if(expres.length<=1)
-        return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
-        StringBuilder addition = new StringBuilder("");
-
-        for (int i =0; i< expres.length-1; i++){//to before price range
-            String result = ProductsData.chooseExpess(i, expres[i]);
-            if (result!=null){
-                addition.append(result + " and");
+        if(additionSql!=null) {
+            StringBuilder addition = new StringBuilder("");
+            String[] expres = additionSql.split(",");
+            System.out.println("after split: size=" + expres.length);          //  if (expres.length <= 1)
+//                return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%" + name + "%' limit " + (offset - 1) + ", " + limit);
+//
+            for (int i = 0; i < expres.length; i++) {//to before price range
+                System.out.println(expres[i]);
+                String result = ProductsData.chooseExpess(i, expres[i]);
+                if (result != null) {
+                    addition.append(" and " +result);
+                }
             }
+            System.out.println("add sql: " + addition.toString());
+            String newQuery = "Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
+                    " lower(p.product_name) like '%"+ name + "%' " + addition.toString() + " limit " + (offset - 1) + ", " + limit;
+            System.out.println("new query: " + newQuery);
+            return getDataQuery(newQuery) ;
+        }
+        else {
+            System.out.println("add sql: null");
+            System.out.println("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
+                    " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
+            return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
+                    " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
         }
 
-        return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                "and " + addition.toString() +
-                " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
+
     }
     public static  String chooseExpess(int numberOfExpess, String expresstion){
         switch (numberOfExpess){
@@ -112,36 +125,72 @@ public class ProductsData {
 
     public static String filterByType(String type){
         switch (type) {
-            case "nhan" : return "id_categoty = '1'";
-            case "bongTai" : return "id_categoty = '2'";
-            case "dayChuyen" : return "id_categoty = '5'";
-            case "dongHo" : return "id_categoty = '4'";
-            case "lac" : return "id_categoty = '3'";
-            default: return null;
+            case "nhan" :
+                System.out.println("type = nhan");
+                return "id_categoty = '1'";
+            case "bongTai" :
+                System.out.println("type = bong tai");
+                return "id_categoty = '2'";
+            case "dayChuyen" :
+                System.out.println("type = day chuyen");
+                return "id_categoty = '5'";
+            case "dongHo" :
+                System.out.println("type = dong ho");
+                return "id_categoty = '4'";
+            case "lac" :
+                System.out.println("type = lac");
+                return "id_categoty = '3'";
+            default:
+                System.out.println("type = null");
+                return null;
         }
     }
     public static String filterByAttached(String attached){
         switch (attached) {
-            case "non" : return "pd.is_plain = true";
-            case "diamon" : return "ipd.is_diamond = true";
-            case "gemStone" : return "pd.is_gemstone = true";
-            case "pearl" : return "pd.is_peart = true";
-            case "ecz" : return "pd.is_ecz = true";
-            default: return null;
+            case "non" :
+                System.out.println("attach = non");
+                return "pd.is_plain = true";
+            case "diamond" :
+                System.out.println("attacj = diamond");
+                return "pd.is_diamond = true";
+            case "gemStone" :
+                System.out.println("attach = gem");
+                return "pd.is_gemstone = true";
+            case "pearl" :
+                System.out.println("attach = pearl");
+                return "pd.is_peart = true";
+            case "ecz" :
+                System.out.println("attach = ecz");
+                return "pd.is_ecz = true";
+            default:
+                System.out.println("attach = null");
+                return null;
         }
     }
     public static String filterByStage(String stage){
         switch (stage) {
-            case "notchild" : return "pd.is_child = false";
-            case "child" : return "ipd.is_child = true";
-            default: return null;
+            case "notchild" :
+                System.out.println("child = not");
+                return "pd.is_child = false";
+            case "child" :
+                System.out.println("child = yes");
+                return "pd.is_child = true";
+            default:
+                System.out.println("stage = null");
+                return null;
         }
     }
     public static String filterByGender(String gender){
         switch (gender) {
-            case "nam" : return "pd.gender= 'Nam'";
-            case "nu" : return "ipd.gender = 'Nữ'";
-            default: return null;
+            case "nam" :
+                System.out.println("gender = nam");
+                return "pd.gender= 'Nam'";
+            case "nu" :
+                System.out.println("gender = nu");
+                return "pd.gender = 'Nữ'";
+            default:
+                System.out.println("gneder = null");
+                return null;
         }
     }
     public static String filterByMinPrice(String minPrice){
