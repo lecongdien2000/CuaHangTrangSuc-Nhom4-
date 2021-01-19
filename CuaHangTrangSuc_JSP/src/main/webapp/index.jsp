@@ -1,3 +1,4 @@
+<%@ page import="user.User" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -78,8 +79,9 @@
 						<div class="shop-menu clearfix pull-right">
 							<ul class="nav navbar-nav">
 								<%
-									String name = (String)session.getAttribute("uname");
-									if(name==null){
+                                    User user = ((User)session.getAttribute("user"));
+									String name = user!=null?user.getUsername():"";
+									if(user==null){
 								%>
 								<li><a href="login.jsp"><i class="fa fa-lock"></i></a></li>
 								<%

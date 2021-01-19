@@ -21,12 +21,16 @@ public class register extends HttpServlet {
         String uname = request.getParameter("username");
         String pass = request.getParameter("password");
         String pass2 = request.getParameter("password2");
-        HashMap<String, String> datas = UsersData.datas;
-        if(pass.equals(pass2) && !datas.containsKey(uname)){
-            datas.put(uname, pass);
+        User user = UsersData.getUsers(uname);
+        if(pass.equals(pass2) && user== null){
+            user = new User();
+            user.setUsername(uname);
+            user.setPassword(pass);
+            user.setEmail(request.getParameter("email"));
+            UsersData.insertUser(user);
             HttpSession session = request.getSession(true);
-            session.setAttribute("uname", uname);
-            response.sendRedirect("index.jsp");
+            session.setAttribute("user", user);
+            response.sendRedirect("index");
         }else{
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }

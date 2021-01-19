@@ -20,11 +20,11 @@ public class login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String uname = request.getParameter("username");
     String pass = request.getParameter("password");
-        HashMap<String, String> datas = UsersData.datas;
-    if(datas.containsKey(uname) && datas.get(uname).equals(pass)){
+    User user = UsersData.getUsers(uname, pass);
+    if(user!=null){
         HttpSession session = request.getSession(true);
-        session.setAttribute("uname", uname);
-        response.sendRedirect("index.jsp");
+        session.setAttribute("user", user);
+        response.sendRedirect("index");
     } else{
         request.setAttribute("erros", "Ban da nhap sai user name hoac password");
         request.getRequestDispatcher("login.jsp").forward(request,response);
