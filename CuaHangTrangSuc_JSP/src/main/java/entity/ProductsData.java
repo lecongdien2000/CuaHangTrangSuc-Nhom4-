@@ -79,32 +79,60 @@ public class ProductsData {
         return result;
     }
 
-    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String additionSql) { //parameter: String addition sql
-        if(name==null) return null;
+    public static int getFilterSize(String name, String additionSql){
+        if(name==null) return -1;
         name = name.toLowerCase();
         if(additionSql!=null) {
+            int size=-1;
             StringBuilder addition = new StringBuilder("");
             String[] expres = additionSql.split(",");
-            System.out.println("after split: size=" + expres.length);          //  if (expres.length <= 1)
-//                return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%" + name + "%' limit " + (offset - 1) + ", " + limit);
-//
             for (int i = 0; i < expres.length; i++) {//to before price range
-                System.out.println(expres[i]);
                 String result = ProductsData.chooseExpess(i, expres[i]);
                 if (result != null) {
                     addition.append(" and " +result);
                 }
             }
-            System.out.println("add sql: " + addition.toString());
+            String newQuery = "Select count(p.id_product) as cnt from product p join product_detail pd on  p.id_product = pd.id_product where " +
+                    " lower(p.product_name) like '%"+ name + "%' " + addition.toString();
+            try {
+                Statement s = ConnectionDB.connect();
+                ResultSet rs = s.executeQuery(newQuery);
+                rs.next();
+                size =  rs.getInt("cnt");
+                s.close();
+                return size;
+
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException a) {
+                a.printStackTrace();
+            }
+            return -1;
+        }
+        else {
+            return getDataSizeByName(name);
+        }
+    }
+
+    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String additionSql) { //parameter: String addition sql
+        if(name==null) return null;
+        name = name.toLowerCase();
+        if(additionSql!=null) {
+            StringBuilder addition = new StringBuilder("");
+            String[] expres = additionSql.split(",");        //  if (expres.length <= 1)
+//                return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%" + name + "%' limit " + (offset - 1) + ", " + limit);
+//
+            for (int i = 0; i < expres.length; i++) {//to before price range
+                String result = ProductsData.chooseExpess(i, expres[i]);
+                if (result != null) {
+                    addition.append(" and " +result);
+                }
+            }
             String newQuery = "Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
                     " lower(p.product_name) like '%"+ name + "%' " + addition.toString() + " limit " + (offset - 1) + ", " + limit;
-            System.out.println("new query: " + newQuery);
             return getDataQuery(newQuery) ;
         }
         else {
-            System.out.println("add sql: null");
-            System.out.println("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                    " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
             return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
                     " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
         }
@@ -126,70 +154,52 @@ public class ProductsData {
     public static String filterByType(String type){
         switch (type) {
             case "nhan" :
-                System.out.println("type = nhan");
-                return "id_categoty = '1'";
+                return "id_category = '1'";
             case "bongTai" :
-                System.out.println("type = bong tai");
-                return "id_categoty = '2'";
+                return "id_category = '2'";
             case "dayChuyen" :
-                System.out.println("type = day chuyen");
-                return "id_categoty = '5'";
+                return "id_category = '5'";
             case "dongHo" :
-                System.out.println("type = dong ho");
-                return "id_categoty = '4'";
+                return "id_category = '4'";
             case "lac" :
-                System.out.println("type = lac");
-                return "id_categoty = '3'";
+                return "id_category = '3'";
             default:
-                System.out.println("type = null");
                 return null;
         }
     }
     public static String filterByAttached(String attached){
         switch (attached) {
             case "non" :
-                System.out.println("attach = non");
                 return "pd.is_plain = true";
             case "diamond" :
-                System.out.println("attacj = diamond");
                 return "pd.is_diamond = true";
             case "gemStone" :
-                System.out.println("attach = gem");
                 return "pd.is_gemstone = true";
             case "pearl" :
-                System.out.println("attach = pearl");
                 return "pd.is_peart = true";
             case "ecz" :
-                System.out.println("attach = ecz");
                 return "pd.is_ecz = true";
             default:
-                System.out.println("attach = null");
                 return null;
         }
     }
     public static String filterByStage(String stage){
         switch (stage) {
             case "notchild" :
-                System.out.println("child = not");
                 return "pd.is_child = false";
             case "child" :
-                System.out.println("child = yes");
                 return "pd.is_child = true";
             default:
-                System.out.println("stage = null");
                 return null;
         }
     }
     public static String filterByGender(String gender){
         switch (gender) {
             case "nam" :
-                System.out.println("gender = nam");
                 return "pd.gender= 'Nam'";
             case "nu" :
-                System.out.println("gender = nu");
                 return "pd.gender = 'Nữ'";
             default:
-                System.out.println("gneder = null");
                 return null;
         }
     }
