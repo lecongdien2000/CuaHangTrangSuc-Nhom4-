@@ -181,6 +181,7 @@
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="left-sidebar">
+                        <form method="get" action="filter">
 						<h2>Bộ lọc</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
@@ -265,8 +266,9 @@
 						<div class="shipping text-center"><!--shipping-->
 							<img src="images/home/shipping.jpg" alt="" />
 						</div><!--/shipping-->
-						
+                        </form>
 					</div>
+
 				</div>
 				
 				<div class="col-sm-9 padding-right">
