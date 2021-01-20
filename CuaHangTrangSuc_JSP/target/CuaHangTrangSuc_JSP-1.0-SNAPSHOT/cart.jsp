@@ -244,18 +244,23 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="total_area">
+<%--							<% Cart cart1 = Cart.getCart(session);--%>
+<%--								Collection<Product> data1 = cart.getdata();--%>
+<%--								request.setAttribute("data", data);--%>
+<%--								request.setAttribute("cart", cart);--%>
+<%--							%>--%>
 							<ul>
-								<li>Tổng trong giỏ hàng <span>2.070.000đ</span></li>
-								<li>Thuế <span>50000đ</span></li>
+								<li>Tổng trong giỏ hàng <span>${cart.totalOfCart()}</span></li>
+								<li>Thuế <span>0đ</span></li>
 								<li>Phí vận chuyển <span>Miễn phí</span></li>
 								<li><hr style="border-top: 1px solid black; margin-bottom: 0; margin-top: 0"></li>
-								<li>Tổng Tiền <span>2.120.000đ</span></li>
+								<li>Tổng Tiền <span>${cart.totalOfCart()}</span></li>
 							</ul>
 
 						</div>
 						<div style="margin-left: 870px;">
 							<a class="btn btn-default update" href="">Cập nhật</a>
-							<a class="btn btn-default check_out" href="checkout.html">Thanh toán</a>
+							<a class="btn btn-default check_out" href="checkout.jsp">Thanh toán</a>
 						</div>
 					</div>
 				</div>

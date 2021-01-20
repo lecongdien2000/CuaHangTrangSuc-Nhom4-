@@ -1,5 +1,6 @@
 package controller;
 
+import entity.CartData;
 import product.Product;
 
 import javax.servlet.http.HttpSession;
@@ -7,20 +8,37 @@ import java.io.Serializable;
 import java.util.*;
 
 public class Cart implements Serializable {
+    private String username;
     Map<Product, Integer> data = new HashMap<>();
+
     public Cart() {
     }
 
+    public Cart(String username) {
+        this.username = username;
+    }
+
     //them sp vao cart
+    //neu username chua dang nhap thi khong cho them vao gio hang
+    //neu username da dang nhap moi cho them vao gio hang
     public void put(Product newProduct) {
         if (newProduct == null) return;
-        for(Product p: data.keySet()){
-            if (p.getId_product().equals(newProduct.getId_product())) {
-                data.put(p, data.get(p) + 1);
-                return;
+        if (username == null) {
+            return;
+        } else {
+            for (Product p : data.keySet()) {
+                if (p.getId_product().equals(newProduct.getId_product())) {
+                    data.put(p, data.get(p) + 1);
+                    System.out.println(CartData.updateQuantitesProduct(newProduct, username, data.get(p)));
+                    return;
+                }
             }
+            data.put(newProduct, 1);
+            System.out.println(CartData.insertProductToCart(newProduct, username));
+            System.out.println(data.keySet());
         }
-        data.put(newProduct, 1);
+
+
     }
 
 //    //ngang day co the se khong che so luong dat
@@ -43,8 +61,17 @@ public class Cart implements Serializable {
 //        return sum;
 //    }
 
+    //neu nguoi dung dang nhap roi thi lay gio hang xu ly
+    //neu  chua dang nhap thi gio hang null
+
     public static Cart getCart(HttpSession session) {
-        return session.getAttribute("cart") == null ? new Cart() : (Cart) session.getAttribute("cart");
+        String username = (String)session.getAttribute("uname");
+        System.out.println(username);
+        if(username!=null){
+            return session.getAttribute("cart") == null ? new Cart(username) : (Cart) session.getAttribute("cart");
+        }else{
+            return new Cart(null);
+        }
     }
 
     public Collection<Product> getdata() {
@@ -55,25 +82,32 @@ public class Cart implements Serializable {
         session.setAttribute("cart", this);
     }
 
-    public int getQuantity(Product p){
+    public int getQuantity(Product p) {
         return data.get(p);
     }
 
-    public double totalPriceProduct(Product p){
-        return p.getPrice()*getQuantity(p);
+    public double totalPriceProduct(Product p) {
+        return p.getPrice() * getQuantity(p);
+    }
+    public double totalOfCart(){
+        double sum = 0;
+       for(Product p : data.keySet()){
+           sum+=p.getPrice() * data.get(p);
+       }
+       return sum;
     }
 
-    public String totalStringPriceProduct(Product p){
+    public String totalStringPriceProduct(Product p) {
         double price = totalPriceProduct(p);
-        String stringPrice = String.format ("%.0f", price);
-        String result ="";
+        String stringPrice = String.format("%.0f", price);
+        String result = "";
         int length = stringPrice.length();
-        while(length/3>0){
-            result =  stringPrice.substring(length - 3, length)  + "." + result;
+        while (length / 3 > 0) {
+            result = stringPrice.substring(length - 3, length) + "." + result;
             stringPrice = stringPrice.substring(0, length - 3);
             length = stringPrice.length();
         }
-        if(length>0)
+        if (length > 0)
             result = stringPrice + "." + result;
         return result.substring(0, result.length() - 1) + " VND";
     }
