@@ -204,21 +204,24 @@
 				<h1 class="text-center" style="color: #2B46DC;">Thông tin cá nhân</h1>
 				<% User user = ((User)session.getAttribute("user")); %>
 				<div class="container"> 
-					<div class="row profile">        
+					<div class="row profile">
+                        <form action="userEdit" method="post">
 						<div class="col-sm-3">          
 							<div class="profile-sidebar">                          
-								<div class="profile-userpic">                 <img src="images/home/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">               
-								</div>                                            
+								<div class="profile-userpic">
+                                    <img src="images/home/profile_user.jpg" class="img-responsive" alt="Thông tin cá nhân">
+								</div>
+
 								<div class="profile-usertitle">                   
 									<div class="profile-usertitle-name"> 
-										<input type="text" name="usename" value="<%=user.getAccountName()%>" style="width: 50%" class="textAlign" >
+										<input type="text" name="accountName" value="<%=user.getAccountName()%>" style="width: 50%" class="textAlign" >
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-sm-9">
 									<div>
-										<form>
+<%--										form old place--%>
 											<div class="row textcolor">
 												<p>Thông tin liên lạc: </p>
 											</div>
@@ -232,7 +235,7 @@
 												<div class="col-sm-2"><label for="sdt" class=" colorText">Số điện thoại: </label>
 												</div>
 												<div class=" col-sm-10">
-													<input type="text" class=" maxwidth" id="sdt" name="phone" value="0911574460">
+													<input type="text" class=" maxwidth" id="sdt" name="phone" value="">
 												</div>
 											</div>
 											<div class="row textcolor">
@@ -249,7 +252,7 @@
 												<div class="col-sm-2 padding-left"><label for="birth" class="col-sm-2 inheritWith colorText" >Ngày sinh: </label>
 												</div>
 												<div class="col-sm-10 ">
-													<input type="date" class="maxwidth" id="dateField" name="birth" id="birth" value="<%=user.getBirthday().convertDateToSqlString()%>>">
+													<input type="date" class="maxwidth" id="dateField" name="birth" id="birth" value="<%=user.getBirthday().convertDateToSqlString()%>">
 												</div>
 											</div>
 
@@ -259,15 +262,16 @@
 												color: lightseagreen; font-weight: normal">Mô tả: </label>
 											</div>
 											<div class="row">
-												<textarea id="descript"><%=user.getDescription()%></textarea>
+												<textarea id="descript" name="descript"><%=user.getDescription()%></textarea>
 											</div>
 
 											<div id="submit" class="row colorText">
-												<input type="submit"  value="Xác nhận"> 
+												<input type="submit" value="Xác nhận">
 											</div>
-										</form>
+<%--										</form>--%>
 									</div>
-								</div>  
+								</div>
+                                </form>
 							</div>
 						</div> 
 					</div>

@@ -16,7 +16,6 @@ public class User {
         this.gender = "Nam";
         this.birthday = new Date(1,1,2000);
         this.description = "";
-        this.accountName = "[UNAME_" + username+"]";
         isAdmin = false;
     }
 
