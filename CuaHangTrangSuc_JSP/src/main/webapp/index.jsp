@@ -80,7 +80,7 @@
 							<ul class="nav navbar-nav">
 								<%
                                     User user = ((User)session.getAttribute("user"));
-									String name = user!=null?user.getUsername():"";
+									String name = user!=null?user.getAccountName():"";
 									if(user==null){
 								%>
 								<li><a href="login.jsp"><i class="fa fa-lock"></i></a></li>

@@ -80,7 +80,7 @@
 							<ul class="nav navbar-nav">
 								<%
                                     User user = ((User)session.getAttribute("user"));
-									String name = user!=null?user.getUsername():"";
+									String name = user!=null?user.getAccountName():"";
 									if(user==null){
 								%>
 								<li><a href="login.jsp"><i class="fa fa-lock"></i></a></li>
@@ -339,6 +339,7 @@
 						<div class="col-sm-9 padding-right">
 							<div class="features_items"><!--features_items-->
 								<h2 class="title text-center">Bán chạy nhất</h2>
+
 								<c:forEach items="${data}" var="product" begin="0" end="5">
 								<div class="col-sm-4">
 									<div class="product-image-wrapper">

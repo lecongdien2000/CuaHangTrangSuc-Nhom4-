@@ -1,5 +1,6 @@
 package user;
 
+
 public class User {
     private String username;
     private String password;
@@ -15,7 +16,7 @@ public class User {
         this.gender = "Nam";
         this.birthday = new Date(1,1,2000);
         this.description = "";
-        this.accountName = "";
+        this.accountName = "[UNAME_" + username+"]";
         isAdmin = false;
     }
 

@@ -45,12 +45,13 @@ public class UsersData {
             user.setPassword(rs.getString("password"));
             user.setEmail(rs.getString("email"));
             user.setGender(rs.getString("gender"));
-            user.setBirthday(Date.convertStringToDate(rs.getString("birthday")));
+            user.setBirthday(Date.convertSqlStringToDate(rs.getDate("birthday").toString())); //return sql type///"/.;'./'
             user.setDescription(rs.getString("description"));
             user.setAccountName(rs.getString("accountName"));
             user.setAdmin(rs.getBoolean("admin"));
             userResultList.put(user.getUsername(), user);
         }
+
         rs.close();
         preStat.close();
         } catch (ClassNotFoundException|SQLException e) {

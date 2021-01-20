@@ -31,9 +31,22 @@ public class Date {
         return date;
     }
     public String convertDateToSqlString(){
-        return year + "-" + month + "-" + day;
+        String monthString = month<10? "0" + month: month + "";
+        String dayString = day<10? "0" + day: day + "";
+        return year + "-" + monthString + "-" + dayString;
     }
-
+    public static Date convertSqlStringToDate(String dateString){
+        StringTokenizer st = new StringTokenizer(dateString, "-");
+        Date date = new Date();
+        try {
+            date.setYear(Integer.parseInt(st.nextToken()));
+            date.setMonth(Integer.parseInt(st.nextToken()));
+            date.setDay(Integer.parseInt(st.nextToken()));
+        } catch(NumberFormatException e){
+            return null;
+        }
+        return date;
+    }
     public String convertDateToString(){
         return this.day + "/" + this.month + "/" + this.year;
     }
