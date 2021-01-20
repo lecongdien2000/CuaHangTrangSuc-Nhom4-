@@ -7,28 +7,29 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ProductsData {
 //    static HashMap<String, Product> productList = new HashMap<String, Product>();
 
-    public static HashMap<String, Product> getAllData() {
+    public  static HashMap<String, Product> getAllData(){
         return getDataQuery("Select * from product p join product_detail pd where p.id_product = pd.id_product");
     }
-
-    public static HashMap<String, Product> getDataByName(String name) {
-        if (name == null) return null;
+    public  static HashMap<String, Product> getDataByName(String name){
+        if(name==null) return null;
         name = name.toLowerCase();
-        return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%" + name + "%'");
+        return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%"+ name + "%'");
     }
-
-    public static HashMap<String, Product> getDataQuery(String query) {
+    public  static HashMap<String, Product> getDataQuery(String query){
         Statement s = null;
         HashMap<String, Product> productList = new HashMap<String, Product>();
         try {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery(query);
-            while (rs.next()) {
+            while(rs.next()){
                 Product p = new Product();
                 p.setId_product(rs.getString("p.id_product"));
                 p.setProduct_name(rs.getString("product_name"));
@@ -60,10 +61,10 @@ public class ProductsData {
     }
 
 
-    public static int getDataSizeByName(String name) {
+    public  static int getDataSizeByName(String name){
         Statement s = null;
         int result = -1;
-        String sql = "Select count(id_product) as cnt from product where lower(product_name) like '%" + name + "%'";
+        String sql = "Select count(id_product) as cnt from product where lower(product_name) like '%"+ name + "%'";
         try {
             s = ConnectionDB.connect();
             ResultSet rs = s.executeQuery(sql);
@@ -78,139 +79,137 @@ public class ProductsData {
         return result;
     }
 
-    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String additionSql) { //parameter: String addition sql
-        if (name == null) return null;
+    public static int getFilterSize(String name, String additionSql){
+        if(name==null) return -1;
         name = name.toLowerCase();
-        if (additionSql != null) {
+        if(additionSql!=null) {
+            int size=-1;
             StringBuilder addition = new StringBuilder("");
             String[] expres = additionSql.split(",");
-            System.out.println("after split: size=" + expres.length);          //  if (expres.length <= 1)
+            for (int i = 0; i < expres.length; i++) {//to before price range
+                String result = ProductsData.chooseExpess(i, expres[i]);
+                if (result != null) {
+                    addition.append(" and " +result);
+                }
+            }
+            String newQuery = "Select count(p.id_product) as cnt from product p join product_detail pd on  p.id_product = pd.id_product where " +
+                    " lower(p.product_name) like '%"+ name + "%' " + addition.toString();
+            try {
+                Statement s = ConnectionDB.connect();
+                ResultSet rs = s.executeQuery(newQuery);
+                rs.next();
+                size =  rs.getInt("cnt");
+                s.close();
+                return size;
+
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (SQLException a) {
+                a.printStackTrace();
+            }
+            return -1;
+        }
+        else {
+            return getDataSizeByName(name);
+        }
+    }
+
+    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String additionSql) { //parameter: String addition sql
+        if(name==null) return null;
+        name = name.toLowerCase();
+        if(additionSql!=null) {
+            StringBuilder addition = new StringBuilder("");
+            String[] expres = additionSql.split(",");        //  if (expres.length <= 1)
 //                return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%" + name + "%' limit " + (offset - 1) + ", " + limit);
 //
             for (int i = 0; i < expres.length; i++) {//to before price range
-                System.out.println(expres[i]);
                 String result = ProductsData.chooseExpess(i, expres[i]);
                 if (result != null) {
-                    addition.append(" and " + result);
+                    addition.append(" and " +result);
                 }
             }
-            System.out.println("add sql: " + addition.toString());
             String newQuery = "Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                    " lower(p.product_name) like '%" + name + "%' " + addition.toString() + " limit " + (offset - 1) + ", " + limit;
-            System.out.println("new query: " + newQuery);
-            return getDataQuery(newQuery);
-        } else {
-            System.out.println("add sql: null");
-            System.out.println("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                    " lower(p.product_name) like '%" + name + "%' limit " + (offset - 1) + ", " + limit);
+                    " lower(p.product_name) like '%"+ name + "%' " + addition.toString() + " limit " + (offset - 1) + ", " + limit;
+            return getDataQuery(newQuery) ;
+        }
+        else {
             return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                    " lower(p.product_name) like '%" + name + "%' limit " + (offset - 1) + ", " + limit);
+                    " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
         }
 
 
     }
-
-    public static String chooseExpess(int numberOfExpess, String expresstion) {
-        switch (numberOfExpess) {
-            case 0:
-                return filterByType(expresstion);
-            case 1:
-                return filterByAttached(expresstion);
-            case 2:
-                return filterByStage(expresstion);
-            case 3:
-                return filterByGender(expresstion);
-            case 4:
-                return filterByMinPrice(expresstion);
-            case 5:
-                return filterByMaxPrice(expresstion);
-            default:
-                return null;
+    public static  String chooseExpess(int numberOfExpess, String expresstion){
+        switch (numberOfExpess){
+            case 0 : return filterByType(expresstion);
+            case 1 : return filterByAttached(expresstion);
+            case 2 : return filterByStage(expresstion);
+            case 3 : return filterByGender(expresstion);
+            case 4 : return filterByMinPrice(expresstion);
+            case 5 : return filterByMaxPrice(expresstion);
+            default: return null;
         }
     }
 
-    public static String filterByType(String type) {
+    public static String filterByType(String type){
         switch (type) {
-            case "nhan":
-                System.out.println("type = nhan");
-                return "id_categoty = '1'";
-            case "bongTai":
-                System.out.println("type = bong tai");
-                return "id_categoty = '2'";
-            case "dayChuyen":
-                System.out.println("type = day chuyen");
-                return "id_categoty = '5'";
-            case "dongHo":
-                System.out.println("type = dong ho");
-                return "id_categoty = '4'";
-            case "lac":
-                System.out.println("type = lac");
-                return "id_categoty = '3'";
+            case "nhan" :
+                return "id_category = '1'";
+            case "bongTai" :
+                return "id_category = '2'";
+            case "dayChuyen" :
+                return "id_category = '5'";
+            case "dongHo" :
+                return "id_category = '4'";
+            case "lac" :
+                return "id_category = '3'";
             default:
-                System.out.println("type = null");
                 return null;
         }
     }
-
-    public static String filterByAttached(String attached) {
+    public static String filterByAttached(String attached){
         switch (attached) {
-            case "non":
-                System.out.println("attach = non");
+            case "non" :
                 return "pd.is_plain = true";
-            case "diamond":
-                System.out.println("attacj = diamond");
+            case "diamond" :
                 return "pd.is_diamond = true";
-            case "gemStone":
-                System.out.println("attach = gem");
+            case "gemStone" :
                 return "pd.is_gemstone = true";
-            case "pearl":
-                System.out.println("attach = pearl");
+            case "pearl" :
                 return "pd.is_peart = true";
-            case "ecz":
-                System.out.println("attach = ecz");
+            case "ecz" :
                 return "pd.is_ecz = true";
             default:
-                System.out.println("attach = null");
                 return null;
         }
     }
-
-    public static String filterByStage(String stage) {
+    public static String filterByStage(String stage){
         switch (stage) {
-            case "notchild":
-                System.out.println("child = not");
+            case "notchild" :
                 return "pd.is_child = false";
-            case "child":
-                System.out.println("child = yes");
+            case "child" :
                 return "pd.is_child = true";
             default:
-                System.out.println("stage = null");
                 return null;
         }
     }
-
-    public static String filterByGender(String gender) {
+    public static String filterByGender(String gender){
         switch (gender) {
-            case "nam":
-                System.out.println("gender = nam");
+            case "nam" :
                 return "pd.gender= 'Nam'";
-            case "nu":
-                System.out.println("gender = nu");
+            case "nu" :
                 return "pd.gender = 'Nữ'";
             default:
-                System.out.println("gneder = null");
                 return null;
         }
     }
-
-    public static String filterByMinPrice(String minPrice) {
-        if (minPrice.equals("") || minPrice == null)
+    public static String filterByMinPrice(String minPrice){
+        if (minPrice.equals("") || minPrice ==null)
             return null;
         return "price >= " + minPrice;
     }
-
-    public static String filterByMaxPrice(String maxPrice) {
-        if (maxPrice.equals("") || maxPrice == null)
+    public static String filterByMaxPrice(String maxPrice){
+        if (maxPrice.equals("") || maxPrice ==null)
             return null;
         return "price <= " + maxPrice;
     }
@@ -220,7 +219,7 @@ public class ProductsData {
         if (p.getId_product().equals("") || p.getProduct_name().equals("")
                 || p.getPrice() == 0 || p.getPicture1().equals("") || p.getId_category().equals("") || p.getQuantity() == 0)
             return -2;
-        if (ProductsData.getProductByID(p.getId_product()) == null) {
+        if(ProductsData.getProductByID(p.getId_product())==null){
             try {
                 PreparedStatement state1 = ConnectionDB.connect("insert into product(id_product, product_name, picture1, picture2, picture3, price, id_category, quantity)" +
                         " values(?, ?, ?, ?, ?, ?, ?, ?)");
@@ -244,24 +243,23 @@ public class ProductsData {
                 state2.setString(3, p.getGender());
                 state2.setString(4, p.getDescription());
                 state2.setInt(5, p.getRate());
-                state2.setBoolean(6, p.isDiamond());
-                state2.setBoolean(7, p.isGemstone());
-                state2.setBoolean(8, p.isECZ());
-                state2.setBoolean(9, p.isPearl());
-                state2.setBoolean(10, p.isPlain());
-                state2.setBoolean(11, p.isChild());
+                state2.setBoolean(6,p.isDiamond());
+                state2.setBoolean(7,p.isGemstone());
+                state2.setBoolean(8,p.isECZ());
+                state2.setBoolean(9,p.isPearl());
+                state2.setBoolean(10,p.isPlain());
+                state2.setBoolean(11,p.isChild());
                 state2.executeUpdate();
                 state2.close();
                 ConnectionDB.closeConnection();
 //// lấy connection bên connectionDb ra (c), gọi c.commit
                 return 1;
-            } catch (SQLException | ClassNotFoundException e) {
+            }
+            catch (SQLException | ClassNotFoundException e){
 //                gọi c.rollBack()
-                return -1;
+                return  -1;
             }
         }
         return -1;
     }
-
-
 }
