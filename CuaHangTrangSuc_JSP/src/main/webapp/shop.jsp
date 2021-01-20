@@ -185,7 +185,7 @@
 	<!-- form -->
                         <form method="get" action="search">
 							<input type="text" name="keyword" value="<%=result%>" style="display: none">
-							<input type="text" name="index" value="1" style="display: none">
+
 							<input type="text" name="filter" value="true" style="display: none">
 						<h2>Bộ lọc</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
@@ -231,8 +231,8 @@
 								<div id="goldAge" >
 									<div class="panel-body">
 										<select name="stage" id="age" class="select">
-											<option value="tatCa">Tất cả</option>
-    										<option value="child">Trẻ em</option>
+											<option value="tatCa" >Tất cả</option>
+    										<option value="child" >Trẻ em</option>
     										<option value="notchild">Người lớn</option>
   										</select>
 									</div>
@@ -258,9 +258,10 @@
 								</div>
 								<div class="price-range "><!--price-range-->
 							<div class="well">
-								 <input name="priceRange" type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,6000000]" id="sl2" ><br />
+								 <input name="priceRange" type="text" class="span2" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,50000000]" id="sl2" ><br />
 								 <b>0đ</b> <b class="pull-right">50.000.000đ</b>
 							</div>
+                                <input type="text" name="index" value="1" style="display: none">
 						</div><!--/price-range-->
 							</div>
 							<div class="filter"><button class="btn"><h4>Lọc</h4></button></div>
@@ -309,13 +310,16 @@
 
 
 <!-- end display product-->
+<%--                          <c:if test="${totalPages != null}"  >--%>
+<%--                              <input type="text" value="${totalPages}">--%>
+<%--                          </c:if>--%>
 						<ul class="pagination">
 							<% int i;%>
 							<% String keyword = (String)request.getAttribute("key");%>
 							<% for(i = 1; i <= (int)request.getAttribute("totalPages"); i++) { %>
 							<% if(i==(int)request.getAttribute("index")) { %>
 							<li class="active"> <%} else {%> <li> <%}%>
-									<a href="search?keyword=<%=keyword%>&index=<%=i%>"><%=i%></a></li>
+<!--change link-->				<a href="${pageLink}<%=i%>"><%=i%></a></li>
 							<%}%>
 							<li><a href="">&raquo;</a></li>
 						</ul>

@@ -20,13 +20,17 @@ public class search extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        String keyword = request.getParameter("keyword");
-        System.out.println("key: "+keyword);
-       int index = Integer.parseInt(request.getParameter("index"));
+
        // Khoi tao String additionSql
        //duyet qua danh sach loc
         String addition;
-        if(request.getParameter("filter") == null || request.getParameter("filter").equals("")){
+        String pageLink = "search?keyword=" + keyword;
+
+        int dataSize = 0;
+
+        if(request.getParameter("filter") == null){
             addition =null;
+            dataSize = ProductsData.getDataSizeByName(keyword);
             System.out.println("get filter null ");
         }
         else {
@@ -34,33 +38,36 @@ public class search extends HttpServlet {
             filter.append(request.getParameter("type") + ",");
             filter.append(request.getParameter("attached") + ",");
             filter.append(request.getParameter("stage") + ",");
-            filter.append(request.getParameter("gender"));
-//            String[] pRange = request.getParameterValues("priceRange");
-//            for (String s : pRange) {
-//                filter.append(s + ".");
-//            }
+            filter.append(request.getParameter("gender") + ",");
+            filter.append(request.getParameter("priceRange"));
+
+            pageLink+= "&filter=true"+ "&type="+ request.getParameter("type");
+            pageLink+="&attached="+ request.getParameter("attached") + "&stage=" + request.getParameter("gender") + "&priceRange=" + request.getParameter("priceRange");
             addition =filter.toString();
+            dataSize = ProductsData.getFilterSize(keyword, addition);
             System.out.println("addition: " + addition);
         }
+
+        pageLink+="&index=";
 
             //kiem tra xem co loc hay khong (parameter == null)
                 //Neu co loc, tao subSql tuong ung, them vao additionSql
        //Chay cau sql chen them additionSql
-       
-       int dataSize = ProductsData.getDataSizeByName(keyword);
+        int index = Integer.parseInt(request.getParameter("index"));
+
        int totalPages = dataSize/proNumsEachPage + ((dataSize%proNumsEachPage)>0?1:0);
        int end = index*proNumsEachPage;
        int start = end - proNumsEachPage + 1;
 
-       System.out.println("index = " + index  + ";dataSize = "+ dataSize + ";totalPages = " +totalPages);
+//       System.out.println("index = " + index  + ";dataSize = "+ dataSize + ";totalPages = " +totalPages);
 
        Collection<Product> data = ProductsData.getDataByNameWithLimit(keyword, start, proNumsEachPage, addition).values();
         System.out.println("data size: " + data.size());
+        request.setAttribute("pageLink", pageLink);
         request.setAttribute("data", data);
         request.setAttribute("key", keyword);
         request.setAttribute("index", index);
         request.setAttribute("totalPages", totalPages);
-//        request.setAttribute("numresults", data.size());
         request.getRequestDispatcher("shop.jsp").forward(request, response);
     }
 }

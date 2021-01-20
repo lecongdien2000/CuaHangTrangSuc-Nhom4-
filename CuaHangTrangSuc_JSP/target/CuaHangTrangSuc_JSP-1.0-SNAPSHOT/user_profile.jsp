@@ -1,5 +1,7 @@
+<%@ page import="user.User" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -199,7 +201,8 @@
 
 			</div>
 			<div class="container"> 
-				<h1 class="text-center" style="color: #2B46DC;">Thông tin cá nhân</h1> 
+				<h1 class="text-center" style="color: #2B46DC;">Thông tin cá nhân</h1>
+				<% User user = ((User)session.getAttribute("user")); %>
 				<div class="container"> 
 					<div class="row profile">        
 						<div class="col-sm-3">          
@@ -208,13 +211,12 @@
 								</div>                                            
 								<div class="profile-usertitle">                   
 									<div class="profile-usertitle-name"> 
-										<input type="text" name="usename" value="Malie" style="width: 50%" class="textAlign" >                 </div>                  
-									          
-										</div>                                               
-
-									</div>     
-								</div>      
-								<div class="col-sm-9"> 
+										<input type="text" name="usename" value="<%=user.getAccountName()%>" style="width: 50%" class="textAlign" >
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9">
 									<div>
 										<form>
 											<div class="row textcolor">
@@ -223,7 +225,7 @@
 											<div class="row marginLeft">
 												<div class="col-sm-2"><label for="mail" class="Align colorText">Email: </label>
 												</div>
-												<div class=" col-sm-10 "><input type="text" class="maxwidth" id="mail" name="email" value="18130233@st.hcmuaf.edu.vn">
+												<div class=" col-sm-10 "><input type="text" class="maxwidth" id="mail" name="email" value="<%=user.getEmail()%>">
 												</div>
 											</div >
 											<div class="row">
@@ -240,14 +242,14 @@
 												<div class="col-sm-2 padding-left"><label for="gender" class="col-sm-2 inheritWith colorText">Giới tính: </label>
 												</div>
 												<div class="col-sm-10 ">
-													<input type="text" class="maxwidth " name="gender"  id="gender" value="Nữ">
+													<input type="text" class="maxwidth " name="gender"  id="gender" value="<%=user.getGender()%>">
 												</div>
 											</div>
 											<div class="row">
-												<div class="col-sm-2 padding-left"><label for="birth" class="col-sm-2 inheritWith colorText">Ngày sinh: </label>
+												<div class="col-sm-2 padding-left"><label for="birth" class="col-sm-2 inheritWith colorText" >Ngày sinh: </label>
 												</div>
 												<div class="col-sm-10 ">
-													<input  type="date" class="maxwidth" id="dateField" name="birth" id="birth">
+													<input type="date" class="maxwidth" id="dateField" name="birth" id="birth" value="<%=user.getBirthday().convertDateToSqlString()%>>">
 												</div>
 											</div>
 
@@ -257,7 +259,7 @@
 												color: lightseagreen; font-weight: normal">Mô tả: </label>
 											</div>
 											<div class="row">
-												<textarea id="descript">Sở thích: thích dây chuyền và lắc tay...</textarea>
+												<textarea id="descript"><%=user.getDescription()%></textarea>
 											</div>
 
 											<div id="submit" class="row colorText">
@@ -324,6 +326,6 @@
 				<script src="js/main.js"></script>
 			</body>
 			<script type="text/javascript">
-				document.getElementById("dateField").defaultValue = "2014-02-09";
+				// document.getElementById("dateField").defaultValue = "2014-02-09";
 			</script>
 			</html>
