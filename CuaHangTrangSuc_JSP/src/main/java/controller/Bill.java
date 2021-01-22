@@ -72,4 +72,34 @@ public class Bill {
     public void addBill_detail(Product p, int quantity) {
         bill_detail.put(p, quantity);
     }
+
+    public void setBill_detail(HashMap<Product, Integer> bill_details){
+        this.bill_detail = bill_details;
+    }
+
+
+
+    public double computeSumPrice(){
+        if(bill_detail == null)
+            return 0;
+        double result = 0;
+        for(Product p : bill_detail.keySet()){
+            result+=p.getPrice()*bill_detail.get(p);
+        }
+        return result;
+
+    }
+    public String toStringPrice(){
+        String stringPrice = String.format ("%.0f", computeSumPrice());
+        String result ="";
+        int length = stringPrice.length();
+        while(length/3>0){
+            result =  stringPrice.substring(length - 3, length)  + "." + result;
+            stringPrice = stringPrice.substring(0, length - 3);
+            length = stringPrice.length();
+        }
+        if(length>0)
+            result = stringPrice + "." + result;
+        return result.substring(0, result.length() - 1) + " VND";
+    }
 }

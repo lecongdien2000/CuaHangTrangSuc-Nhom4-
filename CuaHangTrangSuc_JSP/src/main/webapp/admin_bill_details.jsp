@@ -1,4 +1,8 @@
+<%@ page import="product.Product" %>
+<%@ page import="java.util.Collection" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en"><head>
 	<meta charset="utf-8">
@@ -38,11 +42,12 @@
 
 	}
 	.box .card{
-		width: 140px;
+		/*width: 140px;*/
+		min-width: 200px;
 	}
 	.box .card-title{
 		background-color: blue;
-		width: 90px;
+		min-width: 90px;
 		float: left;
 		text-align: center;
 		color: white;
@@ -113,7 +118,8 @@
 			</div>
 		</div><!--/header-bottom-->
 	</header><!--/header-->
-
+<c:if test="${bill != null}"	>
+<c:set var="bill" value="${bill}"></c:set>
 	<section id="cart_items">
 		<div class="space" style="height: 200px"></div>
 		<div class="container">
@@ -132,17 +138,17 @@
 				
 			</div>
 			<div class="review-payment">
-				<h3 style="float: left;">Trạng thái: Chờ thanh toán</h3>
+				<h3 style="float: left;">Trạng thái: ${bill.getState()}</h3>
 				<div class="box">
 					<div class="card">
 						<div class="card-title">Mã HĐ</div>
-						<p>B001</p>
+						<p>${bill.getId_bill()}</p>
 					</div>
 				</div>
 				<div class="box">
 					<div class="card">
 						<div class="card-title">Mã user</div>
-						<p>U001</p>
+						<p>${bill.getId_user()}</p>
 					</div>
 				</div>
 
@@ -150,8 +156,10 @@
 			</div>
 
 			<div class="table-responsive cart_info">
+<%--	start bill details			--%>
 				<table class="table table-condensed">
 					<thead>
+<%--	title --%>
 						<tr class="cart_menu">
 							<td class="image">Tên sản phẩm</td>
 							<td class="description"></td>
@@ -160,116 +168,83 @@
 							<td class="total">Tổng tiền</td>
 							<td></td>
 						</tr>
+<%--	end title				--%>
 					</thead>
 					<tbody>
+<%--	load products				--%>
+					<c:set var="products" value="${bill.getBill_detail().keySet()}"></c:set>
+					<c:if test="${products!=null}">
+						<c:forEach items="${products}" var="product">
 						<tr>
 							<td class="cart_product">
-								<a href=""><img src="images/cart/one.png" alt=""></a>
+								<a href=""><img src="${product.getPicture1()}" alt=""></a>
 							</td>
 							<td class="cart_description">
-								<h4><a href="">Nhẫn nam bạc đính đá PNJSilver XM00K000143</a></h4>
-								<p>Mã: SNXM00K000143</p>
+								<h4><a href="">${product.getProduct_name() }</a></h4>
+								<p>Mã: ${product.getId_product()}</p>
 							</td>
 							<td class="cart_price">
-								<p>655.000&nbsp;đ</p>
+								<p>${product.getStringPrice()}</p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<p>1</p>
+									<p>${bill.getBill_detail().get(product)}</p>
 								</div>
 							</td>
 							<td class="cart_total">
-								<p class="cart_total_price">655.000&nbsp;đ</p>
+								<p class="cart_total_price">${product.getStringPriceHasQuantities(bill.getBill_detail().get(product))}</p>
 							</td>
 							<td class="cart_delete">
 								
 							</td>
 						</tr>
+						</c:forEach>
+					</c:if>
+<%--end load products--%>
 
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/two.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Nhẫn Vàng trắng 14K đính đá Topaz PNJ TPXMW000002</a></h4>
-								<p>Mã: GNTPXMW000002</p>
-							</td>
-							<td class="cart_price">
-								<p>6.198.000&nbsp;đ</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<p>1</p>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">6.198.000&nbsp;đ</p>
-							</td>
-							<td class="cart_delete">
-								
-							</td>
-						</tr>
-						<tr>
-							<td class="cart_product">
-								<a href=""><img src="images/cart/three.png" alt=""></a>
-							</td>
-							<td class="cart_description">
-								<h4><a href="">Nhẫn cưới Vàng trắng 10K PNJ 0000W000041</a></h4>
-								<p>Mã: GN0000W000041</p>
-							</td>
-							<td class="cart_price">
-								<p>1.391.000&nbsp;đ</p>
-							</td>
-							<td class="cart_quantity">
-								<div class="cart_quantity_button">
-									<p>1</p>
-								</div>
-							</td>
-							<td class="cart_total">
-								<p class="cart_total_price">1.391.000&nbsp;đ</p>
-							</td>
-							<td class="cart_delete">
-								
-							</td>
-						</tr>
 						<tr>
 							<td colspan="3">&nbsp;</td>
 							<td colspan="3">
-								
 							</td>
 						</tr>
 					</tbody>
 				</table>
+<%--	end bill details			--%>
 			</div>
+<%--	start bill infor		--%>
 			<div class="info">
 				<h3>Thông tin</h3>
 				<table class=" table-condensed total-result" cellspacing="0" cellpadding="0">
 					<tbody><tr>
 						<td><b>Họ và tên:</b></td>
-						<td>Nguyễn Thục Diễm Hồng</td>
+						<td>${bill.getFull_name()}</td>
 					</tr>
 					<tr>
 						<td><b>Địa chỉ:</b></td>
-						<td>24 Đường số 11 KP8 Quận 2 TPHCM</td>
+						<td>${bill.getAddress()}</td>
 					</tr>
 					<tr class="shipping-cost">
 						<td><b>Sđt:</b></td>
-						<td>0933843634</td>										
+						<td>${bill.getPhone_number()}</td>
 					</tr>
 					<tr>
 						<td><b><h3>Tổng:</h3></b></td>
-						<td><span><h1 style="color: blue;">8.444.000 đ</h1></span></td>
+						<td><span><h1 style="color: blue;">${bill.toStringPrice()}</h1></span></td>
 					</tr>
 				</tbody></table>
 			</div>
+<%--	end bill infor		--%>
 			<div class="buttons" style="float: right;">
-				<button class="button-style" style="float: left;">Xác nhận</button>
-				<button class="button-style" style="background-color: red; color: yellow;">Hủy hóa đơn</button>
-				
+<%--	start add button			--%>
+				<c:if test="${ bill.getState().equals(\"Chờ xác nhận\")}">
+				<a href="loadBillDetails?idBill=${bill.getId_bill()}&action=confirm"><button class="button-style" style="float: left;">Xác nhận</button></a>
+				<a href="loadBillDetails?idBill=${bill.getId_bill()}&action=cancel"><button class="button-style" style="background-color: red; color: yellow;">Hủy hóa đơn</button></a>
+				</c:if>
+<%--	end add button			--%>
 			</div>
 		</div>
 	</section> <!--/#cart_items-->
-
+</c:if>
 	
 
 	

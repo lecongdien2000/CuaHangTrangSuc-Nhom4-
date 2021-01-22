@@ -257,9 +257,60 @@ public class ProductsData {
             }
             catch (SQLException | ClassNotFoundException e){
 //                gọi c.rollBack()
-                return  -1;
+                System.out.println(e.getMessage());
+                return  -3;
             }
         }
         return -1;
     }
+
+    public static int editProduct(Product p) {
+        if (p.getId_product().equals("") || p.getProduct_name().equals("")
+                || p.getPrice() == 0 || p.getPicture1().equals("") || p.getId_category().equals("") || p.getQuantity() == 0)
+            return -2;
+        if(ProductsData.getProductByID(p.getId_product())!=null){
+            try {
+                PreparedStatement state1 = ConnectionDB.connect("UPDATE product SET  product_name = ? , picture1 = ?, picture2 = ?, picture3 = ?, price = ?, id_category = ?, quantity = ?)" +
+                        "WHERE id_product = ?");
+                state1.setString(1, p.getProduct_name());
+                state1.setString(2, p.getPicture1());
+                state1.setString(3, p.getPicture2().equals("") ? null : p.getPicture2());
+                state1.setString(4, p.getPicture3().equals("") ? null : p.getPicture3());
+                state1.setDouble(5, p.getPrice());
+                state1.setString(6, p.getId_category());
+                state1.setInt(7, p.getQuantity());
+                state1.setString(8, p.getProduct_name());
+                state1.executeUpdate();
+                state1.close();
+                PreparedStatement state2 = ConnectionDB.connect("UPDATE product_detail" +
+                        "SET trademark = ?, gender = ?, description = ?, rate = ?, is_diamond = ?, is_gemstone = ?," +
+                        " is_ecz = ?, is_pearl = ?, is_plain = ?, is_child = ?" +
+                        "WHERE id_bill = ?");
+
+                state2.setString(1, p.getTrademark());
+                state2.setString(2, p.getGender());
+                state2.setString(3, p.getDescription());
+                state2.setInt(4, p.getRate());
+                state2.setBoolean(5,p.isDiamond());
+                state2.setBoolean(6,p.isGemstone());
+                state2.setBoolean(7,p.isECZ());
+                state2.setBoolean(8,p.isPearl());
+                state2.setBoolean(9,p.isPlain());
+                state2.setBoolean(10,p.isChild());
+                state2.setString(11, p.getId_product());
+                state2.executeUpdate();
+                state2.close();
+                ConnectionDB.closeConnection();
+//// lấy connection bên connectionDb ra (c), gọi c.commit
+                return 1;
+            }
+            catch (SQLException | ClassNotFoundException e){
+//                gọi c.rollBack()
+                return  -3;
+            }
+        }
+        return -1;
+    }
+
+
 }

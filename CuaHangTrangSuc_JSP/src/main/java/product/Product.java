@@ -191,5 +191,19 @@ public class Product implements Serializable {
         return result.substring(0, result.length() - 1) + " VND";
     }
 
+    public String getStringPriceHasQuantities(int quantity){
+        String stringPrice = String.format ("%.0f", (price*quantity));
+        String result ="";
+        int length = stringPrice.length();
+        while(length/3>0){
+            result =  stringPrice.substring(length - 3, length)  + "." + result;
+            stringPrice = stringPrice.substring(0, length - 3);
+            length = stringPrice.length();
+        }
+        if(length>0)
+            result = stringPrice + "." + result;
+        return result.substring(0, result.length() - 1) + " VND";
+    }
+
 
 }

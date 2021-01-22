@@ -40,9 +40,10 @@ public class search extends HttpServlet {
             filter.append(request.getParameter("stage") + ",");
             filter.append(request.getParameter("gender") + ",");
             filter.append(request.getParameter("priceRange"));
-
+            System.out.println("request.getParameter(\"priceRange\"): " +request.getParameter("priceRange"));
             pageLink+= "&filter=true"+ "&type="+ request.getParameter("type");
-            pageLink+="&attached="+ request.getParameter("attached") + "&stage=" + request.getParameter("gender") + "&priceRange=" + request.getParameter("priceRange");
+            pageLink+="&attached="+ request.getParameter("attached") + "&stage=" + request.getParameter("stage")
+                    + "&gender=" + request.getParameter("gender") + "&priceRange=" + request.getParameter("priceRange");
             addition =filter.toString();
             dataSize = ProductsData.getFilterSize(keyword, addition);
             System.out.println("addition: " + addition);

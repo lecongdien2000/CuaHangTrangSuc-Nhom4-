@@ -52,7 +52,7 @@
 								</li> 
 								<li class="dropdown"><a href="admin-product-management.html">Sản phẩm</a>
 								</li> 
-								<li class="dropdown"><a href="admin-bill-management.html">Hóa đơn</a>
+								<li class="dropdown"><a href="loadBill">Hóa đơn</a>
 								</li> 
 							</ul>
 						</div>

@@ -91,7 +91,7 @@
 				border-radius: 5px;
 				background: green;
 				background: #9700bc;
-				font-weight: 600;"><a href="adminProductDetailManagement.jsp" style="text-decoration: none; color: white">Thêm sản phẩm</a></button>
+				font-weight: 600;"><a href="admin-product-detail" style="text-decoration: none; color: white">Thêm sản phẩm</a></button>
 
 			</div>
 			<div class="col-sm-3 searchBox">

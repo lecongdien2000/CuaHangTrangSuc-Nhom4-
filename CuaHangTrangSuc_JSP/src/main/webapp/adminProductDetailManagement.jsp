@@ -1,4 +1,5 @@
 <%@ page import="product.Product" %>
+<%@ page import="java.util.Collection" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -83,7 +84,7 @@
 								</li> 
 								<li class="dropdown"><a href="admin-product-management.html">Sản phẩm</a>
 								</li> 
-								<li class="dropdown"><a href="admin-bill-management.html">Hóa đơn</a>
+								<li class="dropdown"><a href="loadBill">Hóa đơn</a>
 								</li> 
 							</ul>
 						</div>
@@ -98,6 +99,7 @@
 		<c:choose>
 			<c:when test="${product==null}">
 				<form action="insertProduct" method="post">
+					<input type="text" value="insert" name="typeEdit" STYLE="display: none">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12 padding-right">
@@ -158,9 +160,9 @@
 												<p>Mã sản phẩm</p>
 												<input type="text" name="productId" id="productId" value="" placeholder="Mã sản phẩm">
 												<p>Giá</p>
-												<input type="number" name="productPrice" id="producPrice" value="0" placeholder="Giá">
+												<input type="number" name="productPrice" id="producPrice"  placeholder="Giá">
 												<p>Số lượng</p>
-												<input type="number" name="productNumber" id="productNumber" value="0" placeholder="Số lượng">
+												<input type="number" name="productNumber" id="productNumber"  placeholder="Số lượng">
 											</div>
 											<div class="productinfomation">
 												<h3>Thông số</h3>
@@ -216,7 +218,7 @@
 						</div>
 						<div class="row">
 							<div class="changeDetail col-sm-12" >
-								<button type="submit" class="btn">Lưu thay đổi</button>
+								<button type="submit" class="btn">Thêm</button>
 							</div>
 						</div>
 					</div>
@@ -224,6 +226,7 @@
 			</c:when>
 			<c:otherwise>
 				<form action="insertProduct" method="post">
+					<input type="text" value="edit" name="typeEdit" STYLE="display: none">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-12 padding-right">
@@ -243,14 +246,14 @@
 													<a href=""><img src="${product.getPicture3()}" alt=""></a>
 												</div>
 												<div class="item">
-													<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
-													<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
-													<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+													<a href=""><img src="${product.getPicture1()}" alt=""></a>
+													<a href=""><img src="${product.getPicture2()}" alt=""></a>
+													<a href=""><img src="${product.getPicture3()}" alt=""></a>
 												</div>
 												<div class="item">
-													<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
-													<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
-													<a href=""><img src="../productsInfo/products/1.png" alt=""></a>
+													<a href=""><img src="${product.getPicture1()}" alt=""></a>
+													<a href=""><img src="${product.getPicture2()}" alt=""></a>
+													<a href=""><img src="${product.getPicture3()}" alt=""></a>
 												</div>
 
 											</div>
@@ -266,11 +269,11 @@
 										<div class="linkImages">
 											<h3>Link ảnh</h3>
 											<p>Ảnh 1</p>
-											<input class="picLink" type="text" name="picture1" value="../productsInfo/products/1.png">
+											<input class="picLink" type="text" name="picture1" value="${product.getPicture1()}">
 											<p>Ảnh 2</p>
-											<input class="picLink" type="text" name="picture2" value="../productsInfo/products/1.png">
+											<input class="picLink" type="text" name="picture2" value="${product.getPicture2()}">
 											<p>Ảnh 3</p>
-											<input class="picLink" type="text" name="picture3" value="../productsInfo/products/1.png">
+											<input class="picLink" type="text" name="picture3" value="${product.getPicture3()}">
 										</div>
 
 									</div>
@@ -284,7 +287,7 @@
 												<p>Mã sản phẩm</p>
 												<input type="text" name="productId" id="productId" value="${product.getId_product()}">
 												<p>Giá</p>
-												<input type="number" name="producPrice" id="productPrice" value="${product.getPrice()}">
+												<input type="number" name="producPrice" id="productPrice" value="${product.getStringPrice()}">
 												<p>Số lượng</p>
 												<input type="number" name="productNumber" id="productNumber" value="${product.getQuantity()}">
 											</div>

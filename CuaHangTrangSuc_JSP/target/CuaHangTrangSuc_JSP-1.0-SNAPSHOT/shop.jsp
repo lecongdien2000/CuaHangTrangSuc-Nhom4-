@@ -185,7 +185,6 @@
 	<!-- form -->
                         <form method="get" action="search">
 							<input type="text" name="keyword" value="<%=result%>" style="display: none">
-
 							<input type="text" name="filter" value="true" style="display: none">
 						<h2>Bộ lọc</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
@@ -258,7 +257,7 @@
 								</div>
 								<div class="price-range "><!--price-range-->
 							<div class="well">
-								 <input name="priceRange" type="text" class="span2" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,50000000]" id="sl2" ><br />
+								 <input name="priceRange" type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,50000000]" id="sl2" ><br />
 								 <b>0đ</b> <b class="pull-right">50.000.000đ</b>
 							</div>
                                 <input type="text" name="index" value="1" style="display: none">
@@ -283,6 +282,7 @@
 
 						<h2 class="title text-center"> <%="Kết quả cho " + result%></h2>
 <!-- display results product-->
+                    <div class="row">
 						<c:if test="${data!=null}">
                                 <c:forEach items="${data}" var="product">
                                     <div class="col-sm-4">
@@ -291,14 +291,14 @@
                                                 <div class="productinfo text-center">
                                                     <img src="${product.getPicture1()}" alt="" />
                                                     <h2>${product.getStringPrice()}</h2>
-                                                    <p>${product.getProduct_name()}</p>
+                                                    <p style=" height: 60px;">${product.getProduct_name()}</p>
                                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                                                 </div>
                                                 <div class="product-overlay">
                                                     <a href="product-details.html">
                                                         <div class="overlay-content">
                                                             <h2>${product.getStringPrice()}</h2>
-                                                            <p>${product.getProduct_name()}</p>
+                                                            <p style=" height: 60px;">${product.getProduct_name()}</p>
                                                             <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                                                         </div>
                                                     </a>
@@ -307,12 +307,13 @@
                                         </div>
                                     </div>
                                 </c:forEach>
-
+                    </div>
 
 <!-- end display product-->
 <%--                          <c:if test="${totalPages != null}"  >--%>
 <%--                              <input type="text" value="${totalPages}">--%>
 <%--                          </c:if>--%>
+                       <div class="row">
 						<ul class="pagination">
 							<% int i;%>
 							<% String keyword = (String)request.getAttribute("key");%>
@@ -323,6 +324,7 @@
 							<%}%>
 							<li><a href="">&raquo;</a></li>
 						</ul>
+                       </div>
 						</c:if>
 					</div><!--features_items-->
 				</div>

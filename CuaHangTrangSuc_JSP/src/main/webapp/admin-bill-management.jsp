@@ -1,4 +1,8 @@
+<%@ page import="product.Product" %>
+<%@ page import="java.util.Collection" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 		<!DOCTYPE html>
 		<html lang="en">
 		<head>
@@ -114,7 +118,7 @@
 								</li> 
 								<li class="dropdown"><a href="admin-product-management.html">Sản phẩm</a>
 								</li> 
-								<li class="dropdown"><a href="admin-bill-management.html">Hóa đơn</a>
+								<li class="dropdown"><a href="/CuaHangTrangSuc_JSP_war/loadBill">Hóa đơn</a>
 								</li> 
 							</ul>
 						</div>
@@ -132,17 +136,20 @@
 						<div class="col-sm-12 padding-right">
 							<div class="category-tab"><!--category-tab-->
 								<div class="col-sm-12">
-									<ul class="nav nav-tabs">
-										<li class="active"><a href="#tong" data-toggle="tab">Tổng</a></li>
-										<li><a href="#choXacNhan" data-toggle="tab">Chờ xác nhận</a></li>
-										<li><a href="#choLayHang" data-toggle="tab">Đang giao</a></li>
-										<li><a href="#daGiao" data-toggle="tab">Đã giao</a></li>
-										<li><a href="#traHang" data-toggle="tab">Trả hàng</a></li>
-										<li><a href="#daHuy" data-toggle="tab">Đã hủy</a></li>
-									</ul>
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tong" data-toggle="tab">Tổng</a></li>
+                                        <li><a href="#choXacNhan" data-toggle="tab">Chờ xác nhận</a></li>
+                                        <li><a href="#choLayHang" data-toggle="tab">Đang giao</a></li>
+                                        <li><a href="#daGiao" data-toggle="tab">Đã giao</a></li>
+                                        <li><a href="#traHang" data-toggle="tab">Trả hàng</a></li>
+                                        <li><a href="#daHuy" data-toggle="tab">Đã hủy</a></li>
+                                    </ul>
 								</div>
 								<div class="tab-content">
+<%--		Start tab							--%>
+	<c:if test="${data!=null}">
 									<div class="tab-pane fade active in " id="tong" >
+<%--	title									--%>
 										<div class="headTitle row">
 											<div class="col-sm-8">
 												<div class="col-sm-3">
@@ -159,24 +166,27 @@
 												<div class="col-sm-6">
 												</div>
 												<div class="col-sm-2">
-													<p>Xóa</p>
 												</div>
 												<div class="col-sm-4">
 													<p>Chi tiết</p>
 												</div>
 											</div>
 										</div>
+<%--	end title--%>
+<%--	bill list--%>
 										<div class="productList">
+
+										<c:forEach items="${data}" var="bill">
 											<div class="row productInfor">
 												<div class="col-sm-8">
 													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
+														<p class="index"><b>${bill.getId_bill()}</b></p>
 													</div>
 													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
+														<p class="index"><b>${bill.getId_user()}</b></p>
 													</div>
 													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
+														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">${bill.toStringPrice()}</p>
 													</div>
 												</div>
 												<div class="col-sm-4">
@@ -184,184 +194,18 @@
 														<p class="index"></p>
 													</div>
 													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
 													</div>
 													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
+														<p class="index"><a href="loadBillDetails?idBill=${bill.getId_bill()}">Xem</a></p>
 													</div>
 												</div>
 											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											
+										</c:forEach>
+
 										</div>
+<%--		end bill list								--%>
 									</div>
+<%--	end tab--%>
 									<div class="tab-pane fade" id="choXacNhan" >
 										<div class="headTitle row">
 											<div class="col-sm-8">
@@ -379,7 +223,7 @@
 												<div class="col-sm-6">
 												</div>
 												<div class="col-sm-2">
-													<p>Xóa</p>
+
 												</div>
 												<div class="col-sm-4">
 													<p>Chi tiết</p>
@@ -387,202 +231,37 @@
 											</div>
 										</div>
 										<div class="productList">
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
+
+											<c:forEach items="${data}" var="bill">
+												<c:if test="${bill.getState().equals(\"Chờ xác nhận\")}">
+												<div class="row productInfor">
+													<div class="col-sm-8">
+														<div class="col-sm-3">
+															<p class="index"><b>${bill.getId_bill()}</b></p>
+														</div>
+														<div class="col-sm-4">
+															<p class="index"><b>${bill.getId_user()}</b></p>
+														</div>
+														<div class="col-sm-5">
+															<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">${bill.toStringPrice()}</p>
+														</div>
 													</div>
 													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
+														<div class="col-sm-7">
+															<p class="index"></p>
+														</div>
+														<div class="col-sm-2">
+														</div>
+														<div class="col-sm-3">
+															<p class="index"><a href="loadBillDetails?idBill=${bill.getId_bill()}">Xem</a></p>
+														</div>
 													</div>
 												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											
+												</c:if>
+											</c:forEach>
+
 										</div>
 									</div>
-
 
 									<div class="tab-pane fade" id="choLayHang" >
 										<div class="headTitle row">
@@ -601,7 +280,6 @@
 												<div class="col-sm-6">
 												</div>
 												<div class="col-sm-2">
-													<p>Xóa</p>
 												</div>
 												<div class="col-sm-4">
 													<p>Chi tiết</p>
@@ -609,199 +287,35 @@
 											</div>
 										</div>
 										<div class="productList">
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
+
+											<c:forEach items="${data}" var="bill">
+												<c:if test="${bill.getState().equals(\"Đang giao\")}">
+													<div class="row productInfor">
+														<div class="col-sm-8">
+															<div class="col-sm-3">
+																<p class="index"><b>${bill.getId_bill()}</b></p>
+															</div>
+															<div class="col-sm-4">
+																<p class="index"><b>${bill.getId_user()}</b></p>
+															</div>
+															<div class="col-sm-5">
+																<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">${bill.toStringPrice()}</p>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="col-sm-7">
+																<p class="index"></p>
+															</div>
+															<div class="col-sm-2">
+															</div>
+															<div class="col-sm-3">
+																<p class="index"><a href="loadBillDetails?idBill=${bill.getId_bill()}">Xem</a></p>
+															</div>
+														</div>
 													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											
+												</c:if>
+											</c:forEach>
+
 										</div>
 
 									</div>
@@ -822,7 +336,6 @@
 												<div class="col-sm-6">
 												</div>
 												<div class="col-sm-2">
-													<p>Xóa</p>
 												</div>
 												<div class="col-sm-4">
 													<p>Chi tiết</p>
@@ -830,419 +343,91 @@
 											</div>
 										</div>
 										<div class="productList">
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
+
+											<c:forEach items="${data}" var="bill">
+												<c:if test="${bill.getState().equals(\"Đã giao\")}">
+													<div class="row productInfor">
+														<div class="col-sm-8">
+															<div class="col-sm-3">
+																<p class="index"><b>${bill.getId_bill()}</b></p>
+															</div>
+															<div class="col-sm-4">
+																<p class="index"><b>${bill.getId_user()}</b></p>
+															</div>
+															<div class="col-sm-5">
+																<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">${bill.toStringPrice()}</p>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="col-sm-7">
+																<p class="index"></p>
+															</div>
+															<div class="col-sm-2">
+															</div>
+															<div class="col-sm-3">
+																<p class="index"><a href="loadBillDetails?idBill=${bill.getId_bill()}">Xem</a></p>
+															</div>
+														</div>
 													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											
+												</c:if>
+											</c:forEach>
+
 										</div>
 
-									</div>	
+									</div>
 									<div class="tab-pane fade" id="traHang" >
 										<div class="headTitle row">
-													<div class="col-sm-8">
-														<div class="col-sm-3">
-															<p>Mã hóa đơn</p>
-														</div>
-														<div class="col-sm-4">
-															<p>Mã khách hàng</p>
-														</div>
-														<div class="col-sm-5">
-															<p>Tổng tiền</p>
-														</div>
-													</div>
-													<div class="col-sm-4">
-														<div class="col-sm-6">
-														</div>
-														<div class="col-sm-2">
-															<p>Xóa</p>
-														</div>
-														<div class="col-sm-4">
-															<p>Chi tiết</p>
-														</div>
-													</div>
+											<div class="col-sm-8">
+												<div class="col-sm-3">
+													<p>Mã hóa đơn</p>
+												</div>
+												<div class="col-sm-4">
+													<p>Mã khách hàng</p>
+												</div>
+												<div class="col-sm-5">
+													<p>Tổng tiền</p>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="col-sm-6">
+												</div>
+												<div class="col-sm-2">
+												</div>
+												<div class="col-sm-4">
+													<p>Chi tiết</p>
+												</div>
+											</div>
 										</div>
 										<div class="productList">
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
+
+											<c:forEach items="${data}" var="bill">
+												<c:if test="${bill.getState().equals(\"Trả hàng\")}">
+													<div class="row productInfor">
+														<div class="col-sm-8">
+															<div class="col-sm-3">
+																<p class="index"><b>${bill.getId_bill()}</b></p>
+															</div>
+															<div class="col-sm-4">
+																<p class="index"><b>${bill.getId_user()}</b></p>
+															</div>
+															<div class="col-sm-5">
+																<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">${bill.toStringPrice()}</p>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="col-sm-7">
+																<p class="index"></p>
+															</div>
+															<div class="col-sm-2">
+															</div>
+															<div class="col-sm-3">
+																<p class="index"><a href="loadBillDetails?idBill=${bill.getId_bill()}">Xem</a></p>
+															</div>
+														</div>
 													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>	
+												</c:if>
+											</c:forEach>
+
 										</div><!-- end product inor!-->
 
 									</div>
@@ -1263,7 +448,6 @@
 												<div class="col-sm-6">
 												</div>
 												<div class="col-sm-2">
-													<p>Xóa</p>
 												</div>
 												<div class="col-sm-4">
 													<p>Chi tiết</p>
@@ -1271,203 +455,39 @@
 											</div>
 										</div>
 										<div class="productList">
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
+
+											<c:forEach items="${data}" var="bill">
+												<c:if test="${bill.getState().equals(\"Đã hủy\")}">
+													<div class="row productInfor">
+														<div class="col-sm-8">
+															<div class="col-sm-3">
+																<p class="index"><b>${bill.getId_bill()}</b></p>
+															</div>
+															<div class="col-sm-4">
+																<p class="index"><b>${bill.getId_user()}</b></p>
+															</div>
+															<div class="col-sm-5">
+																<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">${bill.toStringPrice()}</p>
+															</div>
+														</div>
+														<div class="col-sm-4">
+															<div class="col-sm-7">
+																<p class="index"></p>
+															</div>
+															<div class="col-sm-2">
+															</div>
+															<div class="col-sm-3">
+																<p class="index"><a href="loadBillDetails?idBill=${bill.getId_bill()}">Xem</a></p>
+															</div>
+														</div>
 													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											<div class="row productInfor">
-												<div class="col-sm-8">
-													<div class="col-sm-3">
-														<p class="index"><b>HD01</b></p>
-													</div>
-													<div class="col-sm-4">
-														<p class="index"><b>US01</b></p>
-													</div>
-													<div class="col-sm-5">
-														<p class="index" style="color:blue; font-weight: 700; font-size: 15px;">100.000đ</p>
-													</div>
-												</div>
-												<div class="col-sm-4">
-													<div class="col-sm-7">
-														<p class="index"></p>
-													</div>
-													<div class="col-sm-2">
-														<p class="index"><i class="fa fa-times" aria-hidden="true" style="color: red"></i></p>
-													</div>
-													<div class="col-sm-3">
-														<p class="index"><a href="admin_bill_details.html">Xem</a></p>
-													</div>
-												</div>
-											</div>
-											
+												</c:if>
+											</c:forEach>
+
 										</div>
 
 									</div>
-
+	</c:if>
 								</div><!--tab content-->
 									
 
