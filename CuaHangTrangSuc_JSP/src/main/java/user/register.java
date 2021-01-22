@@ -24,6 +24,7 @@ public class register extends HttpServlet {
         User user = UsersData.getUsers(uname);
         if(pass.equals(pass2) && user== null){
             user = new User();
+            pass = MD5.convertHashToString(pass);
             user.setUsername(uname);
             user.setPassword(pass);
             user.setEmail(request.getParameter("email"));
