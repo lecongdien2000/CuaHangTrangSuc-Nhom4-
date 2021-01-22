@@ -262,4 +262,17 @@ public class ProductsData {
         }
         return -1;
     }
+
+    public static void updateRate(String productID) {
+        try {
+            PreparedStatement state = ConnectionDB.connect("update product_detail set rate = ? where id_product = ?");
+            int newRate = CommentsData.getAverageRate(productID);
+            state.setInt(1, newRate);
+            state.setString(2, productID);
+            state.executeUpdate();
+            state.close();
+        }catch(ClassNotFoundException|SQLException e){
+            e.printStackTrace();
+        }
+    }
 }

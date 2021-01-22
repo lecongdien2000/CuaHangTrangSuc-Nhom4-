@@ -77,3 +77,12 @@ CREATE TABLE `PRODUCT_DETAIL` (
   FOREIGN KEY (`id_product`) REFERENCES PRODUCT(`id_product`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
+CREATE TABLE `COMMENTS` (
+ `id_product` varchar(20)  NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+ `comment` varchar(200) NOT NULL,
+`rate` int NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
