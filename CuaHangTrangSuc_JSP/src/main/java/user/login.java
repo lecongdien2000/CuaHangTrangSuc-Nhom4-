@@ -19,7 +19,7 @@ public class login extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     String uname = request.getParameter("username");
-    String pass = request.getParameter("password");
+    String pass = MD5.convertHashToString(request.getParameter("password"));
     User user = UsersData.getUsers(uname, pass);
     if(user!=null){
         HttpSession session = request.getSession(true);

@@ -1,4 +1,11 @@
+<%@ page import="product.Product" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="user.User" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.LocalTime" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,6 +105,13 @@
 	.rate > input:checked ~ label:hover ~ label,
 	.rate > label:hover ~ input:checked ~ label {
 		color: #c59b08;
+	}
+	.clip-star {
+		background: gold;
+		clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+		display: inline-block;
+		height: 30px;
+		width: 30px;
 	}
 
 </style>
@@ -248,33 +262,23 @@
 			<div class="container">
 				<div class="col-sm-9">
 				</div>	
-
+				<c:set var="product" value='${product}' />
+				<%User user = (User)session.getAttribute("user");%>
 				<div class="col-sm-12 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-4">
 							<div class="view-product">
-								<img id = "pic" src="images/product-details/nhank.png" alt="" />
+								<img id = "pic" src="${product.getPicture1()}" alt="" />
 							</div>
 							<div id="similar-product" class="carousel slide" data-ride="carousel">
 
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner">
 									<div class="item active">
-										<a href=""><img src="images/product-details/nhanCHon.png" alt=""></a>
-										<a href=""><img id = "pic1" onclick="picture()" src="images/product-details/nhan1.png" alt=""></a>
-										<a href=""><img id = "pic2" src="images/product-details/nhan2.png" alt=""></a>
+										<a href=""><img src="${product.getPicture1()}" style="width: 80px; height: 80px" alt=""></a>
+										<a href=""><img id = "pic1" onclick="picture()" src="${product.getPicture2()}" style="width: 80px; height: 80px" alt=""></a>
+										<a href=""><img id = "pic2" src="${product.getPicture3()}" style="width: 80px; height: 80px" alt=""></a>
 									</div>
-									<div class="item">
-										<a href=""><img src="images/product-details/nhanCHon.png" alt=""></a>
-										<a href=""><img id = "pic11" src="images/product-details/nhan1.png" alt=""></a>
-										<a href=""><img id = "pic12" src="images/product-details/nhan2.png" alt=""></a>
-									</div>
-									<div class="item">
-										<a href=""><img src="images/product-details/nhanCHon.png" alt=""></a>
-										<a href=""><img id = "pic111" src="images/product-details/nhan1.png" alt=""></a>
-										<a href=""><img id = "pic122" src="images/product-details/nhan2.png" alt=""></a>
-									</div>
-
 								</div>
 
 								<!-- Controls -->
@@ -290,27 +294,17 @@
 						<div class="col-sm-7">
 							<div class="product-information"><!--/product-information-->
 								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
-								<h2>Nhẫn Kim cương Vàng trắng 14K DDDDW000106</h2>
-								<p>MÃ: GNDDDDW000106</p>
-								<div class="rate">
-									<input type="radio" id="star5" name="rate" value="5" />
-									<label for="star5" title="text">5 stars</label>
-									<input type="radio" id="star4" name="rate" value="4" />
-									<label for="star4" title="text">4 stars</label>
-									<input type="radio" id="star3" name="rate" value="3" />
-									<label for="star3" title="text">3 stars</label>
-									<input type="radio" id="star2" name="rate" value="2" />
-									<label for="star2" title="text">2 stars</label>
-									<input type="radio" id="star1" name="rate" value="1" />
-									<label for="star1" title="text">1 star</label>
-								</div>
-								
+								<h2>${product.getProduct_name()}</h2>
+								<p>MÃ: ${product.getId_product()} </p>
+								<c:forEach begin="1" end="${product.getRate()}" varStatus="loop">
+									<div class="clip-star"></div>
+								</c:forEach>
 								<div style="
 								width: 40%;
 								">
 								<p style="font-size: 30px;
 								color: #2B46DC;
-								font-weight: bold;">13.454.000 đ</p>
+								font-weight: bold;">${product.getStringPrice()}</p>
 								<!-- <br> -->
 								<!-- <div> -->
 									<!-- </div> -->
@@ -325,7 +319,7 @@
 									<br/>
 									<p><b>Kho hàng:</b> Còn</p>
 									<!-- <p><b>Tình trạng:</b> Mới</p> -->
-									<p><b>Nhãn Hiệu:</b> XXX</p>
+									<p><b>Nhãn Hiệu:</b> ${product.getTrademark()}</p>
 									<a href=""><img src="images/product-details/share.png" class="share img-responsive"  alt="" /></a>
 								</div><!--/product-information-->
 							</div>
@@ -342,33 +336,27 @@
 								<div class="tab-pane fade" id="details" >
 									<div class="row textAlign" ><h3>Thông tin sản phẩm</h3></div>
 									<div class="row textAlign"><h2 style="color: lightslategrey;
-									margin-bottom: 25px;">Nhẫn Kim cương Vàng trắng 14K</h2></div>
-									<div >
-										<p>Nhẫn Kim cương Vàng trắng 14K
-											Sức quyến rũ của trang sức <span style="color: blue;">kim cương </span>không chỉ đến từ vẻ đẹp bên ngoài mà còn cả sự tinh khiết phản chiếu muôn sắc trên từng giác cắt của nó. Không chỉ là phụ kiện làm đẹp mà kim cương còn chứng tỏ sự giàu có, thể hiện sự đẳng cấp và quý phái của người đeo. Và đặc biệt hơn nữa, các quý ông cũng luôn muốn dành tặng cho người phụ nữ của mình những trang sức quý giá nhất.</p>
-											<h4 style="color: lightslategray; margin: 5px 0px">Nhẫn Kim cương – Sang trọng và quý phái</h4>
-											<div style="   width: fit-content;
-											height: fit-content;
-											margin: auto;"><img src="images/product-details/nhank.png" alt="" ></div>
-											<div class="textAlign"><p><i><strong>Nhẫn kim cương giúp quý cô thể hiện sự tự tin và khẳng định đẳng cấp</strong></i></p></div>
-											<p>Trang sức đính kim cương nói chung vốn được xem là loại trang sức hoàn hảo nhất cho các quý cô nhờ vào vẻ đẹp lung linh huyền bí sánh đôi cùng sự sang trọng và quý phái. Chiếc <span style="color: blue;">nhẫn</span> được chế tác trên chất liệu vàng 14K đính kim cương chắc chắn sẽ là món quà tuyệt nhất dành tặng cho quý cô. Sự kết hợp giữa vàng và kim cương chính là bộ đôi hoàn hảo giúp quý cô tạo nên dấu ấn thời trang hiện đại cho riêng mình.</p>
-											<p>Vượt lên trên tất cả những giá trị vật chất của kim loại quý giá, ánh sáng vĩnh cửu của kim cương  luôn có sức lôi cuốn không giới hạn và mãi trường tồn cùng thời gian. Các tuyệt tác trang sức Kim Cương NL Accessories không chỉ tôn vinh vẻ đẹp mà còn khẳng định phong cách, đẳng cấp, niềm đam mê và mang lại thành công cho chủ nhân.</p>
-											<h4 style="color: lightslategray; margin: 10px 0px">Trang sức kim cương – Niềm đam mê của phái đẹp</h4>
-											<p>Những thiết kế trang sức Kim cương được xem như “vũ khí tối thượng” giúp cho phái đẹp khoe trọn sắc xuân của mình. Đồng thời, dưới bàn tay chế tác tài hoa, những món nữ trang là sự biến hóa nghệ thuật sắp đặt với những viên kim cương sang trọng trên bề mặt của mỗi thiết kế. Cùng với đó, kiểu dáng phong phú và chất liệu vàng cũng góp phần quan trọng mang đến một sản phẩm hoàn chỉnh tuyệt đối, giúp cho phái đẹp tùy ý lựa chọn theo sở thích của mình.</p>
-										</div>
+									margin-bottom: 25px;">${product.getProduct_name()}</h2></div>
+									<div>${product.getDescription()}</div>
 										<div class="row textAlign"><h3 style="margin: 25px;">Thông số</h3></div>
 
 										<div class="row border-bottom">
 											<div class="col-sm-6"><p>Thương hiệu:</p></div>
-											<div class="col-sm-6"><p>NL Accessories</p></div>
+											<div class="col-sm-6"><p>${product.getTrademark()}</p></div>
 										</div>
 										<div class="row border-bottom">
 											<div class="col-sm-6"><p>Loại:</p></div>
-											<div class="col-sm-6"><p>Nhẫn Kim Cương</p></div>
+											<div class="col-sm-6">
+													<c:if test="${product.isDiamond()}"><p>Kim cương</p></c:if>
+													<c:if test="${product.isGemstone()}"><p>Đá quý</p></c:if>
+													<c:if test="${product.isECZ()}"><p>Đá ECZ</p></c:if>
+													<c:if test="${product.isPearl()}"><p>Ngọc trai</p></c:if>
+													<c:if test="${product.isPlain()}"><p>Trơn</p></c:if>
+											</div>
 										</div>
 										<div class="row ">
 											<div class="col-sm-6"><p>Giới tính:</p></div>
-											<div class="col-sm-6"><p>Nữ</p></div>
+											<div class="col-sm-6"><p>${product.getGender()}</p></div>
 										</div>
 
 									</div>
@@ -403,20 +391,24 @@
 
 									<div class="tab-pane fade active in" id="reviews" >
 										<div class="col-sm-12">
+											<%LocalDate currentDate = LocalDate.now(); %>
+											<%LocalTime currentTime = LocalTime.now();%>
 											<ul>
-												<li><a href=""><i class="fa fa-user"></i>@</a></li>
-												<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-												<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+												<%if (user!=null){ %>
+													<li><a href=""><i class="fa fa-user"></i><%=user.getAccountName()%></a></li>
+												<% } %>
+													<li><a href=""><i class="fa fa-clock-o"></i><%=currentTime.toString().substring(0, 5)%></a></li>
+													<li><a href=""><i class="fa fa-calendar-o"></i><%=currentDate%></a></li>
 											</ul>
 											<p></p>
 											<p><b>Viết bình luận</b></p>
 
-											<form action="#">
+											<form action="comment" method="get">
 												<span>
-													<input type="text" placeholder="Tên của bạn"/>
-													<input type="email" placeholder="Địa chỉ email"/>
+													<input type="text" placeholder="Tên của bạn" name="name" value = "<%if (user!=null){ %><%=user.getAccountName()%><% } %>"/>
+													<input type="email" placeholder="Địa chỉ email" name="email" value = "<%if (user!=null){%><%=user.getEmail()%><% } %>"/>
 												</span>
-												<textarea name="" ></textarea>
+												<textarea name="comment" ></textarea>
 												<b style="position: relative;
 												bottom: 17px;
 												">Xếp hạng: </b> 
@@ -434,10 +426,24 @@
 														<label for="star1" title="text">1 star</label>
 													</div>
 												</span>
-												<button type="button" class="btn btn-default pull-right">
+												<input name = "productID" type = "hidden"  value="${product.getId_product()}"/>
+												<button type="submit" class="btn btn-default pull-right">
 													Gửi
 												</button>
 											</form>
+											<c:forEach items="${cmtList}" var="cmt">
+											<div class="commentShow" style="height: 100px;border: 1px solid black;border-radius: 5px; margin-bottom: 15px">
+												<div class="col-sm-4">
+													<h5>${cmt.getName()} :</h5>
+													<c:forEach begin="1" end="${cmt.getRate()}" varStatus="loop">
+														<div class="clip-star"></div>
+													</c:forEach>
+												</div>
+												<div class="col-sm-8">
+													${cmt.getComment()}
+												</div>
+											</div>
+											</c:forEach>
 										</div>
 									</div>
 
