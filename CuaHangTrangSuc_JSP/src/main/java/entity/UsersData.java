@@ -82,17 +82,15 @@ public class UsersData {
 
     public static void updateUser(User user) {
         try {
-            PreparedStatement state1 = ConnectionDB.connect("update user set id_user = ?, username = ?, password = ?, email = ?, gender = ?, birthday = ?, description = ?, accountName = ?, admin = ? where username = ?");
-            state1.setString(1, user.getUsername()); //user id
-            state1.setString(2, user.getUsername());
-            state1.setString(3, user.getPassword());
-            state1.setString(4, user.getEmail());
-            state1.setString(5, user.getGender());
-            state1.setDate(6, java.sql.Date.valueOf(user.getBirthday().convertDateToSqlString()));
-            state1.setString(7, user.getDescription());
-            state1.setString(8, user.getAccountName());
-            state1.setBoolean(9, user.isAdmin());
-            state1.setString(10, user.getUsername()); //where username = ...
+            PreparedStatement state1 = ConnectionDB.connect("update user set password = ?, email = ?, gender = ?, birthday = ?, description = ?, accountName = ?, admin = ? where username = ?");
+            state1.setString(1, user.getPassword());
+            state1.setString(2, user.getEmail());
+            state1.setString(3, user.getGender());
+            state1.setDate(4, java.sql.Date.valueOf(user.getBirthday().convertDateToSqlString()));
+            state1.setString(5, user.getDescription());
+            state1.setString(6, user.getAccountName());
+            state1.setBoolean(7, user.isAdmin());
+            state1.setString(8, user.getUsername()); //where username = ...
             state1.executeUpdate();
             state1.close();
         }catch(ClassNotFoundException|SQLException e){
