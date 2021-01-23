@@ -1,3 +1,10 @@
+<%@ page import="user.User" %><%
+	User user = (User) session.getAttribute("user");
+	if(user==null||!user.isAdmin()){
+		response.sendRedirect("404.html");
+		return;
+	}
+%>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

@@ -1,3 +1,10 @@
+<%@ page import="user.User" %><%
+	User user = (User) session.getAttribute("user");
+	if(user==null||!user.isAdmin()){
+		response.sendRedirect("404.html");
+		return;
+	}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -19,48 +26,7 @@
 </head>
 <body>
 
-	<!-- header !-->
-	<header id="header" class="navbar-fixed-top"><!--header-->
-		<!-- not have header top !-->
-		<div class="header-middle "><!--header-middle-->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 clearfix">
-						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-						</div>
-					</div>
-					<div class="col-md-4 clearfix">
-						<div class="shop-menu clearfix pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="Admin-Profile.html"><i class="fa fa-user"></i>Nguyễn Văn A</a></li>
-								<li><a href="admin_login.html"><i class="fa fa-sign-out" ></i> Đăng xuất</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-middle-->
-
-		<div class="header-bottom" id="header-bottom"><!--header-bottom-->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-9">
-						<div class="mainmenu pull-left" >
-							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li class="dropdown"><a href="admin-user-management.html">Khách hàng</a>
-								</li> 
-								<li class="dropdown"><a href="admin-product-management.html">Sản phẩm</a>
-								</li> 
-								<li class="dropdown"><a href="loadBill">Hóa đơn</a>
-								</li> 
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div><!--/header-bottom-->
-	</header><!--/header-->
+<jsp:include page="admin-heading.jsp"/>
 	<div class="container">
 		<div class="row search">
 			<div class="col-sm-9"></div>

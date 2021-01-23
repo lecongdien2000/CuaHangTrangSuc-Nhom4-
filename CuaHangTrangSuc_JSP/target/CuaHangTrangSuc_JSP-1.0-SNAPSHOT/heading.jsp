@@ -72,7 +72,7 @@
 					</div>
 					<div class="col-md-4 clearfix">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+							<a href="index"><img src="images/home/logo.png" alt="" /></a>
 						</div>
 					</div>
 					<div class="col-md-4 clearfix">
@@ -157,7 +157,7 @@
 										<li><a href="shop.html">Dây chuyền trơn</a></li>
 									</ul>
 								</li>
-								<li class="dropdown"><a href="contact-us.html">Liên hệ</a> 
+								<li class="dropdown"><a href="contact-us.jsp">Liên hệ</a>
 								</ul>
 							</div>
 						</div>
