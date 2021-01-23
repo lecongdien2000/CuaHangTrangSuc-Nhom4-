@@ -325,6 +325,24 @@ public class ProductsData {
             e.printStackTrace();
         }
     }
+    public static boolean updateProductQuantity(Map<Product, Integer> data) {
+        try {
+            PreparedStatement pstate = ConnectionDB.connect("update product set quantity = ? where id_product = ?");
+            for (Product p : data.keySet()) {
+                pstate.setInt(1, p.getQuantity() - p.getQuantity() - data.get(p));
+                pstate.setString(2, p.getId_product());
+                pstate.executeUpdate();
+            }
+            pstate.close();
+            ConnectionDB.closeConnection();
+            return true;
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return false;
+    }
 
 
 }

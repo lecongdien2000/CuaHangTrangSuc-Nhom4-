@@ -73,7 +73,7 @@ public class Bill {
         bill_detail.put(p, quantity);
     }
 
-    public void setBill_detail(HashMap<Product, Integer> bill_details){
+    public void setBill_detail(Map<Product, Integer> bill_details){
         this.bill_detail = bill_details;
     }
 

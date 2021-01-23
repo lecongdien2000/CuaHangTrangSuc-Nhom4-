@@ -2,6 +2,7 @@ package controller;
 
 import entity.CartData;
 import product.Product;
+import user.User;
 
 import javax.servlet.http.HttpSession;
 import java.io.Serializable;
@@ -14,9 +15,40 @@ public class Cart implements Serializable {
     public Cart() {
     }
 
-    public Cart(String username) {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
         this.username = username;
     }
+
+    public Cart(String username) {
+        this.username = username;
+        this.data = CartData.getCartForUser(username);
+//        System.out.println(data.toString());
+    }
+
+    //xoa sp ra khoi cart
+    public void removeProduct(String id) {
+        if (data != null) {
+            for (Product key : data.keySet()) {
+                if (key.getId_product().equals(id)) {
+                    data.remove(key);
+                    System.out.println(CartData.removeProductInCart(this.username, id));
+                    return;
+                }
+            }
+        }
+        System.out.println("aaa");
+    }
+
+    //load san pham len cart neu nguoi ta da dang nhap roi
+//    public Map<Product, Integer> loadCart() {
+//        System.out.println(CartData.getCartForUser(this.username));
+//        this.data = CartData.getCartForUser(username);
+//        return data;
+//    }
 
     //them sp vao cart
     //neu username chua dang nhap thi khong cho them vao gio hang
@@ -28,17 +60,15 @@ public class Cart implements Serializable {
         } else {
             for (Product p : data.keySet()) {
                 if (p.getId_product().equals(newProduct.getId_product())) {
+                    System.out.println(data.get(p));
                     data.put(p, data.get(p) + 1);
-                    System.out.println(CartData.updateQuantitesProduct(newProduct, username, data.get(p)));
+                    CartData.updateQuantitesProduct(newProduct, username, data.get(p));
                     return;
                 }
             }
             data.put(newProduct, 1);
             System.out.println(CartData.insertProductToCart(newProduct, username));
-            System.out.println(data.keySet());
         }
-
-
     }
 
 //    //ngang day co the se khong che so luong dat
@@ -65,13 +95,15 @@ public class Cart implements Serializable {
     //neu  chua dang nhap thi gio hang null
 
     public static Cart getCart(HttpSession session) {
-        String username = (String)session.getAttribute("uname");
-        System.out.println(username);
-        if(username!=null){
-            return session.getAttribute("cart") == null ? new Cart(username) : (Cart) session.getAttribute("cart");
-        }else{
-            return new Cart(null);
+        User u = (User) session.getAttribute("user");
+        if (u == null) {
+            return null;
         }
+        else if (u.getUsername() != null) {
+            System.out.println(u.getAccountName());
+            return session.getAttribute("cart") == null ? new Cart(u.getUsername()) : (Cart) session.getAttribute("cart");
+        }
+        return null;
     }
 
     public Collection<Product> getdata() {
@@ -83,18 +115,22 @@ public class Cart implements Serializable {
     }
 
     public int getQuantity(Product p) {
+//        System.out.println(data.toString());
         return data.get(p);
     }
 
     public double totalPriceProduct(Product p) {
         return p.getPrice() * getQuantity(p);
     }
-    public double totalOfCart(){
+
+    public String totalOfCart() {
         double sum = 0;
-       for(Product p : data.keySet()){
-           sum+=p.getPrice() * data.get(p);
-       }
-       return sum;
+        for (Product p : data.keySet()) {
+            sum += p.getPrice() * data.get(p);
+        }
+        Product p = new Product();
+        p.setPrice(sum);
+        return p.getStringPrice();
     }
 
     public String totalStringPriceProduct(Product p) {

@@ -226,7 +226,7 @@
 									<p class="cart_total_price">${cart.totalStringPriceProduct(d)}</p>
 								</td>
 								<td class="cart_delete">
-									<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+									<a class="cart_quantity_delete" href="removeProductCart?id_product=${d.getId_product()}"><i class="fa fa-times"></i></a>
 								</td>
 							</tr>
 						</c:forEach>
@@ -260,7 +260,7 @@
 						</div>
 						<div style="margin-left: 870px;">
 							<a class="btn btn-default update" href="">Cập nhật</a>
-							<a class="btn btn-default check_out" href="checkout.jsp">Thanh toán</a>
+							<a class="btn btn-default check_out" href="loadCart">Thanh toán</a>
 						</div>
 					</div>
 				</div>

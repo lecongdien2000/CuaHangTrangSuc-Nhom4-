@@ -30,6 +30,7 @@ public class addCart extends HttpServlet {
         Cart c = Cart.getCart(session);
         c.put(p);
         c.commit(session);
+        response.sendRedirect("cart.jsp");
     }
 }
 
