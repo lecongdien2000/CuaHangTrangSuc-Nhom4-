@@ -114,47 +114,47 @@
 						</div>
 						<div class="mainmenu pull-left" >
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li class="dropdown"><a href="shop.html">Nhẫn<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="search?type=nhan&index=1">Nhẫn<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Đính kim cương</a></li>
-										<li><a href="shop.html">Đá quý</a></li>
-										<li><a href="shop.html">Đính đá ECZ</a></li>
-										<li><a href="shop.html">Đính ngọc trai</a></li>
-										<li><a href="shop.html">Nhẫn trơn</a></li>
+										<li><a href="search?type=nhan&attached=diamond&index=1">Đính kim cương</a></li>
+										<li><a href="search?type=nhan&attached=gemStone&index=1">Đá quý</a></li>
+										<li><a href="search?type=nhan&attached=ecz&index=1">Đính đá ECZ</a></li>
+										<li><a href="search?type=nhan&attached=pearl&index=1">Đính ngọc trai</a></li>
+										<li><a href="search?type=nhan&attached=non&index=1">Nhẫn trơn</a></li>
 									</ul>
 								</li> 
-								<li class="dropdown"><a href="shop.html">Bông tai<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="search?type=bongTai&index=1">Bông tai<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Đính kim cương</a></li>
-										<li><a href="shop.html">Đá quý</a></li>
-										<li><a href="shop.html">Đính đá ECZ</a></li>
-										<li><a href="shop.html">Đính ngọc trai</a></li>
-										<li><a href="shop.html">Bông tai trơn</a></li>
+										<li><a href="search?type=bongTai&attached=diamond&index=1">Đính kim cương</a></li>
+										<li><a href="search?type=bongTai&attached=gemStone&index=1">Đá quý</a></li>
+										<li><a href="search?type=bongTai&attached=ecz&index=1">Đính đá ECZ</a></li>
+										<li><a href="search?type=bongTai&attached=pearl&index=1">Đính ngọc trai</a></li>
+										<li><a href="search?type=bongTai&attached=non&index=1">Bông tai trơn</a></li>
 									</ul>
 								</li> 
-								<li class="dropdown"><a href="shop.html">Lắc & Vòng tay<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="search?type=lac&index=1">Lắc & Vòng tay<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Đính kim cương</a></li>
-										<li><a href="shop.html">Đá quý</a></li>
-										<li><a href="shop.html">Đính đá ECZ</a></li>
-										<li><a href="shop.html">Đính ngọc trai</a></li>
-										<li><a href="shop.html">Lắc & Vòng tay trơn</a></li>
-										<li><a href="shop.html">Dành cho trẻ em</a></li>
+										<li><a href="search?type=lac&attached=diamond&index=1">Đính kim cương</a></li>
+										<li><a href="search?type=lac&attached=gemStone&index=1">Đá quý</a></li>
+										<li><a href="search?type=lac&attached=ecz&index=1">Đính đá ECZ</a></li>
+										<li><a href="search?type=lac&attached=pearl&index=1">Đính ngọc trai</a></li>
+										<li><a href="search?type=lac&attached=non&index=1">Lắc & Vòng tay trơn</a></li>
+										<li><a href="search?stage=child&index=1">Dành cho trẻ em</a></li>
 									</ul>
 								</li> 
-								<li class="dropdown"><a href="shop.html">Đồng hồ<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="search?type=dongHo&index=1">Đồng hồ<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Nam</a></li>
-										<li><a href="shop.html">Nữ</a></li>
+										<li><a href="search?type=dongHo&gender=nam&index=1">Nam</a></li>
+										<li><a href="search?type=dongHo&gender=nu&index=1">Nữ</a></li>
 									</ul>
 								</li> 
-								<li class="dropdown"><a href="shop.html">Dây chuyền	<i class="fa fa-angle-down"></i></a>
+								<li class="dropdown"><a href="search?type=dayChuyen&index=1">Dây chuyền	<i class="fa fa-angle-down"></i></a>
 									<ul role="menu" class="sub-menu">
-										<li><a href="shop.html">Đính kim cương</a></li>
-										<li><a href="shop.html">Đá quý</a></li>
-										<li><a href="shop.html">Đính đá ECZ</a></li>
-										<li><a href="shop.html">Đính ngọc trai</a></li>
-										<li><a href="shop.html">Dây chuyền trơn</a></li>
+										<li><a href="search?type=dayChuyen&attached=diamond&index=1">Đính kim cương</a></li>
+										<li><a href="search?type=dayChuyen&attached=gemStone&index=1">Đá quý</a></li>
+										<li><a href="search?type=dayChuyen&attached=ecz&index=1">Đính đá ECZ</a></li>
+										<li><a href="search?type=dayChuyen&attached=pearl&index=1">Đính ngọc trai</a></li>
+										<li><a href="search?type=dayChuyen&attached=non&index=1">Dây chuyền trơn</a></li>
 									</ul>
 								</li>
 								<li class="dropdown"><a href="contact-us.jsp">Liên hệ</a>

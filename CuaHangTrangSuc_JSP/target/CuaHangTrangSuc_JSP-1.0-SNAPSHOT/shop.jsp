@@ -57,8 +57,9 @@
 	<!-- get key --><%String result = (String)request.getAttribute("key");%>
 	<!-- form -->
                         <form method="get" action="search">
+                            <c:if test="${!key.equals(\"null\")}">
 							<input type="text" name="keyword" value="<%=result%>" style="display: none">
-							<input type="text" name="filter" value="true" style="display: none">
+                            </c:if>
 						<h2>Bộ lọc</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
 							<div class="panel panel-default">
@@ -130,7 +131,7 @@
 								</div>
 								<div class="price-range "><!--price-range-->
 							<div class="well">
-								 <input name="priceRange" type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,50000000]" id="sl2" ><br />
+								 <input name="priceRange" type="text" class="span2" value="0,50000000" data-slider-min="0" data-slider-max="50000000" data-slider-step="100000" data-slider-value="[0,50000000]" id="sl2" ><br />
 								 <b>0đ</b> <b class="pull-right">50.000.000đ</b>
 							</div>
                                 <input type="text" name="index" value="1" style="display: none">
@@ -148,12 +149,19 @@
 					</div>
 
 				</div>
-				
+
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 <!-- Display key search -->
 
-						<h2 class="title text-center"> <%="Kết quả cho " + result%></h2>
+                    <c:choose>
+						<c:when test="${key.equals(\"null\")}" >
+                            <h2 class="title text-center">Danh scsh sản phẩm</h2>
+                        </c:when>
+                        <c:otherwise>
+                            <h2 class="title text-center"> <%=result%></h2>
+                        </c:otherwise>
+                    </c:choose>
 <!-- display results product-->
                     <div class="row">
 						<c:if test="${data!=null}">

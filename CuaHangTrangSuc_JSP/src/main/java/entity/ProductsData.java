@@ -79,22 +79,27 @@ public class ProductsData {
         return result;
     }
 
-    public static int getFilterSize(String name, String additionSql){
-        if(name==null) return -1;
-        name = name.toLowerCase();
+    public static int getFilterSize(String name, String[] additionSql){
+        String sqlFindName ="lower(p.product_name) like '%' ";
+        StringBuilder addition = new StringBuilder("");
+        if(name!=null) {
+            name = name.toLowerCase();
+           sqlFindName =  " lower(p.product_name) like '%"+ name + "%' ";
+        }
         if(additionSql!=null) {
-            int size=-1;
-            StringBuilder addition = new StringBuilder("");
-            String[] expres = additionSql.split(",");
-            for (int i = 0; i < expres.length; i++) {//to before price range
-                String result = ProductsData.chooseExpess(i, expres[i]);
+//            String[] expres = additionSql.split(",");
+            for (int i = 0; i < additionSql.length; i++) {//to before price range
+                if(additionSql[i]==null)
+                    continue;
+                String result = ProductsData.chooseExpess(i, additionSql[i]);
                 if (result != null) {
                     addition.append(" and " +result);
                 }
-            }
+            }}
             String newQuery = "Select count(p.id_product) as cnt from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                    " lower(p.product_name) like '%"+ name + "%' " + addition.toString();
+                    sqlFindName  + addition.toString();
             try {
+                int size=-1;
                 Statement s = ConnectionDB.connect();
                 ResultSet rs = s.executeQuery(newQuery);
                 rs.next();
@@ -108,37 +113,35 @@ public class ProductsData {
                 a.printStackTrace();
             }
             return -1;
-        }
-        else {
-            return getDataSizeByName(name);
-        }
     }
 
-    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String additionSql) { //parameter: String addition sql
-        if(name==null) return null;
-        name = name.toLowerCase();
+    public static HashMap<String, Product> getDataByNameWithLimit(String name, int offset, int limit, String[] additionSql) { //parameter: String addition sql
+        if(name == null && additionSql == null)
+            return null;
+        String sqlFindName ="lower(p.product_name) like '%' ";
+        StringBuilder addition = new StringBuilder("");
+        if(name!=null) {
+            name = name.toLowerCase();
+            sqlFindName =  "lower(p.product_name) like '%"+ name + "%' ";
+        }
         if(additionSql!=null) {
-            StringBuilder addition = new StringBuilder("");
-            String[] expres = additionSql.split(",");        //  if (expres.length <= 1)
-//                return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where lower(p.product_name) like '%" + name + "%' limit " + (offset - 1) + ", " + limit);
-//
-            for (int i = 0; i < expres.length; i++) {//to before price range
-                String result = ProductsData.chooseExpess(i, expres[i]);
+            for (int i = 0; i < additionSql.length; i++) {//to before price range
+                if(additionSql[i]==null)
+                    continue;
+                String result = ProductsData.chooseExpess(i, additionSql[i]);
                 if (result != null) {
-                    addition.append(" and " +result);
+                    addition.append(" and " + result);
                 }
             }
+        }
+
             String newQuery = "Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                    " lower(p.product_name) like '%"+ name + "%' " + addition.toString() + " limit " + (offset - 1) + ", " + limit;
+                    sqlFindName + addition.toString() + " limit " + (offset - 1) + ", " + limit;
+            System.out.print("Query: " + newQuery );
             return getDataQuery(newQuery) ;
         }
-        else {
-            return getDataQuery("Select * from product p join product_detail pd on  p.id_product = pd.id_product where " +
-                    " lower(p.product_name) like '%"+ name + "%' limit " + (offset - 1) + ", " + limit);
-        }
 
 
-    }
     public static  String chooseExpess(int numberOfExpess, String expresstion){
         switch (numberOfExpess){
             case 0 : return filterByType(expresstion);
