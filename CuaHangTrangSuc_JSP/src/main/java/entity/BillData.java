@@ -196,14 +196,14 @@ public class BillData {
 
     public static boolean canComment(User user, Product p){
         try {
-            PreparedStatement pstate = ConnectionDB.connect("select * from bill left join bill_detail where id_user = ? and id_product = ? and isCommented = ?");
+            PreparedStatement pstate = ConnectionDB.connect("select * from bill join bill_detail where id_user = ? and id_product = ? and isCommented = ?");
             pstate.setString(1, user.getUsername());
             pstate.setString(2, p.getId_product());
             pstate.setBoolean(3,false);
             //tim ra khach hang mua san pham do chua comment va da nhan hang
             ResultSet rs = pstate.executeQuery();
             if(rs.next()) {
-                if(rs.getString("state").equalsIgnoreCase("đã nhận hàng")) return true;
+                if(rs.getString("state").equalsIgnoreCase("đã giao")) return true;
             }
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

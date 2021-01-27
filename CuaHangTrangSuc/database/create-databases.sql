@@ -40,6 +40,7 @@ CREATE TABLE `BILL` (
   `full_name` nvarchar(50) NOT NULL,
   `address` nvarchar(50) NOT NULL,
   `phone_number` varchar(20) NOT NULL,
+  `message` varchar(200) NOT NULL,
   PRIMARY KEY (`id_bill`),
   FOREIGN KEY (`id_user`) REFERENCES USER(`id_user`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

@@ -20,7 +20,7 @@ public class CommentsData {
         int rate = cmt.getRate();
         PreparedStatement comState = null;
         try {
-            comState = ConnectionDB.connect("insert into comments(username, id_product, name, email, comment, rate)" +
+            comState = ConnectionDB.connect("insert into comments(id_user, id_product, name, email, comment, rate)" +
                     " values(?, ?, ?, ?, ?, ?)");
             comState.setString(1, userID);
             comState.setString(2, productID);
