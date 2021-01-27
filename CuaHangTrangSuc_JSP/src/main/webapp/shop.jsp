@@ -173,14 +173,14 @@
                                                     <img src="${product.getPicture1()}" alt="" />
                                                     <h2>${product.getStringPrice()}</h2>
                                                     <p style=" height: 60px;">${product.getProduct_name()}</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                    <a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                                                 </div>
                                                 <div class="product-overlay">
-                                                    <a href="product-details.html">
+                                                    <a href="loadProductsDetail?productID=${product.getId_product()}">
                                                         <div class="overlay-content">
                                                             <h2>${product.getStringPrice()}</h2>
                                                             <p style=" height: 60px;">${product.getProduct_name()}</p>
-                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                            <a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                                                         </div>
                                                     </a>
                                                 </div>
