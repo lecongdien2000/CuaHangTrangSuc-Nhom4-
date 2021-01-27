@@ -56,6 +56,7 @@ CREATE TABLE `BILL_DETAIL` (
   `id_bill` varchar(20) NOT NULL,
   `id_product` varchar(20) NOT NULL,
   `quantity` int NOT NULL,
+  `isCommented` BOOL NOT NULL,
   PRIMARY KEY (`id_bill`, `id_product`),
   FOREIGN KEY (`id_bill`) REFERENCES BILL(`id_bill`),
   FOREIGN KEY (`id_product`) REFERENCES PRODUCT(`id_product`)
