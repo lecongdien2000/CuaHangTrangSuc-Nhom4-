@@ -88,9 +88,9 @@
 								</td>
 								<td class="cart_quantity">
 									<div class="cart_quantity_button">
-										<a class="cart_quantity_up" href=""> + </a>
-										<input class="cart_quantity_input" type="text" name="quantity" value="${cart.getQuantity(d)}" autocomplete="off" size="2">
-										<a class="cart_quantity_down" href=""> - </a>
+										<a class="cart_quantity_up" href="increAnddreQuan?delta=1&&id_product=${d.getId_product()}&&bool=false"> + </a>
+										<input class="cart_quantity_input" type="text" name="quantity" value="${cart.getQuantity(d)}" autocomplete="off" size="2" disabled>
+										<a class="cart_quantity_down" href="increAnddreQuan?delta=1&&id_product=${d.getId_product()}&&bool=true"> - </a>
 									</div>
 								</td>
 								<td class="cart_total">

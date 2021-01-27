@@ -43,6 +43,29 @@ public class Cart implements Serializable {
         System.out.println("aaa");
     }
 
+    public boolean updateQuantityOfProduct(int delta, String id_product, boolean inOrDe) {
+        for (Product p : getdata()) {
+            int quantity;
+            if (p.getId_product().equals(id_product)) {
+                if(inOrDe==false) {
+                    quantity = getQuantity(p) + delta;
+                }
+                else{
+                    quantity = getQuantity(p) - delta;
+                }
+                if (quantity <= 0) return false;
+                else {
+                    data.put(p,quantity);
+                    System.out.println(CartData.updateQuantitesProduct(p,this.username,quantity));
+                    return true;
+                }
+            }
+
+        }
+        return false;
+
+    }
+
     //load san pham len cart neu nguoi ta da dang nhap roi
 //    public Map<Product, Integer> loadCart() {
 //        System.out.println(CartData.getCartForUser(this.username));
@@ -98,8 +121,7 @@ public class Cart implements Serializable {
         User u = (User) session.getAttribute("user");
         if (u == null) {
             return null;
-        }
-        else if (u.getUsername() != null) {
+        } else if (u.getUsername() != null) {
             return session.getAttribute("cart") == null ? new Cart(u.getUsername()) : (Cart) session.getAttribute("cart");
         }
         return null;
