@@ -43,7 +43,7 @@
 				<div class="col-sm-4 col-sm-offset-1">
 					<div class="login-form"><!--login form-->
 						<h2>Đăng nhập</h2>
-						<form action="login" method = "post">
+						<form name = "loginForm" action="login" method = "post" onsubmit="return validateLoginForm()">
 							<input type="text" placeholder="Tên tài khoản" name = "username"/>
 							<input type="password" placeholder="Mật khẩu" name = "password"/>
 							<span>
@@ -61,7 +61,7 @@
 				<div class="col-sm-4">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Đăng ký tài khoản mới</h2>
-						<form action="register" method="post">
+						<form action="register" method="post" name="registerForm" onsubmit="return validateRegisterForm()">
 							<input type="text" placeholder="Tên tài khoản" name="username"/>
 							<input type="email" placeholder="Email" name="email"/>
 							<input type="password" placeholder="Mật khẩu" name="password"/>
@@ -76,8 +76,59 @@
 
 
 <jsp:include page="footer.jsp" />
-	
 
+		<script>
+		function validateLoginForm(){
+			var name=document.loginForm.username.value;
+			var password=document.loginForm.password.value;
+			var letterNumber = /^[0-9a-zA-Z]+$/;
+			if (name==null || name==""){
+				alert("Tên tài khoản không được để trống!");
+				return false;
+			}else if (name.length > 12){
+				alert("Tên tài khoản không được lớn hơn 12 ký tự!");
+				return false;
+			}if (!name.match(letterNumber)){
+				alert("Tên tài khoản chỉ được phép chứa ký tự không dấu và số!");
+				return false;
+			}else if(password.length<6){
+				alert("Mật khẩu phải có độ dài ít nhất 6 ký tự.");
+				return false;
+			}
+		}
+	</script>
+
+<script>
+	function validateRegisterForm(){
+		var name=document.registerForm.username.value;
+		var password=document.registerForm.password.value;
+		var password2=document.registerForm.password2.value;
+		var email=document.registerForm.email.value;
+		var letterNumber = /^[0-9a-zA-Z]+$/;
+		if (name==null || name==""){
+			alert("Tên tài khoản không được để trống!");
+			return false;
+		}else if (name.length > 12){
+			alert("Tên tài khoản không được lớn hơn 12 ký tự!");
+			return false;
+		}else if (name.length < 6){
+			alert("Tên tài khoản phải chứa ít nhất 6 ký tự!");
+			return false;
+		}if (!name.match(letterNumber)){
+			alert("Tên tài khoản chỉ được phép chứa ký tự không dấu và số!");
+			return false;
+		}else if(password.length<6){
+			alert("Mật khẩu phải có độ dài ít nhất 6 ký tự.");
+			return false;
+		}else if(password != password2){
+			alert("Mật khẩu không khớp.");
+			return false;
+		}else if(email==null || email==""){
+			alert("Email không được để trống!");
+			return false;
+		}
+	}
+</script>
   
     <script src="js/jquery.js"></script>
 	<script src="js/price-range.js"></script>
