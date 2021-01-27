@@ -12,9 +12,27 @@ public class Bill {
     private String full_name;
     private String address;
     private String phone_number;
+    private String message;
     private Map<Product, Integer> bill_detail = new HashMap<>();
+    private Map<Product, Boolean> mapCommented = new HashMap<>();
     public Bill(){
 
+    }
+
+    public Map<Product, Boolean> getMapCommented() {
+        return mapCommented;
+    }
+
+    public void setMapCommented(Map<Product, Boolean> mapCommented) {
+        this.mapCommented = mapCommented;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getId_bill() {

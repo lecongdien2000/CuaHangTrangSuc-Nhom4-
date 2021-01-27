@@ -100,9 +100,9 @@ public class CartData implements Serializable {
     //xoa het tat ca cac san pham da mua
     public static boolean clearCart(String username) {
         try {
-            PreparedStatement pstate = ConnectionDB.connect("delete from cart where username = ?");
+            PreparedStatement pstate = ConnectionDB.connect("delete from cart where id_user = ?");
             pstate.setString(1, username);
-            pstate.executeUpdate();
+            System.out.println(pstate.executeUpdate());
             pstate.close();
             ConnectionDB.closeConnection();
             return true;

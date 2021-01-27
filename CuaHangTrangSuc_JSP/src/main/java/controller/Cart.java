@@ -100,7 +100,6 @@ public class Cart implements Serializable {
             return null;
         }
         else if (u.getUsername() != null) {
-            System.out.println(u.getAccountName());
             return session.getAttribute("cart") == null ? new Cart(u.getUsername()) : (Cart) session.getAttribute("cart");
         }
         return null;
@@ -126,7 +125,7 @@ public class Cart implements Serializable {
     public String totalOfCart() {
         double sum = 0;
         for (Product p : data.keySet()) {
-            sum += p.getPrice() * data.get(p);
+            sum += this.totalPriceProduct(p);
         }
         Product p = new Product();
         p.setPrice(sum);

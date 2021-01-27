@@ -11,6 +11,7 @@ public class Product implements Serializable {
     private int quantity;
     private ProductDetail productDetail;
 
+
     public Product(String id_product, String product_name, String picture1, String picture2, String picture3, double price, String id_category, int quantity) {
         this.id_product = id_product;
         this.product_name = product_name;
@@ -21,6 +22,7 @@ public class Product implements Serializable {
         this.id_category = id_category;
         this.quantity = quantity;
     }
+
     public Product(){
         productDetail = new ProductDetail();
     }
