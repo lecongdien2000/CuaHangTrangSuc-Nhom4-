@@ -156,7 +156,7 @@
 
                     <c:choose>
 						<c:when test="${key.equals(\"null\")}" >
-                            <h2 class="title text-center">Danh scsh sản phẩm</h2>
+                            <h2 class="title text-center">Danh sách sản phẩm</h2>
                         </c:when>
                         <c:otherwise>
                             <h2 class="title text-center"> <%=result%></h2>
@@ -173,14 +173,14 @@
                                                     <img src="${product.getPicture1()}" alt="" />
                                                     <h2>${product.getStringPrice()}</h2>
                                                     <p style=" height: 60px;">${product.getProduct_name()}</p>
-                                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                    <a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                                                 </div>
                                                 <div class="product-overlay">
                                                     <a href="product-details.html">
                                                         <div class="overlay-content">
                                                             <h2>${product.getStringPrice()}</h2>
                                                             <p style=" height: 60px;">${product.getProduct_name()}</p>
-                                                            <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
+                                                            <a href="addCart?id=${product.getId_product()}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ</a>
                                                         </div>
                                                     </a>
                                                 </div>

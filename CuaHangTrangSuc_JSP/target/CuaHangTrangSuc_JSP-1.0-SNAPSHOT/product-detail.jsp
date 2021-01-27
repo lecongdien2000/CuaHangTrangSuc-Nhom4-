@@ -4,8 +4,10 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.time.LocalTime" %>
+<%@ page import="entity.BillData" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,7 +138,14 @@
 				<div class="col-sm-9">
 				</div>	
 				<c:set var="product" value='${product}' />
-				<%User user = (User)session.getAttribute("user");%>
+				<c:set var="user" value='${sessionScope.user}'/>
+				<%User user = (User)session.getAttribute("user");
+					Product product = (Product) request.getAttribute("product");
+					boolean activeComment = true;
+					if(user==null|| !BillData.canComment(user, product)){
+						activeComment = false;
+					}
+				%>
 				<div class="col-sm-12 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-4">
@@ -185,8 +194,9 @@
 										<input type="text" value="3" /> -->
 
 										<button type="button" class="btn btn-fefault cart" style="width: max-content;">
-											<i class="fa fa-shopping-cart"></i>
+											<a href="addCart?id=${product.getId_product()}"><i class="fa fa-shopping-cart"></i>
 											Thêm vào giỏ
+											</a>
 										</button>
 									</div>
 									<br/>
@@ -275,11 +285,12 @@
 											</ul>
 											<p></p>
 											<p><b>Viết bình luận</b></p>
-
+										<% if(activeComment){ %>
 											<form action="comment" method="get">
 												<span>
 													<input type="text" placeholder="Tên của bạn" name="name" value = "<%if (user!=null){ %><%=user.getAccountName()%><% } %>"/>
 													<input type="email" placeholder="Địa chỉ email" name="email" value = "<%if (user!=null){%><%=user.getEmail()%><% } %>"/>
+
 												</span>
 												<textarea name="comment" ></textarea>
 												<b style="position: relative;
@@ -300,10 +311,14 @@
 													</div>
 												</span>
 												<input name = "productID" type = "hidden"  value="${product.getId_product()}"/>
+												<input name = "username" type = "hidden"  value="${user.getUsername()}"/>
 												<button type="submit" class="btn btn-default pull-right">
 													Gửi
 												</button>
 											</form>
+										<%} else { %>
+											<p>Bạn chưa mua sản phẩm này, không thể bình luận!</p>
+										<%} %>
 											<c:forEach items="${cmtList}" var="cmt">
 											<div class="commentShow" style="height: 100px;border: 1px solid black;border-radius: 5px; margin-bottom: 15px">
 												<div class="col-sm-4">

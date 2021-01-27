@@ -194,8 +194,9 @@
 										<input type="text" value="3" /> -->
 
 										<button type="button" class="btn btn-fefault cart" style="width: max-content;">
-											<i class="fa fa-shopping-cart"></i>
+											<a href="addCart?id=${product.getId_product()}"><i class="fa fa-shopping-cart"></i>
 											Thêm vào giỏ
+											</a>
 										</button>
 									</div>
 									<br/>

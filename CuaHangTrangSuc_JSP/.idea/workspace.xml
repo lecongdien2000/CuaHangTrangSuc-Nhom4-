@@ -30,41 +30,24 @@
     <list default="true" id="37da9f68-3b20-4469-80aa-c79eb6baf3a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin-bill-management.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin-bill-management.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin-product-management.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin-product-management.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin-user-management.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin-user-management.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/adminProductDetailManagement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/adminProductDetailManagement.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin_bill_details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin_bill_details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin_login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin_login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/addBill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/addBill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/BillData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/BillData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/cart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/contact-us.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/contact-us.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/heading.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/heading.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/product-detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/shop.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/shop.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/user-bill-management.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/user-bill-management.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/controller/addBill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/controller/addBill.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/BillData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/BillData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/CartData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/CartData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/ProductsData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/ProductsData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/UsersData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/entity/UsersData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/user/login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/WEB-INF/classes/user/login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin-bill-management.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin-bill-management.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin-product-management.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin-product-management.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin-user-management.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin-user-management.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/adminProductDetailManagement.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/adminProductDetailManagement.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin_bill_details.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin_bill_details.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin_login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/admin_login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/cart.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/checkout.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/checkout.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/contact-us.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/contact-us.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/heading.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/heading.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/login.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/product-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/product-detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/shop.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CuaHangTrangSuc_JSP-1.0-SNAPSHOT/shop.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/addBill.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/addBill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/entity/BillData.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/entity/BillData.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,65 +355,65 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="183" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608976041374" />
-    <state width="1178" height="239" key="GridCell.Tab.0.bottom" timestamp="1611424513428">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.0.bottom" timestamp="1611745444431">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611399104118" />
+    <state width="1024" height="299" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611745444431" />
     <state width="1178" height="239" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1611424513428" />
-    <state width="1178" height="239" key="GridCell.Tab.0.center" timestamp="1611424513428">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.0.center" timestamp="1611745444431">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611399104118" />
+    <state width="1024" height="299" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611745444431" />
     <state width="1178" height="239" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1611424513428" />
-    <state width="1178" height="239" key="GridCell.Tab.0.left" timestamp="1611424513428">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.0.left" timestamp="1611745444430">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611399104118" />
+    <state width="1024" height="299" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611745444430" />
     <state width="1178" height="239" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1611424513428" />
-    <state width="1178" height="239" key="GridCell.Tab.0.right" timestamp="1611424513428">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.0.right" timestamp="1611745444431">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611399104118" />
+    <state width="1024" height="299" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611745444431" />
     <state width="1178" height="239" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1611424513428" />
-    <state width="1178" height="239" key="GridCell.Tab.1.bottom" timestamp="1611424513429">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.1.bottom" timestamp="1611745444432">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611399103960" />
+    <state width="1024" height="299" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611745444432" />
     <state width="1178" height="239" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1611424513429" />
-    <state width="1178" height="239" key="GridCell.Tab.1.center" timestamp="1611424513428">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.1.center" timestamp="1611745444432">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611399103960" />
+    <state width="1024" height="299" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611745444432" />
     <state width="1178" height="239" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1611424513428" />
-    <state width="1178" height="239" key="GridCell.Tab.1.left" timestamp="1611424513428">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.1.left" timestamp="1611745444431">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611399103960" />
+    <state width="1024" height="299" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611745444431" />
     <state width="1178" height="239" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1611424513428" />
-    <state width="1178" height="239" key="GridCell.Tab.1.right" timestamp="1611424513429">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.1.right" timestamp="1611745444432">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611399103960" />
+    <state width="1024" height="299" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611745444432" />
     <state width="1178" height="239" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1611424513429" />
-    <state width="1178" height="239" key="GridCell.Tab.2.bottom" timestamp="1611424513429">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.2.bottom" timestamp="1611745444433">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611399103961" />
+    <state width="1024" height="299" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611745444433" />
     <state width="1178" height="239" key="GridCell.Tab.2.bottom/0.0.1536.864@0.0.1536.864" timestamp="1611424513429" />
-    <state width="1178" height="239" key="GridCell.Tab.2.center" timestamp="1611424513429">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.2.center" timestamp="1611745444433">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1611399103961" />
+    <state width="1024" height="299" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1611745444433" />
     <state width="1178" height="239" key="GridCell.Tab.2.center/0.0.1536.864@0.0.1536.864" timestamp="1611424513429" />
-    <state width="1178" height="239" key="GridCell.Tab.2.left" timestamp="1611424513429">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.2.left" timestamp="1611745444432">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1611399103960" />
+    <state width="1024" height="299" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1611745444432" />
     <state width="1178" height="239" key="GridCell.Tab.2.left/0.0.1536.864@0.0.1536.864" timestamp="1611424513429" />
-    <state width="1178" height="239" key="GridCell.Tab.2.right" timestamp="1611424513429">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state width="1024" height="299" key="GridCell.Tab.2.right" timestamp="1611745444433">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="230" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1611399103961" />
+    <state width="1024" height="299" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1611745444433" />
     <state width="1178" height="239" key="GridCell.Tab.2.right/0.0.1536.864@0.0.1536.864" timestamp="1611424513429" />
     <state x="586" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1611053336565">
       <screen x="0" y="0" width="1536" height="864" />
@@ -440,10 +423,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="499" y="190" key="extract.method.dialog/0.0.1536.864@0.0.1536.864" timestamp="1611284275710" />
-    <state x="478" y="12" width="579" height="840" key="find.popup" timestamp="1611303618403">
-      <screen x="0" y="0" width="1536" height="864" />
+    <state x="478" y="11" width="579" height="801" key="find.popup" timestamp="1611743305145">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1609732153101" />
+    <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1611743305145" />
     <state x="478" y="12" width="579" height="840" key="find.popup/0.0.1536.864@0.0.1536.864" timestamp="1611303618403" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1609130046244">
       <screen x="0" y="0" width="1536" height="824" />

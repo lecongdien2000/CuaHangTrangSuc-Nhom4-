@@ -136,6 +136,14 @@ public class BillData {
             pstate.setString(5, bill.getAddress());
             pstate.setString(6, bill.getPhone_number());
             pstate.setString(7, bill.getMessage());
+            System.out.println(bill.getId_bill());
+            System.out.println(bill.getId_user());
+            System.out.println(bill.getState());
+            System.out.println(bill.getFull_name());
+            System.out.println(bill.getAddress());
+            System.out.println(bill.getPhone_number());
+            System.out.println(bill.getMessage());
+
             System.out.println(pstate.executeUpdate());
             pstate.close();
             ConnectionDB.closeConnection();

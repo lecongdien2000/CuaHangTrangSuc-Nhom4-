@@ -49,7 +49,7 @@ public class addBill extends HttpServlet {
             if(BillData.saveBill(bill)){
                 System.out.println("xoa cart"+CartData.clearCart(u.getUsername()));
                 System.out.println("giam solg"+ProductsData.updateProductQuantity(bill.getBill_detail()));
-                c.commit(session);
+                session.setAttribute("cart", null);
                 response.sendRedirect("user-bill-management.jsp");
             }else{
                 response.sendRedirect("checkout.jsp");

@@ -36,7 +36,7 @@
             height: 100px;
         }
 
-        #form-special1234 input{
+        #form-special1234 input {
             background: white;
             border: 1px solid black;
             margin-bottom: 10px;
@@ -44,6 +44,7 @@
             width: 100%;
             font-weight: 300
         }
+
         .payment-options img {
             width: 50px;
             height: 50px;
@@ -52,7 +53,7 @@
 </head><!--/head-->
 
 <body style="">
-<jsp:include page="heading.jsp" />
+<jsp:include page="heading.jsp"/>
 
 
 <section id="cart_items">
@@ -72,7 +73,7 @@
         <!--/register-req-->
 
         <div class="shopper-informations">
-            <form action="addBill" method="post">
+            <form name="checkout" id="mobile" action="addBill" method="post" onsubmit="return validateForm()">
                 <div class="row">
 
                     <div class="col-sm-6 clearfix">
@@ -81,7 +82,7 @@
                             <h3>Người nhận</h3>
                             <div class="form-one">
                                 <div id="form-special1234">
-                                    <input type="text" name="email" placeholder="Email*">
+                                    <input type="email" name="email" placeholder="Email*">
                                     <input type="text" name="fullname" placeholder="Họ và tên *">
                                     <input type="text" name="address" placeholder="Địa chỉ *">
                                     <input type="text" name="phone" placeholder="SĐT *">
@@ -193,7 +194,35 @@
     </div>
 </section> <!--/#cart_items-->
 
-<jsp:include page="footer.jsp" />
+<jsp:include page="footer.jsp"/>
+<script>
+    function validateForm() {
+        var email = document.checkout.email.value;
+        var fullname = document.checkout.fullname.value;
+        var address = document.checkout.address.value;
+        var letterNumber = /^[0-9a-zA-Z]+$/;
+        var vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+        var mobile = document.checkout.phone.value;
+        if (email == null || email == "") {
+            alert("Email là trường bắt buộc!");
+            return false;
+        } else if (fullname == null || fullname == "") {
+            alert("Fullname là trường bắt buộc!");
+            return false;
+        }
+        if (address == null || address == "") {
+            alert("Address là trường bắt buộc!");
+            return false;
+        } else if (mobile == null || mobile == "" || vnf_regex.test(mobile) == false ) {
+            alert("Trường SDT không được trống và phải nhập đúng định dạng của SDT!");
+            return false;
+
+        } else if ($('input[type=radio]:checked').size() <= 0) {
+            alert('Bạn chưa chọn phương thức thanh toán!');
+            return false;
+        }
+    }
+</script>
 
 
 <script src="js/jquery.js"></script>

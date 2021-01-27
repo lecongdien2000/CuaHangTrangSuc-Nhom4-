@@ -52,8 +52,6 @@
 
 <body>
 <jsp:include page="heading.jsp" />
-
-
 		<section id="cart_items">
 			<div class="container">
 				<div class="table-responsive cart_info">
@@ -82,7 +80,7 @@
 								</td>
 
 								<td class="cart_description">
-									<h4><a href="">${d.getProduct_name()}</a></h4>
+									<h4><a href="loadProductsDetail?productID=${d.getId_product()}">${d.getProduct_name()}</a></h4>
 									<p>MÃ: ${d.getId_product()}</p>
 								</td>
 								<td class="cart_price">
