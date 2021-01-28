@@ -254,7 +254,7 @@
 												<p>Mã sản phẩm</p>
 												<input type="text" name="productId" id="productId" value="${product.getId_product()}">
 												<p>Giá</p>
-												<input type="number" name="producPrice" id="productPrice" value="${product.getStringPrice()}">
+												<input type="number" name="producPrice" id="productPrice" value="${product.getPrice()}">
 												<p>Số lượng</p>
 												<input type="number" name="productNumber" id="productNumber" value="${product.getQuantity()}">
 											</div>

@@ -1,4 +1,8 @@
-<%@ page language="java" contentType="text/html; charset = UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="product.Product" %>
+<%@ page import="java.util.Collection" %>
+<%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -98,7 +102,6 @@
 <body>
 <jsp:include page="heading.jsp"/>
 
-
 <section>
     <div class="container">
         <div class="row">
@@ -113,10 +116,15 @@
                             <li><a href="#daHuy" data-toggle="tab">Đã hủy</a></li>
                         </ul>
                     </div>
+
+
                     <div class="tab-content">
+    <c:if test="${data!=null}">
                         <div class="tab-pane fade active in container" id="choXacNhan">
+                <c:forEach items="${data}" var="bill">
+                    <c:if test="${bill.getState().equals(\"Chờ xác nhận\")}">
                             <div>
-                                <p class="billID">Mã đơn: HD0001</p>
+                                <p class="billID">Mã đơn: ${bill.getId_bill()}</p>
                                 <div class="headTitle row">
                                     <div class="col-sm-8">
 
@@ -140,11 +148,13 @@
                                     </div>
                                 </div>
                                 <div class="productList">
+                                    <c:set var="billdetails" value="${bill.getBill_detail()}"></c:set>
+                                    <c:forEach items="${billdetails.keySet()}" var="product">
                                     <div class="row productInfor">
                                         <div class="col-sm-8">
 
                                             <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
+                                                <p class="index">${product.getId_product()}</p>
                                             </div>
                                             <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
                                                 <div class="col-sm-4" style="padding-left: 0px;">
@@ -155,119 +165,24 @@
                                                 </div>
                                                 <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
                                                     <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
+                                                        ${product.getProduct_name()}
                                                     </p>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
                                             <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
+                                                <p class="index">${product.getStringPrice()}</p>
                                             </div>
                                             <div class="col-sm-2">
-                                                <p class="index">1</p>
+                                                <p class="index">${billdetails.get(product)}</p>
                                             </div>
                                             <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
+                                                <p class="index">${product.getStringPriceHasQuantities(billdetails.get(product))}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                                 <div class="cancelBill">
                                     <div class="col-sm-5"></div>
@@ -277,956 +192,295 @@
                                     <div class="col-sm-5"></div>
                                 </div>
                             </div>
-                            <div>
-                                <p class="billID">Mã đơn: HD0002</p>
-                                <div class="headTitle row">
-                                    <div class="col-sm-8">
+                    </c:if>
+                </c:forEach>
 
-                                        <div class="col-sm-4">
-                                            <p>Mã sản phẩm</p>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <p>Mục sản phẩm</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-3">
-                                            <p>Giá</p>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <p>Số lượng</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p>Tổng tiền</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="productList">
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cancelBill">
-                                    <div class="col-sm-5"></div>
-                                    <div class="col-sm-2">
-                                        <button class="btn">Hủy đơn hàng</button>
-                                    </div>
-                                    <div class="col-sm-5"></div>
-                                </div>
-                            </div>
                         </div>
 
+<%--    cho lay hang                    --%>
                         <div class="tab-pane fade  in container" id="choLayHang">
-                            <div>
-                                <p class="billID">Mã đơn: HD0001</p>
-                                <div class="headTitle row">
-                                    <div class="col-sm-8">
+                <c:forEach items="${data}" var="bill">
+                    <c:if test="${bill.getState().equals(\"Đang giao\")}">
+                        <div>
+                            <p class="billID">Mã đơn: ${bill.getId_bill()}</p>
+                            <div class="headTitle row">
+                                <div class="col-sm-8">
 
-                                        <div class="col-sm-4">
-                                            <p>Mã sản phẩm</p>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <p>Mục sản phẩm</p>
-                                        </div>
-                                    </div>
                                     <div class="col-sm-4">
-                                        <div class="col-sm-3">
-                                            <p>Giá</p>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <p>Số lượng</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p>Tổng tiền</p>
-                                        </div>
+                                        <p>Mã sản phẩm</p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p>Mục sản phẩm</p>
                                     </div>
                                 </div>
-                                <div class="productList">
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-3">
+                                        <p>Giá</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-3">
+                                        <p>Số lượng</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-6">
+                                        <p>Tổng tiền</p>
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <p class="billID">Mã đơn: HD0002</p>
-                                <div class="headTitle row">
-                                    <div class="col-sm-8">
-
-                                        <div class="col-sm-4">
-                                            <p>Mã sản phẩm</p>
-                                        </div>
+                            <div class="productList">
+                                <c:set var="billdetails" value="${bill.getBill_detail()}"></c:set>
+                                <c:forEach items="${billdetails.keySet()}" var="product">
+                                    <div class="row productInfor">
                                         <div class="col-sm-8">
-                                            <p>Mục sản phẩm</p>
+
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getId_product()}</p>
+                                            </div>
+                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+                                                <div class="col-sm-4" style="padding-left: 0px;">
+                                                    <div class="containImage">
+                                                        <img src="images/home/gallery1.jpg"
+                                                             style="width: 100%; height: 100%">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
+                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
+                                                            ${product.getProduct_name()}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getStringPrice()}</p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <p class="index">${billdetails.get(product)}</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="index">${product.getStringPriceHasQuantities(billdetails.get(product))}</p>
+                                            </div>
                                         </div>
                                     </div>
+                                </c:forEach>
+                            </div>
+
+                        </div>
+                    </c:if>
+                </c:forEach>
+                        </div>
+<%--     da giao                   --%>
+                        <div class="tab-pane fade  in container" id="daGiao">
+                <c:forEach items="${data}" var="bill">
+                    <c:if test="${bill.getState().equals(\"Đã giao\")}">
+                        <div>
+                            <p class="billID">Mã đơn: ${bill.getId_bill()}</p>
+                            <div class="headTitle row">
+                                <div class="col-sm-8">
+
                                     <div class="col-sm-4">
-                                        <div class="col-sm-3">
-                                            <p>Giá</p>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <p>Số lượng</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p>Tổng tiền</p>
-                                        </div>
+                                        <p>Mã sản phẩm</p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p>Mục sản phẩm</p>
                                     </div>
                                 </div>
-                                <div class="productList">
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-3">
+                                        <p>Giá</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-3">
+                                        <p>Số lượng</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-6">
+                                        <p>Tổng tiền</p>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="productList">
+                                <c:set var="billdetails" value="${bill.getBill_detail()}"></c:set>
+                                <c:forEach items="${billdetails.keySet()}" var="product">
+                                    <div class="row productInfor">
+                                        <div class="col-sm-8">
+
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getId_product()}</p>
+                                            </div>
+                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+                                                <div class="col-sm-4" style="padding-left: 0px;">
+                                                    <div class="containImage">
+                                                        <img src="images/home/gallery1.jpg"
+                                                             style="width: 100%; height: 100%">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
+                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
+                                                            ${product.getProduct_name()}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getStringPrice()}</p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <p class="index">${billdetails.get(product)}</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="index">${product.getStringPriceHasQuantities(billdetails.get(product))}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
-                        <div class="tab-pane fade  in container" id="daGiao">
-                            <div>
-                                <p class="billID">Mã đơn: HD0002</p>
-                                <div class="headTitle row">
-                                    <div class="col-sm-8">
-
-                                        <div class="col-sm-4">
-                                            <p>Mã sản phẩm</p>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <p>Mục sản phẩm</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="col-sm-3">
-                                            <p>Giá</p>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <p>Số lượng</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p>Tổng tiền</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="productList">
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                    </c:if>
+                </c:forEach>
                         </div>
                         <div class="tab-pane fade  in container" id="traHang">
-                            <div>
-                                <p class="billID">Mã đơn: HD0002</p>
-                                <div class="headTitle row">
-                                    <div class="col-sm-8">
+                <c:forEach items="${data}" var="bill">
+                    <c:if test="${bill.getState().equals(\"Trả hàng\")}">
+                        <div>
+                            <p class="billID">Mã đơn: ${bill.getId_bill()}</p>
+                            <div class="headTitle row">
+                                <div class="col-sm-8">
 
-                                        <div class="col-sm-4">
-                                            <p>Mã sản phẩm</p>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <p>Mục sản phẩm</p>
-                                        </div>
-                                    </div>
                                     <div class="col-sm-4">
-                                        <div class="col-sm-3">
-                                            <p>Giá</p>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <p>Số lượng</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p>Tổng tiền</p>
-                                        </div>
+                                        <p>Mã sản phẩm</p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p>Mục sản phẩm</p>
                                     </div>
                                 </div>
-                                <div class="productList">
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-3">
+                                        <p>Giá</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-3">
+                                        <p>Số lượng</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-6">
+                                        <p>Tổng tiền</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="productList">
+                                <c:set var="billdetails" value="${bill.getBill_detail()}"></c:set>
+                                <c:forEach items="${billdetails.keySet()}" var="product">
+                                    <div class="row productInfor">
+                                        <div class="col-sm-8">
+
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getId_product()}</p>
+                                            </div>
+                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+                                                <div class="col-sm-4" style="padding-left: 0px;">
+                                                    <div class="containImage">
+                                                        <img src="images/home/gallery1.jpg"
+                                                             style="width: 100%; height: 100%">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
+                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
+                                                            ${product.getProduct_name()}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getStringPrice()}</p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <p class="index">${billdetails.get(product)}</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="index">${product.getStringPriceHasQuantities(billdetails.get(product))}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+
+                        </div>
+                    </c:if>
+                </c:forEach>
                         </div>
                         <div class="tab-pane fade  in container" id="daHuy">
-                            <div>
-                                <p class="billID">Mã đơn: HD0002</p>
-                                <div class="headTitle row">
-                                    <div class="col-sm-8">
+                <c:forEach items="${data}" var="bill">
+                    <c:if test="${bill.getState().equals(\"Đã hủy\")}">
+                        <div>
+                            <p class="billID">Mã đơn: ${bill.getId_bill()}</p>
+                            <div class="headTitle row">
+                                <div class="col-sm-8">
 
-                                        <div class="col-sm-4">
-                                            <p>Mã sản phẩm</p>
-                                        </div>
-                                        <div class="col-sm-8">
-                                            <p>Mục sản phẩm</p>
-                                        </div>
-                                    </div>
                                     <div class="col-sm-4">
-                                        <div class="col-sm-3">
-                                            <p>Giá</p>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <p>Số lượng</p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p>Tổng tiền</p>
-                                        </div>
+                                        <p>Mã sản phẩm</p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p>Mục sản phẩm</p>
                                     </div>
                                 </div>
-                                <div class="productList">
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                <div class="col-sm-4">
+                                    <div class="col-sm-3">
+                                        <p>Giá</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-3">
+                                        <p>Số lượng</p>
                                     </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row productInfor">
-                                        <div class="col-sm-8">
-
-                                            <div class="col-sm-4">
-                                                <p class="index">SNXM00K000088</p>
-                                            </div>
-                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
-                                                <div class="col-sm-4" style="padding-left: 0px;">
-                                                    <div class="containImage">
-                                                        <img src="images/home/gallery1.jpg"
-                                                             style="width: 100%; height: 100%">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
-                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
-                                                        Nhẫn bạc đính đá PNJSilver XM00K000088
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <div class="col-sm-4">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                            <div class="col-sm-2">
-                                                <p class="index">1</p>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <p class="index">317.000đ</p>
-                                            </div>
-                                        </div>
+                                    <div class="col-sm-6">
+                                        <p>Tổng tiền</p>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="productList">
+                                <c:set var="billdetails" value="${bill.getBill_detail()}"></c:set>
+                                <c:forEach items="${billdetails.keyset()}" var="product">
+                                    <div class="row productInfor">
+                                        <div class="col-sm-8">
 
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getId_product()}</p>
+                                            </div>
+                                            <div class="col-sm-8" style="padding-left: 0px; padding-right: 0px;">
+                                                <div class="col-sm-4" style="padding-left: 0px;">
+                                                    <div class="containImage">
+                                                        <img src="images/home/gallery1.jpg"
+                                                             style="width: 100%; height: 100%">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8" style="padding-right: 0px; padding-left: 0px;">
+                                                    <p class="index" style="margin-bottom: 1px; font-weight: bold;">
+                                                            ${product.getProduct_name()}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="col-sm-4">
+                                                <p class="index">${product.getStringPrice()}</p>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <p class="index">${billdetails.get(product)}</p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="index">${product.getStringPriceHasQuantities(billdetails.get(product))}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                            <div class="cancelBill">
+                                <div class="col-sm-5"></div>
+                                <div class="col-sm-2">
+                                    <button class="btn">Hủy đơn hàng</button>
+                                </div>
+                                <div class="col-sm-5"></div>
                             </div>
                         </div>
-
+                    </c:if>
+                </c:forEach>
+                        </div>
+    </c:if>
                     </div><!--/category-tab-->
 
 

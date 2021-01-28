@@ -86,12 +86,16 @@ public class insertProduct extends javax.servlet.http.HttpServlet {
             p.setDescription(request.getParameter("productDescription"));
 
             int rs = ProductsData.insertProduct(p);
-             p = ProductsData.getProductByID(p.getId_product());
-            request.setAttribute("product", p);
-            request.setAttribute("id", p.getId_product());
+            if(rs==1){
+                System.out.println("insert thanh cong");
+                response.sendRedirect("admin-product-detail?id=" + p.getId_product());
+            }
+            else
+                request.getRequestDispatcher("adminProductDetailManagement.jsp").forward(request, response);
+
 //            request.getRequestDispatcher("adminProductDetailManagement.jsp").forward(request, response);
 //response.sendRedirect("index.jsp");
-            response.sendRedirect("admin-product-detail?id=" + p.getId_product());
+
     }
 
 }

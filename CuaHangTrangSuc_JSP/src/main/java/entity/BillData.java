@@ -45,6 +45,9 @@ public class BillData {
     public static HashMap<String, Bill> getAllBill(){
         return BillData.getDataQuery("SELECT * FROM bill" );
     }
+    public static HashMap<String, Bill> getAllBillOfUser(String userName){
+        return BillData.getDataQuery("SELECT * FROM bill WHERE id_user ='" + userName + "'");
+    }
 
     public static HashMap<Product, Integer> getBillDetailsOfBill(String id_bill){
         Statement s = null;

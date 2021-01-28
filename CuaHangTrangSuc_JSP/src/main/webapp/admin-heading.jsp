@@ -12,11 +12,11 @@
 <head>
 	<meta charset="utf-8">
 	<title><%=user.getAccountName()%> | Admin</title>
-  <link href="css/main.css" rel="stylesheet">
-	<link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/font-awesome.min.css" rel="stylesheet">
-	<link type="text/css" rel="stylesheet" href="css/style.css" />	
-  <link rel="icon" href="images/logoFavicon.png" type="image/icon type">
+<%--  <link href="css/main.css" rel="stylesheet">--%>
+<%--	<link href="css/bootstrap.min.css" rel="stylesheet">--%>
+<%--	<link href="css/font-awesome.min.css" rel="stylesheet">--%>
+<%--	<link type="text/css" rel="stylesheet" href="css/style.css" />	--%>
+<%--  <link rel="icon" href="images/logoFavicon.png" type="image/icon type">--%>
 </head>
 <body>
     <!-- header !-->

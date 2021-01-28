@@ -5,7 +5,9 @@
 		return;
 	}
 %>
-
+<%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,9 +33,11 @@
 		<div class="row search">
 			<div class="col-sm-9"></div>
 			<div class="col-sm-3 searchBox">
-				<div class="contain"> 
-					<input type="text" name="" placeholder="Tìm kiếm">
+				<div class="contain">
+                    <form action="loadUser" method="get">
+					<input type="text" name="keyword" placeholder="Tìm kiếm">
 					<button class="btn"><i class="fa fa-search" aria-hidden="true" ></i></button>
+                    </form>
 				</div>
 			</div>
 		</div>
@@ -63,320 +67,34 @@
 				</div>
 			</div>
 			<div class="table">
+    <c:if test="${userList!= null}">
+        <c:forEach items="${userList}" var="user">
 			<div class="information">
 				<div class="col-sm-8">
 					<div class="col-sm-3">
-						<p>U001215</p>
+						<p>${user.getUsername()}</p>
 					</div>
 					<div class="col-sm-4">
-						<p>Nguyễn Văn Phú</p>
+						<p>${user.getAccountName()}</p>
 					</div>
 					<div class="col-sm-5">
-						<p>nguyenvanphu@gmail.com</p>
+						<p>${user.getEmail()}</p>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="col-sm-7">
-						<p>0123456789</p>
+						<p>0909999499</p>
 					</div>
 					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
+						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></i></a></p>
 					</div>
 					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="user_profile.html"><i>Xem</i></a></p>
+						<p ><a href="loadUserProfile?userName=${user.getUsername()}"><i>Xem</i></a></p>
 					</div>
 				</div>
 			</div>
-			<!--copy!-->
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U541215</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Trần Thanh An</p>
-					</div>
-					<div class="col-sm-5">
-						<p>TranThanhAn@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U845145</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Nguyễn Ngọc Huyền Trang</p>
-					</div>
-					<div class="col-sm-5">
-						<p>nnht@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U541215</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Trần Thanh An</p>
-					</div>
-					<div class="col-sm-5">
-						<p>TranThanhAn@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U845145</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Nguyễn Ngọc Huyền Trang</p>
-					</div>
-					<div class="col-sm-5">
-						<p>nnht@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U541215</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Trần Thanh An</p>
-					</div>
-					<div class="col-sm-5">
-						<p>TranThanhAn@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U845145</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Nguyễn Ngọc Huyền Trang</p>
-					</div>
-					<div class="col-sm-5">
-						<p>nnht@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U541215</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Trần Thanh An</p>
-					</div>
-					<div class="col-sm-5">
-						<p>TranThanhAn@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U845145</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Nguyễn Ngọc Huyền Trang</p>
-					</div>
-					<div class="col-sm-5">
-						<p>nnht@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U541215</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Trần Thanh An</p>
-					</div>
-					<div class="col-sm-5">
-						<p>TranThanhAn@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U845145</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Nguyễn Ngọc Huyền Trang</p>
-					</div>
-					<div class="col-sm-5">
-						<p>nnht@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U541215</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Trần Thanh An</p>
-					</div>
-					<div class="col-sm-5">
-						<p>TranThanhAn@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<div class="information">
-				<div class="col-sm-8">
-					<div class="col-sm-3">
-						<p>U845145</p>
-					</div>
-					<div class="col-sm-4">
-						<p>Nguyễn Ngọc Huyền Trang</p>
-					</div>
-					<div class="col-sm-5">
-						<p>nnht@gmail.com</p>
-					</div>
-				</div>
-				<div class="col-sm-4">
-					<div class="col-sm-7">
-						<p>0123456789</p>
-					</div>
-					<div class="col-sm-2" style="padding-left: 29px">
-						<p style="padding-left: 5px;padding-right: 5px;"><a href="#" style="color: red;"><i class="fa fa-times" aria-hidden="true"></a></i></p>
-					</div>
-					<div class="col-sm-3" style="padding-left: 39px;">
-						<p ><a href="#"><i>Xem</i></a></p>
-					</div>
-				</div>
-			</div>
-			<!--copy!-->
+        </c:forEach>
+    </c:if>
 			</div>
 		</div>
 	</div>

@@ -8,6 +8,7 @@ import user.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -96,5 +97,67 @@ public class UsersData {
         }catch(ClassNotFoundException|SQLException e){
             e.printStackTrace();
         }
+    }
+    public static List<User> getAllUser(){
+        List<User> result = new ArrayList<>();
+        try {
+            Statement statement = null;
+            statement = ConnectionDB.connect();
+            ResultSet rs = statement.executeQuery("SELECT * FROM user");
+            while(rs.next()){
+                User user = new User();
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setGender(rs.getString("gender"));
+                user.setBirthday(Date.convertSqlStringToDate(rs.getDate("birthday").toString())); //return sql type///"/.;'./'
+                user.setDescription(rs.getString("description"));
+                user.setAccountName(rs.getString("accountName"));
+                user.setAdmin(rs.getBoolean("admin"));
+                result.add(user);
+            }
+
+            rs.close();
+            statement.close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static List<User> getUsersWithKeyword(String key){
+        if(key==null || key.equals(""))
+            return UsersData.getAllUser();
+
+        List<User> result = new ArrayList<>();
+        try {
+            Statement statement = null;
+            statement = ConnectionDB.connect();
+            ResultSet rs = statement.executeQuery("SELECT * FROM user WHERE username like '%" + key +"%'" + "or accountName like'%" + key + "%'" );
+            while(rs.next()){
+                User user = new User();
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setEmail(rs.getString("email"));
+                user.setGender(rs.getString("gender"));
+                user.setBirthday(Date.convertSqlStringToDate(rs.getDate("birthday").toString())); //return sql type///"/.;'./'
+                user.setDescription(rs.getString("description"));
+                user.setAccountName(rs.getString("accountName"));
+                user.setAdmin(rs.getBoolean("admin"));
+                result.add(user);
+            }
+
+            rs.close();
+            statement.close();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 }

@@ -1,7 +1,8 @@
 <%@ page import="user.User" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %><!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -74,8 +75,18 @@
 			</div>
 			<div class="container"> 
 				<h1 class="text-center" style="color: #2B46DC;">Thông tin cá nhân</h1>
-				<% User user = ((User)session.getAttribute("user")); %>
-				<div class="container"> 
+				<% User user = null; %>
+				<c:choose>
+					<c:when  test="${userRS == null}">
+						<%  user = ((User)session.getAttribute("user")); %>
+					</c:when>
+					<c:otherwise>
+						<%  user = ((User)request.getAttribute("userRS")); %>
+					</c:otherwise>
+				</c:choose>
+				<div class="container">
+			<c:if test="${userRS!=null}">
+<%--	User information				--%>
 					<div class="row profile">
                         <form action="userEdit" method="post">
 						<div class="col-sm-3">          
@@ -145,8 +156,11 @@
 								</div>
                                 </form>
 							</div>
-						</div> 
+<%--	end User information		--%>
+			</c:if>
+						</div>
 					</div>
+
 					<div style="height: 150px;">
 
 					</div>

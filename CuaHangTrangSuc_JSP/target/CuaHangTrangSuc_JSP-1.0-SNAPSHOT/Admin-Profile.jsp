@@ -1,12 +1,29 @@
-<%@ page import="user.User" %><%
-  User user = (User) session.getAttribute("user");
-  if(user==null||!user.isAdmin()){
-    response.sendRedirect("404.html");
-    return;
-  }
-%>
-
+<%@ page import="user.User" %>
 <%@ page language ="java" contentType ="text/html; charset = UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<% User user = null; %>
+<c:choose>
+    <c:when test="${userRS==null}">
+        <%
+             user = ((User) session.getAttribute("user"));
+            if(user==null||!user.isAdmin()){
+                response.sendRedirect("404.html");
+                return;
+            }
+        %>
+    </c:when>
+    <c:otherwise>
+        <h>User </h>
+        <%
+             user = (User) request.getAttribute("userRS");
+            if(user==null||!user.isAdmin()){
+                response.sendRedirect("404.html");
+                return;
+            }
+        %>
+    </c:otherwise>
+</c:choose>
 <!DOCTYPE html>
 <html lang="en">
 <head>
